@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html>
@@ -107,6 +106,24 @@
 
 					<div class="row">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<!----------------------------------------------- CURSO  1 ----------------------------------------------------------->
 
 					    <div class="col-md-12">
@@ -125,6 +142,39 @@
 
 						        	<div class="row">
 
+
+
+
+<?php 
+
+
+require_once("DAO/config.php");
+require_once("DAO/class/sql.php");
+
+$sql = new Sql();
+
+$minicursos = $sql->select("SELECT * FROM Minicurso");
+
+foreach ($minicursos as $row) {
+
+	$valor = array();
+	$cont = 0;
+
+	foreach ($row as $key => $value) {
+		
+		$valor[$cont] = $value;
+		$cont++;
+
+	}
+}
+
+
+
+?>
+
+
+
+
 <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
 										<div class="col-md-4 card-full">
 
@@ -137,16 +187,34 @@
 													<div class="card text-white bg-info">
 
 													  <div class="card-body">
-													    <h5 class="card-title">Android para iniciantes</h5>
-													    <p class="card-text">Lorem ipsum sociosqu aliquet libero praesent interdum diam, mauris platea odio faucibus convallis.</p>
+													    <h5 class="card-title">
+													   	
+													   	<?php
+													   		echo $valor[1];
+													   	?>
+
+
+														</h5>
+													    <p class="card-text">
+													    	
+													    <?php
+													   		echo $valor[2];
+													   	?>
+
+													    </p>
 													  	<span class="dia">
-													  		Local: Sala 3
+													  	
+													  	<?php
+													   		echo $valor[3];
+													   	?>
+
 													  	</span>	 <br>
 													  	<span class="dia">
-													  		16 out de 2018
-													  	</span>
-													  	<span class="dia">
-													  		Horário: 08:00 AM
+													  	
+													  	<?php
+													   		echo $valor[4];
+													   	?>
+
 													  	</span>
 													  </div>
 
@@ -163,18 +231,44 @@
 											    	<div class="modal-content">
 
 												        <div class="modal-header">
-													        <h5 class="modal-title" id="exampleModalCenterTitle">Um pouco sobre Android</h5>
+													        <h5 class="modal-title" id="exampleModalCenterTitle">
+													        	
+													        <?php
+													   		echo $valor[1];
+													   		?>
+
+													        </h5>
 													        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 													        <span aria-hidden="true">&times;</span>
 													        </button>
 												     	</div>
 
 												    	<div class="modal-body">
-												        Lorem ipsum sociosqu aliquet libero praesent interdum diam, mauris platea odio faucibus convallis. tempor donec himenaeos auctor at vehicula class dolor pretium non eleifend varius egestas nisi commodo sem magna, justo fames pharetra ullamcorper fermentum dui a nisi est fermentum at lectus convallis porta. molestie orci fusce justo vitae nostra volutpat leo mattis, sodales nullam maecenas sollicitudin fermentum non primis orci morbi, suscipit ligula curabitur faucibus vel dolor semper. praesent justo himenaeos sapien ipsum phasellus, at cras aliquet volutpat, faucibus ante fusce elit. eros hac malesuada neque condimentum taciti metus turpis fames arcu fusce, vehicula mollis lectus convallis semper dolor egestas metus at.<br><br>
-												        <span class="sobre">Ministrante: George Junior<br>
-									  		    		Carga Horaria: 8 Horas<br>
-											    		Número de vagas: 40<br>
-											    		Dia 16/10 às 08:00h<br>
+												        <?php
+													   		echo $valor[2];
+													   	?>
+												        .<br><br>
+												        <span class="sobre">
+												        Ministrante: 
+												        <?php
+													   		echo $valor[5];
+													   	?>	
+												        <br>
+												        Carga horária: 
+									  		    		<?php
+													   		echo $valor[6];
+													   	?>	
+									  		    		<br>
+									  		    		Número de vagas:
+											    		<?php
+													   		echo $valor[7];
+													   	?>	<br>
+													   	Local: 
+											    		<?php
+													   		echo $valor[3];
+													   	?>	
+
+											    		<br>
 											    		</span>
 											    		</div>
 
@@ -190,6 +284,7 @@
 
 						        		</div>
 <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
 
 
 	<!----------------------------------************************************************************------------------------------------>

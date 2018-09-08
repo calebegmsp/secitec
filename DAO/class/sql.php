@@ -1,29 +1,30 @@
 <?php
 
+
 class Sql extends PDO {
 
 	private $conn;
 
 	public function __construct(){
 
-		$this->conn = new PDO("mysql:dbname=bdphp7;host=localhost", "root", "");
+		$this->conn = new PDO("mysql:dbname=secitec;charset=utf8;host=localhost", "root", "");
 
 
 	}
 
-	private function setParams ($statment, $parameters = array()){
+	private function setParams ($statement, $parameters = array()){
 
 		foreach ($parameters as $key => $value) {
 
-			$this->setParam($key, $value);
+			$this->setParam($statement, $key, $value);
 
 		}
 
 	}
 
-	private function setParam($statment, $key, $value){
+	private function setParam($statement, $key, $value){
 
-		$statment->bindParam($key, $value);
+		$statement->bindParam($key, $value);
 
 	}
 
@@ -48,7 +49,5 @@ class Sql extends PDO {
 	}
 
 }
-
-
 
 ?>
