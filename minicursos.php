@@ -107,36 +107,54 @@
 					<div class="row">
 
 
+<!--  Aqui começa a gerar os cursos  -->
+<?php 
+
+	require_once("DAO/config.php");
+	require_once("DAO/class/sql.php");
+
+	$sql = new Sql();
+
+	$cursos = $sql->select("SELECT * FROM Curso");
 
 
+/* Esse for roda por todos os cursos */
+	foreach ($cursos as $row) {
+
+	$nomeCurso = array();
+	$contC = 0;
+
+/* Esse for pega as informações do curso e insere em nomeCurso */
+	$cont1 = 0;
+	foreach ($row as $key => $value) {
+		
+		$nomeCurso[$cont1] = $value;
+		$cont1++;
+
+	}
+
+?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!----------------------------------------------- CURSO  1 ----------------------------------------------------------->
+<!----------------------------------------------- CURSO  1 ----------------------------------------------------------->
 
 					    <div class="col-md-12">
 
-						     <a class="btn-duv" href="#" onclick="toggle('maisinfo');" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						     <a class="btn-duv" href="#" onclick="toggle('maisinfo');" data-toggle="collapse" data-target="#<?= $nomeCurso[0]?>" aria-expanded="true" aria-controls="collapseOne">
 									    <div class="row D1">
 									    	<div class="col-md-12 text">
-									    		 <span class="duv-text">Análise e Desenvolvimento de Sistemas</span>
+									    		 <span class="duv-text">
+
+									    		 	<?php
+									    		 	echo $nomeCurso[1];
+									    		 	?>
+
+									    		 </span>
 							                </div>
 							            </div>
 						    </a>
 
-						    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+						    <div id="<?= $nomeCurso[0]?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 
 						     	<div class="card-body resposta">
 
@@ -144,22 +162,35 @@
 
 
 
+<?php
 
-<?php 
 
 
-require_once("DAO/config.php");
-require_once("DAO/class/sql.php");
 
-$sql = new Sql();
 
-$minicursos = $sql->select("SELECT * FROM Minicurso");
+
+
+
+
+
+
+
+/*************************************************************
+
+ AQUI NASCEM OS MINICURSOS
+
+*************************************************************/
+
+$minicursos = $sql->select("SELECT * FROM Minicurso, Curso WHERE FK_Curso_id_curso = $nomeCurso[0]");
+
 
 foreach ($minicursos as $row) {
 
 	$valor = array();
-	$cont = 0;
 
+
+/* Esse for pegas as informações dos minicursos e joga em valor */
+	$cont = 0;
 	foreach ($row as $key => $value) {
 		
 		$valor[$cont] = $value;
@@ -171,7 +202,7 @@ foreach ($minicursos as $row) {
 
 										<div class="col-md-4 card-full">
 
-											  <a data-toggle="modal" data-target="#ads1">
+											  <a data-toggle="modal" data-target="#<?= $nomeCurso[0]; ?>a<?=$contC; ?>">
 
 												<div class="card card-azul-escuro">
 
@@ -219,7 +250,7 @@ foreach ($minicursos as $row) {
 
 											<!-- Modal -->
 
-											<div class="modal fade" id="ads1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+											<div class="modal fade" id="<?= $nomeCurso[0]; ?>a<?=$contC; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 											    <div class="modal-dialog modal-dialog-centered" role="document">
 											    	<div class="modal-content">
 
@@ -279,24 +310,34 @@ foreach ($minicursos as $row) {
 
 <?php
 
+
+//Esse cont é para os id de minicursos
+$contC++;
+
+//Fechamento do for de cada minicurso
 }
 
+/************************************************************
 
+ AQUI JÁS OS MINICURSOS
+
+*************************************************************/
+
+?>
+	        		</div>
+				</div>
+	       	</div>
+	    </div>
+
+<?php
+
+//Fechamento do for de cada curso
+}
 
 ?>
 
 
 
-
-
-
-
-	<!----------------------------------************************************************************------------------------------------>
-
-	        		</div>
-				</div>
-	       	</div>
-	    </div>    
 	</div>
 
 
