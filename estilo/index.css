@@ -1,0 +1,558 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+
+body, html, .inicial {
+	height: 100%;
+	background-color: #9c75d6;
+}
+
+#tec {
+	color: yellow;
+}
+
+#realizacao {
+	padding: 1em;
+	background-color: white;
+	text-align: center;
+}
+
+#patrocinio {
+	padding: 2em;
+	background-color: white;
+	text-align: center;
+}
+
+#rodape {
+	background-color: #6954c9;
+	padding: 1.5em; 
+}
+
+
+
+
+
+
+figure.foto-legenda{
+	position: relative;
+	border: 8px solid white;
+	box-shadow: 1px 1px 4px black;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+
+}
+
+figure.foto-legenda img{
+	width: 100%;
+	height: 100%;
+}
+
+figure.foto-legenda figcaption {
+	opacity: 0;
+	position: absolute;
+	top:0px;
+	background-color: rgba(0, 0, 0, .4);
+	color: white;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	transition: opacity 0.5s;
+}
+
+figure.foto-legenda:hover figcaption {
+	opacity: 1;
+}
+
+
+
+
+.no-select {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.fixed-top {
+	height: 5em;
+	opacity: 1;
+	transition: 0.7s;
+	background-color: #6954c9;
+	padding: 0em 1em;
+}
+
+.inicial {
+	min-width: 100%;
+	background-color: #751cce;
+	background-image: url("../img/background-t2.png");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: 100%;
+	background-attachment: fixed;
+	overflow: hidden;
+}
+
+.infor {
+	width: auto;
+	padding-top: 10%;
+	text-align: center;
+	color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+
+
+}
+
+.topo {
+	padding-right: 1em;
+	padding-left: 1em;
+	padding-top: 0.5em;
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+.men {
+	font-style: normal;
+	color: white;
+}
+
+.men:hover {
+	text-decoration: none;
+	color: white;
+}
+
+.menu-fixo {
+	position: fixed;
+}
+
+.menu {
+	padding: 0.5em;
+	user-select: none; 
+	font-weight: 10;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-link {
+	font-style: normal;
+	color: white;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 400;
+	font-size: 1.1em;
+
+
+
+}
+
+.nav-link:hover {
+	color: rgb(9, 227, 205);
+
+}
+
+
+.botao {
+	padding-top: 0.5em;
+	background-color: transparent;
+	border-style: none;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 400;
+	font-size: 1.1em;
+
+
+}
+
+.botao:hover {
+	color: rgb(9, 227, 205);
+    background-color: transparent;
+}
+
+.botao:hover .dropdown-item {
+	display: block;
+}
+
+.dropdown-menu {
+	background-color: #751cce;
+}
+
+.dropdown-item {
+	color: white;
+	font-size: 1.04em;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 400;
+	font-size: 1.1em;
+
+
+}
+
+.dropdown-item:hover {
+	color: rgb(9, 227, 205);
+	background-color: transparent;
+
+}
+
+.h1 {
+	font-size: 3.5em;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+
+}
+.h2 {
+	font-size: 3em;
+    font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+}
+
+.h3 {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+}
+
+.btn-inscreva {
+	margin-top: 3em;
+	width: 15em;
+	color: #7f42c9;
+	font-size: 2em;
+	border-radius: 20px;
+	background-color: yellow;
+    font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+}
+
+.btn-inscreva:hover {
+	background-color: yellow;
+	color: black;
+}
+
+.center-text {
+	width: 15em;
+	align-items: center;
+	text-align: center;
+}
+
+.ofertas {
+	background-color: rgb(183,183,255);
+	text-align: center;
+	padding-top: 2em;
+	padding-bottom: 1.5em;
+
+}
+
+.text-ofertas {
+	margin: 1em;
+	font-size: 2em;
+	color: #7b0dc1;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+
+}
+
+.text-foto {
+	font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+}
+
+.itemO {
+	padding: 2em;
+    font-family: 'Helvetica', sans-serif;
+    color: #2c2e30;
+
+}
+
+
+.autcoment {
+	color: black;
+}
+
+.atividade {
+	transition: 0.5s;
+}
+
+.atividade:hover {
+	transition: 0.5s;
+	margin-top: -0.5em;
+	opacity: 0.8;
+}
+
+.titu-f {
+	width: 100%;
+	text-align: center;
+}
+
+.text-titu-f {
+	font-size: 2em;
+	color: rgba(123, 57, 214, 0.9);
+}
+
+.fotos {
+	background-color: white;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	width: 100%;
+	height: auto;
+}
+
+.sec-fotos {
+	margin: 0;
+	padding: 0;
+	margin-top: 3em;
+	margin-bottom: 3em;
+	text-align: center;
+}
+
+.carouselExampleIndicators {
+	background: transparent;
+	background-color: transparent;
+}
+
+
+.d-block {
+	border-radius: 20px;
+}
+
+.next {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+ 	background: transparent no-repeat center center;
+ 	background-size: 100% 100%;
+	background-image: url(../img/next.png);
+}
+
+.prev {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+ 	background: transparent no-repeat center center;
+ 	background-size: 100% 100%;
+	background-image: url(../img/prev.png);
+}
+
+.aspas {
+	margin-bottom: 1em;
+	opacity: 0.7;
+}
+
+.comentarios {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+
+
+.text-patrocinio {
+	font-size: 2em;
+	color: rgba(0,0,0,.7);
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+
+}
+
+.imgs-patro {
+	padding-top: .5em;
+	margin: .5em;
+}
+
+.img-patroci {
+	border-radius: 5px;
+}
+
+.text-direitos {
+	padding: 0;
+	margin: 0;
+	color: white;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+}
+
+.desenvolvido {
+	text-align: right;
+}
+
+.divBorda {
+	background-color: white;
+
+}
+
+.bordaRodape {
+	background-color: rgba(0,0,0,.7);
+	width: 100%;
+	height: 1px;
+	border-radius: 5px;
+}
+
+.titulo {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 4em;
+}
+
+
+.LR {
+	color: rgb(255,255,255);
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+    font-size: 1.2em;
+}
+
+.linksR {
+	font-size: 0.8em;
+	color: rgb(0,63,94);
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+}
+
+.social {
+
+}
+
+.linksR:hover {
+	text-decoration: none;
+	color: rgb(9, 227, 205);
+}
+.R {
+	align-items: center;
+}
+
+.logo-rodape {
+	padding: 6em 5em 5em 1em;
+}
+
+.rodape-link {
+	color: white;
+}
+
+.rodape-link:hover {
+	color: rgb(9, 227, 205);
+}
+
+.rodaTitu {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3em;
+}
+
+
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-secondary.dropdown-toggle {
+  	color: white;
+    background-color: #751cce;
+}
+
+
+
+
+
+
+
+/* Media Queries */
+
+@media screen and (max-width: 800px){
+		.infor {
+			margin-top: 10em;
+		}
+
+		.h2 {
+			font-size: 2em;
+		}
+
+		.justify-content-end {
+ 		  	-ms-flex-pack: start !important;
+  			justify-content: flex-start !important;
+		}
+
+		.col-md-9 {
+			padding: 0;
+		}
+		.atividade:hover {
+			margin-top: 0em;
+		}
+		.desenvolvido {
+			text-align: left;
+		}
+
+	}
+
+@media screen and (max-width: 991px){
+	.navbar-nav {
+		background-color: rgba(117, 28, 206, .9);
+		border: 1px inset black;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 599px){
+		.infor {
+			margin-top: 5em;
+		}
+
+		.h1 {
+			font-size: 16pt;
+		}
+
+		.h2 {
+			font-size: 14pt;
+		}
+
+		.h3 {
+			font-size: 12pt;
+		}
+
+		.btn-inscreva {
+			font-size: 12pt;
+		}
+	}
+
+@media screen and (max-width: 640px){
+		.infor {
+			margin-top: 4em;
+		}
+		h1 {
+			font-size: 2em;
+		}
+		.h1 {
+			font-size: 2em;
+		}
+		.h2 {
+			font-size: 1.5em;
+		}
+		.h3 {
+			font-size: 1.5em;
+		}
+		.topo {
+			padding-right: 0.3em;
+			padding-left: 0.3em;
+		}
+	}
+
+@media screen and (max-height: 360px){
+		.infor {
+			margin-top: 0em;
+		}
+		h1 {
+			font-size: 2em;
+		}
+		.h1 {
+			font-size: 1.5em;
+		}
+		.h2 {
+			font-size: 1em;
+		}
+		.h3 {
+			font-size: 1em;
+		}
+		.topo {
+			padding-right: 0.3em;
+			padding-left: 0.3em;
+		}
+		.btn-inscreva {
+			margin-top: 1em;
+			width: 10em;
+			color: #7f42c9;
+			font-size: 1.5em;
+			border-radius: 20px;
+			background-color: yellow;
+		}
+	}

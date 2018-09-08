@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+		<title>SECITEC - Inicial</title>
+
+
+			 <!-- Bootstrap -->
+	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	 	<link rel="shortcut icon" href="img/faicon.png">
+
+		<link rel="stylesheet" type="text/css" href="estilo/index.css">
+		<meta charset="utf-8">
+
+
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+	<script type="text/javascript">
+		$(window).scroll(function() {
+		if ($(this).scrollTop() > 750){  
+		    $('header').addClass("fixed-top");
+		  }
+		  else{
+		    $('header').removeClass("fixed-top");
+		  }
+		});
+	</script>
+
+</head>
+
+<body>
+
+  
+
+	<div class="container inicial">
+
+<!-- MENU -->
+	<header>
+		<nav class="navbar navbar-expand-lg topo">
+
+		  <a class="men topo no-select" href="index.html"><h1>II SECI<span id="tec">TEC</span></h1></a>
+
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+
+		  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+		    <ul class="navbar-nav">
+				<li class="nav-item menu">
+					<a class="nav-link" href="#">Home</a>
+				</li>
+
+				<li class="nav-item menu">
+					<a class="nav-link" href="sobre.html">Sobre</a>
+				</li>	
+
+				<li class="nav-item menu">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="minicursos.html">Minicursos</a>
+							<a class="dropdown-item" href="palestras.html">Palestras</a>
+							<a class="dropdown-item" href="projetos.html">Projetos</a>
+						</div>
+					</div>	
+				</li>
+
+				<li class="nav-item menu">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programação</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="programacao-minucursos.html">Minicursos</a>
+							<a class="dropdown-item" href="programacao-palestras.html">Palestras</a>
+							<a class="dropdown-item" href="programacao-projetos.html">Projetos</a>
+						</div>
+					</div>	
+				</li>
+
+				<li class="nav-ite menu">
+					<a class="nav-link" href="duvidas.html">Dúvidas</a>
+				</li>
+
+		    </ul>
+
+		  </div>
+		</nav>
+	</header>
+<!-- FIM MENU -->
+
+
+
+		<!-- INFORMAÇÕES -->
+
+		<div class="infor">
+			<span class="h1">SEMANA DE CIÊNCIA E TECNOLOGIA</span>
+			<br><br>
+			<span class="h2">15 a 17  de outubro</span>
+			<br>
+			<span class="h3">Local indefinido</span>
+			<br>
+			<a class="btn btn-secondary btn-lg btn-inscreva" href="#">INSCREVA-SE</a>
+
+		</div>
+
+		<!-- FIM INFORMAÇÕES -->
+	</div>
+
+
+
+
+
+
+ <section class="ofertas">
+ 	
+	<div class="container">
+		<div class="row">
+
+			<!-- Minicursos -->
+			
+					<a class="col-md-4 itemO atividade" href="minicursos.html">
+						<img src="img/img_minicursos.png" class="img-fluid img no-select" width="120px" alt="Minicursos"/>
+						<h4 class="text-ofertas">MINICURSOS</h4>
+					</a>
+	
+
+
+			<!-- FIM Minicursos -->	
+
+			
+			<!-- PALESTRAS -->
+					<a class="col-md-4 itemO atividade"  href="palestras.html">
+						<img src="img/img_palestras.png" class="img-fluid img no-select" width="120px" alt="´Palestras"/>
+						<h4 class="text-ofertas">PALESTRAS</h4>
+					</a>
+
+			<!-- FIM PALESTRAS -->
+
+
+			<!-- Minicursos -->
+					<a class="col-md-4 itemO atividade" href="projetos.html">
+						<img src="img/img_projetos.png" class="img-fluid img no-select" width="120px" alt="Projetos"/>
+						<h4 class="text-ofertas">PROJETOS</h4>
+					</a>
+
+
+			<!-- FIM Proketoss -->	
+		
+		</div>
+	</div>
+
+ 	
+ </section>
+
+
+
+
+ <!-- FOTOS -->
+ <div class="fotos">
+ 	<div class="titu-f">
+ 		 <span class="h1 text-titu-f">EDIÇÃO ANTERIOR</span>
+ 	</div>
+ 	
+ 	 <section class="sec-fotos">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		  <ol class="carousel-indicators">
+		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		  </ol>
+		  <div class="carousel-inner">
+
+		    <div class="carousel-item active">
+		    	<div class="w-90 row justify-content-md-center">
+		    		<div class="col-md-3">
+		    			<figure class="foto-legenda img-fluid no-select">
+							<img  src="img/fotos/foto-1.jpg"> 
+							<figcaption>
+								<h3 class="text-foto">
+									Abertura
+								</h3 >
+								<p class="text-foto">I SECITEC</p>
+
+							</figcaption>
+						</figure>
+		    		</div>
+
+		    	<div class="col-md-3">
+		    			<figure class="foto-legenda img-fluid no-select">
+							<img  src="img/fotos/foto-2.jpg"> 
+							<figcaption>
+								<h3 class="text-foto">
+									Sala de minicurso
+								</h3 >
+								<p class="text-foto">I SECITEC</p>
+
+							</figcaption>
+						</figure>
+		    		</div>
+
+		    		<div class="col-md-3">
+		    			<figure class="foto-legenda img-fluid no-select">
+							<img  src="img/fotos/foto-3.jpg"> 
+							<figcaption>
+								<h3 class="text-foto">
+									Campus UNIFG
+								</h3 >
+								<p class="text-foto">2017</p>
+
+							</figcaption>
+						</figure>
+		    		</div>
+
+		    	</div>      
+		    </div>
+
+		    <div class="carousel-item">
+		    	<div class="w-90 row justify-content-md-center">
+		    		<div class="col-md-3">
+		    			<figure class="foto-legenda img-fluid no-select">
+							<img  src="img/fotos/foto-4.jpg"> 
+							<figcaption>
+								<h3 class="text-foto">
+									Sala de minicurso
+								</h3 >
+								<p class="text-foto">Campus UNIFG 2017</p>
+
+							</figcaption>
+						</figure>
+		    		</div>
+
+		    	<div class="col-md-3">
+		    			<figure class="foto-legenda img-fluid no-select">
+							<img  src="img/fotos/foto-5.jpg"> 
+							<figcaption>
+								<h3 class="text-foto">
+									Sala dos ministrantes
+								</h3>
+								<p class="text-foto">Campus UniFG</p>
+
+							</figcaption>
+						</figure>
+		    		</div>
+
+		    		<div class="col-md-3">
+		    			<figure class="foto-legenda img-fluid no-select">
+							<img  src="img/fotos/foto-6.jpg"> 
+							<figcaption>
+								<h3 class="text-foto">
+									Corredores Campus UniFG
+								</h3>
+								<p class="text-foto">2017</p>
+
+							</figcaption>
+						</figure>
+		    		</div>
+
+		    	</div> 
+		    </div>
+
+
+		    
+		    <div class="carousel-item">
+		    	<div class="w-90 row justify-content-md-center">
+		    		<div class="col-md-3">
+		    			<figure class="foto-legenda img-fluid no-select">
+							<img  src="img/fotos/foto-7.jpg"> 
+							<figcaption>
+								<h3 class="text-foto">
+									Campus UniFG
+								</h3>
+								<p class="text-foto">2017</p>
+
+							</figcaption>
+						</figure>
+		    		</div>
+
+		    	<div class="col-md-3">
+		    			<figure class="foto-legenda img-fluid no-select">
+							<img  src="img/fotos/foto-8.jpg"> 
+							<figcaption>
+								<h3 class="text-foto">
+									Point Universitario
+								</h3>
+								<p class="text-foto">UniFG 2017</p>
+
+							</figcaption>
+						</figure>
+		    		</div>
+
+		    		<div class="col-md-3">
+		    			<figure class="foto-legenda img-fluid no-select">
+							<img  src="img/fotos/foto-9.jpg"> 
+							<figcaption>
+								<h3 class="text-foto">
+									Sala de Aula
+								</h3>
+								<p class="text-foto">Campus UniFG 2017</p>
+
+							</figcaption>
+						</figure>
+		    		</div>
+
+		    	</div> 
+		    </div>
+		  </div>
+		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		    <span class="prev" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+		    <span class="next" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div> 	
+	 </section>	
+ </div>
+	
+ 
+
+
+<!-- FIM FOTOS -->
+	
+
+
+
+
+
+
+ <section class="comentarios">
+ 	
+	<div class="container">
+		<div class="row">
+
+				<div class="col-md-4 itemO">
+					<img class="img-fluid aspas no-select" src="img/chat-bubble.png" width="100px">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pulvinar posuere nisi id pellentesque. Mauris et neque quis est imperdiet hendrerit. Aliquam rutrum felis nisi, nec efficitur purus maximus a. Aenean gravida libero ut ex auctor, et congue elit volutpat. Praesent mollis fringilla luctus. Quisque nec urna porttitor, malesuada ligula in, placerat felis.</p>
+					<h4 class="autcoment nome">Calebe Pereira</h4>
+				</div>
+
+				<div class="col-md-4 itemO">
+					<img class="img-fluid aspas no-select" src="img/chat-bubble.png" width="100px">
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pulvinar posuere nisi id pellentesque. Mauris et neque quis est imperdiet hendrerit. Aliquam rutrum felis nisi, nec efficitur purus maximus a. Aenean gravida libero ut ex auctor, et congue elit volutpat. Praesent mollis fringilla luctus. Quisque nec urna porttitor, malesuada ligula in, placerat felis.</p>
+					<h4 class="autcoment nome">Layne Castro</h4>
+				</div>
+
+				<div class="col-md-4 itemO">
+					<img class="img-fluid aspas no-select" src="img/chat-bubble.png" width="100px">
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pulvinar posuere nisi id pellentesque. Mauris et neque quis est imperdiet hendrerit. Aliquam rutrum felis nisi, nec efficitur purus maximus a. Aenean gravida libero ut ex auctor, et congue elit volutpat. Praesent mollis fringilla luctus. Quisque nec urna porttitor, malesuada ligula in, placerat felis.</p>
+					<h4 class="autcoment nome">Fábio Gomes</h4>
+				</div>
+
+		
+		</div>
+	</div>
+
+ </section>
+
+
+
+ <section id="realizacao">
+
+ 	<div class="container">
+ 		<span class="h1 text-patrocinio">REALIZAÇÃO</span>
+ 		<div class="row imgs-patro no-select">
+ 			<div class="col-md-6">
+ 				<img class="img-fluid img-patroci" width="50%" src="img/logo-UniFG.png">
+ 			</div>
+ 			<div class="col-md-6">
+ 				<img class="img-fluid img-patroci" width="50%" src="img/logo-IfBaiano.png">
+ 			</div>
+ 		</div>
+ 	</div>
+
+ </section>
+
+
+
+<div class="divBorda">
+	<div class="container">
+		<div class="row justify-content-md-center no-select"> 
+			<img class="bordaRodape" src="img/linhaH-p.png">	
+		</div>	
+	</div>	
+</div>
+
+
+
+ <section id="patrocinio">
+
+ 	<div class="container">
+ 		<span class="h1 text-patrocinio">PATROCÍNIO</span>
+ 		<div class="row imgs-patro no-select">
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-1.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-2.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-3.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-4.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-5.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-6.png">
+ 			</div>
+ 		</div>
+ 		<div class="row imgs-patro no-select">
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-7.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-8.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-9.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-10.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-11.png">
+ 			</div>
+ 			<div class="col-md-2">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-12.png">
+ 			</div>
+ 		</div>
+ 	</div>
+
+ </section>
+
+
+
+
+ 
+ <footer id="rodape">
+ 	<div class="container">
+ 		<div class="row">
+	 		<div class="col-md-6 direitos">
+	      	 <p class="text-direitos" >II SECITEC &copy; Icons made by Freepik from <a class="rodape-link" href="https://www.flaticon.com" target="_blank" >www.flaticon.com</a></p>
+	     	</div>
+	     	<div class="col-md-6 desenvolvido">
+	      	 <p class="text-direitos" >Desenvolvido por <b>Calebe Pereira</b> e <b>Layne Castro</b></p>
+	     	</div>
+ 		</div>
+     
+ 		
+ 	</div>
+ 	
+ </footer>
+
+
+
+
+
+
+
+
+
+
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+		<title>SECITEC - Sobre</title>
+
+
+			 <!-- Bootstrap -->
+	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	 	<link rel="shortcut icon" href="img/faicon.png">
+
+		<link rel="stylesheet" type="text/css" href="estilo/sobre.css">
+		<meta charset="utf-8">
+
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+	<script type="text/javascript">
+		$(window).scroll(function() {
+		if ($(this).scrollTop() > 750){  
+		    $('header').addClass("fixed-top");
+		  }
+		  else{
+		    $('header').removeClass("fixed-top");
+		  }
+		});
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){	
+			$('.img-h').addClass("anima-inicio");
+			$('.img-h').removeClass("img-h");
+		});		
+	</script>
+
+
+</head>
+
+<body>
+
+
+	<div class="container inicial">
+
+<!-- MENU -->
+	<header>
+		<nav class="navbar navbar-expand-lg topo">
+
+		  <a class="men topo" href="index.html"><h1>II SECI<span id="tec">TEC</span></h1></a>
+
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+
+		  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+		    <ul class="navbar-nav">
+				<li class="nav-item menu">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+
+				<li class="nav-item menu">
+					<a class="nav-link" href="#">Sobre</a>
+				</li>	
+
+				<li class="nav-item menu">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="minicursos.html">Minicursos</a>
+							<a class="dropdown-item" href="palestras.html">Palestras</a>
+							<a class="dropdown-item" href="projetos.html">Projetos</a>
+						</div>
+					</div>	
+				</li>
+
+				<li class="nav-item menu">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programação</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="programacao-minucursos.html">Minicursos</a>
+							<a class="dropdown-item" href="programacao-palestras.html">Palestras</a>
+							<a class="dropdown-item" href="programacao-projetos.html">Projetos</a>
+						</div>
+					</div>	
+				</li>
+
+				<li class="nav-ite menu">
+					<a class="nav-link" href="duvidas.html">Dúvidas</a>
+				</li>
+
+		    </ul>
+
+		  </div>
+		</nav>
+	</header>
+
+<!-- FIM MENU -->
+
+
+
+		<div class="sobre">
+				
+				<h1 class="no-select"> 
+					<img class="img-fluid img-h" src="img/linhaH.png"> 
+					<span class="text select">Sobre o evento</span>
+					<img class="img-fluid img-h" src="img/linhaH.png">
+				</h1>
+			   
+				<div class="container text-container">
+				<div class="sobre-texto">
+			   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quam massa, volutpat quis consequat at, varius eget tellus. Sed vel ligula lobortis, molestie lacus eu, luctus nisi. Nunc sed convallis nibh. Donec ac metus magna. Donec vulputate egestas pulvinar. Duis viverra, neque sit amet finibus aliquam, lorem dolor consequat diam, ut molestie tellus justo sit amet erat. Nam bibendum sed dui eget bibendum. Phasellus pulvinar ut diam et ullamcorper. Maecenas porttitor erat pretium, lacinia orci ac, ullamcorper nisl. In ac mollis augue, et dignissim ex. Donec ipsum lorem, mattis eget pharetra nec, tristique eget tellus. Mauris at euismod tellus. Mauris rutrum massa et purus venenatis, at ornare metus ultricies.
+					</p>
+			   </div>	
+				</div>
+			   
+
+
+	</div>
+
+    </div>
+
+
+ 
+
+ 
+ <footer id="rodape">
+ 	<div class="container">
+ 		<div class="row">
+	 		<div class="col-md-6 direitos">
+	      	 <p class="text-direitos" >II SECITEC &copy; Icons made by Freepik from <a class="rodape-link" href="https://www.flaticon.com" target="_blank" >www.flaticon.com</a></p>
+	     	</div>
+	     	<div class="col-md-6 desenvolvido">
+	      	 <p class="text-direitos" >Desenvolvido por <b>Calebe Pereira</b> e <b>Layne Castro</b></p>
+	     	</div>
+ 		</div>
+     
+ 		
+ 	</div>
+ 	
+ </footer>
+
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+</body>
