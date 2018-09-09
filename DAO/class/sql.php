@@ -3,6 +3,9 @@
 
 class Sql extends PDO {
 
+	//Informações de conexão
+	
+
 	private $conn;
 
 	public function __construct(){

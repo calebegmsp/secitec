@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:900');
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
-
-
 body, html, .inicial {
 	height: 100%;
 	background-color: #9c75d6;
 }
 
-#tec {
-	color: yellow;
+#rodape {
+    background-color: #6954c9;
+    padding: 0.5em; 
+    width: 100%;
+    bottom: 0;
 }
+
 
 #realizacao {
 	padding: 1em;
@@ -22,14 +22,6 @@ body, html, .inicial {
 	background-color: white;
 	text-align: center;
 }
-
-#rodape {
-	background-color: #6954c9;
-	padding: 1.5em; 
-}
-
-
-
 
 
 
@@ -362,6 +354,7 @@ figure.foto-legenda:hover figcaption {
 }
 
 .text-direitos {
+	font-size: 10pt;
 	padding: 0;
 	margin: 0;
 	color: white;
@@ -417,9 +410,6 @@ figure.foto-legenda:hover figcaption {
 	align-items: center;
 }
 
-.logo-rodape {
-	padding: 6em 5em 5em 1em;
-}
 
 .rodape-link {
 	color: white;

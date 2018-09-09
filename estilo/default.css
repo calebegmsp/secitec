@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+
+#tec {
+	color: yellow;
+}
+
+
+::-webkit-scrollbar-track {
+    background-color: #8406cc;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #dfaefc;
+    overflow-y: scroll;
+}
+::-webkit-scrollbar-thumb {
+    background: #dfaefc;
+}
+
+.no-select {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

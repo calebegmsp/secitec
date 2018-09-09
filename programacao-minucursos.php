@@ -3,7 +3,7 @@
 <html>
 
 <head>
-		<title>SECITEC - Minicursos</title>
+		<title>SECITEC - Programação</title>
 
 
 			 <!-- Bootstrap -->
@@ -13,7 +13,7 @@
 
 	 	<link rel="shortcut icon" href="img/faicon.png">
 
-		<link rel="stylesheet" type="text/css" href="estilo/minicurso.css">
+		<link rel="stylesheet" type="text/css" href="estilo/programacao.css">
 		<link rel="stylesheet" type="text/css" href="estilo/default.css">
 		<meta charset="utf-8">
 
@@ -21,89 +21,90 @@
 
 	<script type="text/javascript">
 		$(window).scroll(function() {
-		if ($(this).scrollTop() > 750){  
+		if ($(this).scrollTop() > 700){  
 		    $('header').addClass("fixed-top");
 		  }
 		  else{
 		    $('header').removeClass("fixed-top");
 		  }
 		});
-	</script>		
+	</script>
 
 </head>
 
 <body>
 
 
-<div class="container inicial">
+	<div class="container inicial">
 
-	<!-- MENU -->
-		<header>
-			<nav class="navbar navbar-expand-lg topo">
+<!-- MENU -->
+	<header>
+		<nav class="navbar navbar-expand-lg topo">
 
-			  <a class="men topo" href="index.html"><h1>II SECI<span id="tec">TEC</span></h1></a>
+		  <a class="men topo" href="index.html"><h1>II SECI<span id="tec">TEC</span></h1></a>
 
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-			  </button>
-
-
-			  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-
-			    <ul class="navbar-nav">
-					<li class="nav-item menu">
-						<a class="nav-link" href="index.html">Home</a>
-					</li>
-
-					<li class="nav-item menu">
-						<a class="nav-link" href="sobre.html">Sobre</a>
-					</li>	
-
-					<li class="nav-item menu">
-						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Minicursos</a>
-								<a class="dropdown-item" href="palestras.html">Palestras</a>
-								<a class="dropdown-item" href="mesaredonda.html">Mesa redonda</a>
-							</div>
-						</div>	
-					</li>
-
-					<li class="nav-item menu">
-						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programação</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="programacao-minucursos.html">Minicursos</a>
-								<a class="dropdown-item" href="programacao-palestras.html">Palestras</a>
-								<a class="dropdown-item" href="programacao-mesaredonda.html">Mesa redonda</a>
-							</div>
-						</div>	
-					</li>
-
-					<li class="nav-ite menu">
-						<a class="nav-link" href="duvidas.html">Dúvidas</a>
-					</li>
-
-			    </ul>
-
-			  </div>
-			</nav>
-		</header>
-
-	<!-- FIM MENU -->
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
 
 
+		  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 
-	<div class="minicursos">
-				
-		<h1 class="h1">Minicursos</h1>
-				
-	    <div class="container">
+		    <ul class="navbar-nav">
+				<li class="nav-item menu">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
 
-	        <div class="row">
+				<li class="nav-item menu">
+					<a class="nav-link" href="sobre.html">Sobre</a>
+				</li>	
 
-				<div class="accordion container" id="accordion">
+				<li class="nav-item menu">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="minicursos.html">Minicursos</a>
+							<a class="dropdown-item" href="palestras.html">Palestras</a>
+							<a class="dropdown-item" href="projetos.html">Projetos</a>
+						</div>
+					</div>	
+				</li>
+
+				<li class="nav-item menu">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programação</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">Minicursos</a>
+							<a class="dropdown-item" href="programacao-palestras.html">Palestras</a>
+							<a class="dropdown-item" href="programacao-projetos.html">Projetos</a>
+						</div>
+					</div>	
+				</li>
+
+				<li class="nav-ite menu">
+					<a class="nav-link" href="duvidas.html">Dúvidas</a>
+				</li>
+
+		    </ul>
+
+		  </div>
+		</nav>
+	</header>
+<!-- FIM MENU -->
+
+
+		<div class="programaco">
+			
+        <div class="container">
+
+        	<div class="row prog">
+
+
+
+
+
+
+
 
 					<div class="row">
 
@@ -138,13 +139,15 @@
 
 
 
+
+
 <!----------------------------------------------- CURSO  1 ----------------------------------------------------------->
 
 					    <div class="col-md-12">
 
 						     <a class="btn-duv" href="#" data-toggle="collapse" data-target="#<?= $nomeCurso[0]?>" aria-expanded="true">
-									    <div class="row D1">
-									    	<div class="col-md-12 text">
+									    <div class="row">
+									    	<div class="col-md-12 ">
 									    		 <span class="duv-text">
 									    		 	<?php
 									    		 	echo $nomeCurso[1];
@@ -162,6 +165,18 @@
 						        	<div class="row row-card">
 
 
+        		<div class="col-md-2">
+
+        			<nav class="nav flex-column navegacao">
+
+					  <a class="nav-link dia active" id="dia1-tab" data-toggle="tab" href="#dia1" role="tab" aria-controls="dia1" aria-selected="true">Dia 15</a>
+					  <a class="nav-link dia" id="dia2-tab" data-toggle="tab" href="#dia2" role="tab" aria-controls="dia2" aria-selected="true">Dia 16</a>
+					  <a class="nav-link dia" id="dia3-tab" data-toggle="tab" href="#dia3" role="tab" aria-controls="dia3" aria-selected="true">Dia 17</a>
+					  
+					</nav>
+
+        		</div>
+
 
 <?php
 
@@ -172,12 +187,7 @@
 
 *************************************************************/
 
-$minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
-							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-							FROM Minicurso as M
-							INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
-							WHERE M.FK_Curso_id_curso = $nomeCurso[0] 
-							ORDER BY dia_Mcurso");
+$minicursos = $sql->select("SELECT * FROM Minicurso INNER JOIN Curso on Minicurso.FK_Curso_id_curso = Curso.id_curso WHERE FK_Curso_id_curso = $nomeCurso[0]");
 
 
 foreach ($minicursos as $row) {
@@ -217,59 +227,106 @@ if (($contC % 2) == 0){
 
 											  <a data-toggle="modal" data-target="#<?= $nomeCurso[0]; ?>a<?=$contC; ?>">
 
-												<div class="card <?=$corCard?>">
-
-												  <img class="card-img-top" src="<?=$imgMinicurso?>" alt="Card image cap">
-
-													<div class="card text-white bg-info">
-
-													  <div class="card-body">
-													    <h5 class="card-title">
-													   	
-													   	<?php
-													   		if (strlen($valor[1]) < 60){
-													   			echo $valor[1];
-													   		} else {
-													   			echo substr($valor[1], 0, 60)."...";
-													   		}
-
-													   	?>
+												        		<div class="tab-content" id="myTabContent">
 
 
-														</h5>
+        			<!--------------------------- DIA 1 ------------------------------->
+ 					<div class="tab-pane fade show active" id="dia1" role="tabpanel" aria-labelledby="dia1-tab">
 
-														<?php
-													   		if (strlen($valor[2]) < 70){
-													   			echo $valor[2];
-													   		} else {
-													   			echo substr($valor[2], 0, 70)."...";
-													   		}
-													   	?>
+		        		<div class="col-md-10 dia-">
+		        			<span class="title">Minicursos</span>
+
+		        			<div class="row ofertas">
+		        				<div class="col-2 horario">
+		        					<span class="text-hora">8:00<br></span>
+		        					
+		        					<img class="linha" src="img/linha.png">
+		        				</div>
+
+		        				<div class="col-10">
+			        					<div class="card text-white bg-info mb-3" style="width: 100%;">
+										  <div class="card-header">Arduino para iniciantes</div>
+										  <div class="card-body">
+										    <h5 class="card-title">Local: Sala 1</h5>
+										  </div>
+										</div>
+
+		        				</div>
+		        			</div>
+
+		        			<!-- HORA -->
+
+		        		</div> 						
+
+ 					</div> 
+ 					<!------------------------- FIM DIA 1 ----------------------------->
 
 
-														<div class="card-info">
-															<span class="dia">
-														  	
-														  	<?php
-														   		echo $valor[3];
-														   	?>
 
-														  	</span>	 <br>
-														  	<span class="dia">
-														  	<?php
-														  	$date = new DateTime($valor[4]);
-															echo $date->format('d/m/Y');
-															echo " às ".$date->format('H')."h".$date->format('m')."min";
-														   	?>
+ 					<!--------------------------- DIA 2 ------------------------------->
+ 					<div class="tab-pane fade" id="dia2" role="tabpanel" aria-labelledby="dia2-tab">
 
-														  	</span>	
-														</div>
-													  	
-													  </div>
+		        		<div class="col-md-10 dia-">
+		        			<span class="title">Minicursos</span>
 
-													</div>
+		        			<div class="row ofertas">
+		        				<div class="col-2 horario">
+		        					<span class="text-hora">8:00<br></span>
+		        					
+		        					<img class="linha" src="img/linha.png">
+		        				</div>
 
-												</div>	
+		        				<div class="col-10">
+		        					<div class="card text-white bg-info mb-3" style="width: 100%;">
+									  <div class="card-header">Conhecendo Assembly</div>
+									  <div class="card-body">
+									    <h5 class="card-title">Local: Sala 3</h5>
+									  </div>
+									</div>	
+		        				</div>
+		        			</div>
+
+
+		        		</div>
+
+ 					</div> 
+ 					<!------------------------- FIM DIA 2 ----------------------------->
+
+
+
+ 					<!--------------------------- DIA 3 ------------------------------->
+ 					<div class="tab-pane fade" id="dia3" role="tabpanel" aria-labelledby="dia3-tab">
+
+		        		<div class="col-md-10 dia-">
+		        			<span class="title">Minicursos</span>
+
+		        			<div class="row ofertas">
+		        				<div class="col-2 horario">
+		        					<span class="text-hora">8:00<br></span>
+		        					
+		        					<img class="linha" src="img/linha.png">
+		        				</div>
+
+		        				<div class="col-10">
+		        					<div class="card text-white bg-info mb-3" style="width: 100%;">
+									  <div class="card-header">HTML e CSS para iniciantes</div>
+									  <div class="card-body">
+									    <h5 class="card-title">Local: Sala 3</h5>
+									  </div>
+									</div>	
+		        				</div>
+		        			</div>
+
+		        			<!-- HORA -->
+
+		        		</div>
+
+ 					</div> 
+ 					<!------------------------- FIM DIA 3 ----------------------------->
+
+
+        		</div>
+
 
 											  </a>	
 
@@ -305,7 +362,7 @@ if (($contC % 2) == 0){
 												        <br>
 												        Carga horária: 
 									  		    		<?php
-													   		echo number_format($valor[6],2,":",".")." horas";
+													   		echo $valor[6];
 													   	?>	
 									  		    		<br>
 									  		    		Número de vagas:
@@ -366,12 +423,20 @@ $contC++;
 ?>
 
 					</div>
-				</div>
-			</div>
-		</div>
+
+
+        	</div>   
+
+
+        </div>    
+
+
+
 	</div>
+
 </div>
 
+  
 
  
  <footer id="rodape">
@@ -383,12 +448,14 @@ $contC++;
 	     	<div class="col-md-6 desenvolvido">
 	      	 <p class="text-direitos" >Desenvolvido por <b>Calebe Pereira</b> e <b>Layne Castro</b></p>
 	     	</div>
- 		</div>	
+ 		</div>
+     
+ 		
  	</div>
  	
+ </footer>
 
 
-</div>
 
 
  <!-- Optional JavaScript -->
@@ -396,5 +463,5 @@ $contC++;
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+
 </body>

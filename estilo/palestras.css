@@ -10,10 +10,6 @@ body, html, .inicial {
 	color: yellow;
 }
 
-#rodape {
-	background-color: #6954c9;
-	padding: 1em; 
-}
 
 #contato{
 	padding: 1em 0em;
@@ -234,22 +230,7 @@ body, html, .inicial {
 	align-items: center;
 }
 
-.logo-rodape {
-	padding: 6em 5em 5em 1em;
-}
 
-.rodape-link {
-	color: white;
-}
-
-.rodape-link:hover {
-	color: rgb(9, 227, 205);
-}
-
-.rodaTitu {
-	font-family: 'Montserrat', sans-serif;
-	font-size: 5em;
-}
 
 
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
