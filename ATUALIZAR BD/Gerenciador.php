@@ -14,7 +14,7 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">GERENCIAR DADOS DOS MINICURSOS</h1>
+        <h1 class="jumbotron-heading">Gerenciar dados dos Minicursos</h1>
      </div>
 </section>
 
@@ -118,7 +118,7 @@
       <div class="modal-body">
             
 
-        <form action="Gerenciador.php" method="get">
+        <form action="Gerenciador.php" method="post">
 
             <!--  Escolha do Curso -->
             <label for="exampleInputEmail1">Curso</label>
@@ -127,11 +127,12 @@
                 <?php
 
                     $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
-                    foreach ($cursos as $key => $value) {
-                        if ($cursos[$key]['id_curso'] ==  $minicursos[$key]['FK_Curso_id_curso']) {
-                            echo "<option value =\"".$cursos[$key]['id_curso']. "\" selected >"  . $cursos[$key]['nome_curso']. "</option>";
+                    foreach ($cursos as $key2 => $value2) {
+                        if ($cursos[$key2]['id_curso'] ==  $minicursos[$key]['FK_Curso_id_curso']) {
+                            echo "<option value =\"".$cursos[$key2]['id_curso']. "\" selected >"  . $cursos[$key2]['nome_curso']. "</option>";
+                            $FK_Curso_id_curso = $cursos[$key2]['id_curso'];
                         } else {
-                            echo "<option value =\"".$cursos[$key]['id_curso']. "\">" . $cursos[$key]['nome_curso']. "</option>";
+                            echo "<option value =\"".$cursos[$key2]['id_curso']. "\">" . $cursos[$key2]['nome_curso']. "</option>";
                         }
                     }
                 ?>
@@ -155,7 +156,197 @@
             <!-- Local -->
             <div class="form-group">
                 <label for="formGroupExampleInput">Local</label>
-                <input type="text" class="form-control" id="local_Mcurso" name="local_Mcurso" placeholder="">
+                <input type="text" class="form-control" id="local_Mcurso" name="local_Mcurso" value="<?=$minicursos[$key]['local_Mcurso']?>" placeholder="">
+            </div>
+
+
+            <!-- Imagen -->
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Imagem</label>
+                <input type="file" class="form-control-file" id="img_Minicurso" value="<?=$minicursos[$key]['img_Minicurso']?>" name="img_Minicurso">
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <!--  Escolha do dia -->
+                    <label for="exampleInputEmail1" id="dia_Mcurso" name="dia_Mcurso" >Dia</label>
+                    <select class="form-control">
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                    </select>                    
+                </div>
+
+                 <div class="col-md-6">
+                    <label for="formGroupExampleInput">Hora</label>
+                    <input type="text" class="form-control" id="hora_Mcurso" value="" name="hora_Mcurso" placeholder="">
+                </div>               
+
+            </div>
+
+
+            <!-- Infos pequenas -->
+            <div class="row">
+
+                <div class="col-md-6">
+                    <label for="formGroupExampleInput">Carga horária</label>
+                    <input type="text" class="form-control" id="carga_Mcurso" value="<?=$minicursos[$key]['ch_Mcurso']?>" name="carga_Mcurso" placeholder="">
+                </div>
+
+
+                <div class="col-md-6">
+                    <label for="formGroupExampleInput">Vagas</label>
+                    <input type="text" class="form-control" id="vagas_Mcurso" value="<?=$minicursos[$key]['vagas_Mcurso']?>" name="vagas_Mcurso" placeholder="">
+                </div>
+
+
+
+            </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" name="atualizarMinicurso" class="btn btn-primary">Salvar alterações</button>
+          </div>
+
+    <?php
+
+     $sql = new Sql();
+
+
+
+    if(isset($_POST['atualizarMinicurso'])){  
+
+    $nome_Mcurso = $_POST['nome_Mcurso'];
+    $des_Mcurso = $_POST['des_Mcurso'];
+    $local_Mcurso = $_POST['local_Mcurso'];
+    $img_Minicurso = $_POST['img_Minicurso'];
+
+    
+    $codigo = "INSERT INTO Minicurso (nome_Mcurso, des_Mcurso, local_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$img_Minicurso', $FK_Curso_id_curso)";
+
+
+    $sql->query($codigo);
+
+    echo $codigo;
+
+
+    ?>
+
+
+    <?php
+    
+
+    }
+
+
+
+    ?>
+
+
+
+        </form>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <?php
+
+    }
+
+?>
+
+
+<!----------------------- FIM DADOS MINICURSOS ----------------------------------->
+
+<!--*************************************************************************-->
+
+
+
+
+<?php
+
+    $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
+                            M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
+                            FROM Minicurso as M
+                            INsNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+                            ORDER BY M.nome_Mcurso");
+
+
+    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+
+
+?>
+
+
+
+ <button type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#InserirDados">
+         Inserir um minicurso
+  </button> 
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" data-backdrop="static" id="InserirDados" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Alterar dados</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            
+
+        <form action="Gerenciador.php" method="post">
+
+            <!--  Escolha do Curso -->
+            <label for="exampleInputEmail1">Curso</label>
+            <select class="form-control" name="id_Mcurso" id="id_Mcurso">
+
+                <?php
+
+                    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+                    foreach ($cursos as $key2 => $value2) {
+                        if ($cursos[$key2]['id_curso'] ==  $minicursos[$key]['FK_Curso_id_curso']) {
+                            echo "<option value =\"".$cursos[$key2]['id_curso']. "\" selected >"  . $cursos[$key2]['nome_curso']. "</option>";
+                            $FK_Curso_id_curso = $cursos[$key2]['id_curso'];
+                        } else {
+                            echo "<option value =\"".$cursos[$key2]['id_curso']. "\">" . $cursos[$key2]['nome_curso']. "</option>";
+                        }
+                    }
+                ?>
+
+            </select>
+
+
+
+            <!-- Nome -->
+            <div class="form-group">
+                <label for="formGroupExampleInput">Nome</label>
+                <input type="text" class="form-control" id="nome_Mcurso" name="nome_Mcurso" placeholder="">
+            </div>
+
+            <!-- Descrição -->
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descrição</label>
+                <textarea class="form-control" id="des_Mcurso"  name="des_Mcurso" rows="2"></textarea>
+            </div>
+
+            <!-- Local -->
+            <div class="form-group">
+                <label for="formGroupExampleInput">Local</label>
+                <input type="text" class="form-control" id="local_Mcurso" name="local_Mcurso"  placeholder="">
             </div>
 
 
@@ -206,8 +397,47 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="submit" class="btn btn-primary">Salvar alterações</button>
+            <button type="submit" name="atualizarMinicurso" class="btn btn-primary">Salvar alterações</button>
           </div>
+
+    <?php
+
+     $sql = new Sql();
+
+
+
+    if(isset($_POST['atualizarMinicurso'])){  
+
+    $nome_Mcurso = $_POST['nome_Mcurso'];
+    $des_Mcurso = $_POST['des_Mcurso'];
+    $local_Mcurso = $_POST['local_Mcurso'];
+    $img_Minicurso = $_POST['img_Minicurso'];
+
+    
+    $codigo = "INSERT INTO Minicurso (nome_Mcurso, des_Mcurso, local_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$img_Minicurso', $FK_Curso_id_curso)";
+
+
+    $sql->query($codigo);
+
+    
+
+
+    ?>
+
+        <script type="text/javascript" >
+            alert("Cadastro realizado com sucesso!");
+            location.href="Gerenciador.php";
+        </script>
+
+    <?php
+    
+
+    }
+
+
+
+    ?>
+
 
 
         </form>
@@ -218,39 +448,6 @@
     </div>
   </div>
 </div>
-
-
- <?php
-
-    }
-
-?>
-
-
-<!----------------------- FIM DADOS MINICURSOS ----------------------------------->
-
-<!--*************************************************************************-->
-
-
-
-
-<?php
-
-    $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
-                            M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-                            FROM Minicurso as M
-                            INsNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
-                            ORDER BY M.nome_Mcurso");
-
-
-    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
-
-
-?>
-
-
-
-
 
 
 
