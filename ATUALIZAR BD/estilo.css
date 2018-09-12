@@ -61,6 +61,7 @@ footer a {
 
 
 .btn {
+    margin: 0.5em 0em;
     width: 100%;
 }
 
@@ -69,7 +70,8 @@ footer a {
 }
 
 .btn-editar {
-    width: 5em;
+    width: 100%;
+    font-size: 0.8em;
 }
 
 .img-icon {
@@ -99,4 +101,21 @@ footer a {
 
 .infopequenas {
     display: inline-block;
+}
+
+.btn-insert {
+    width: 100%;
+}
+
+.tr-row {
+    width: 99%;
+}
+
+.form-control {
+    font-size: 10pt;
+}
+
+.modal-footer {
+    margin: 0em;
+    padding: 0em;
 }

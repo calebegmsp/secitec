@@ -1,138 +1,139 @@
      <!-- Bootstrap -->
-        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" href="img/faicon.png">
+     <link rel="shortcut icon" href="img/faicon.png">
 
-        <link rel="stylesheet" type="text/css" href="estilo.css">
+     <link rel="stylesheet" type="text/css" href="estilo.css">
 
-        <meta charset="utf-8">
+     <meta charset="utf-8">
 
-<!------ Include the above in your HEAD tag ---------->
+     <!------ Include the above in your HEAD tag ---------->
 
 
-<section class="jumbotron text-center">
+     <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Gerenciar dados dos Minicursos</h1>
+        </div>
+    </section>
+
+    <div class="row justify-content-md-center btn-insert">
+       <button type="button" class="btn btn-primary col-md-4" data-toggle="modal" data-target="#InserirDados">
+           Inserir um minicurso
+       </button>    
+   </div>
+
+
+
+   <!-----------------------  DADOS MINICURSOS ----------------------------------->
+
+   <?php
+
+   require_once("../DAO/config.php");
+   require_once("../DAO/class/sql.php");
+
+   $sql = new Sql();
+
+   $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
+    M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
+    FROM Minicurso as M
+    INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+    ORDER BY M.nome_Mcurso");
+
+   foreach ($minicursos as $key => $value) {
+
+    ?>
     <div class="container">
-        <h1 class="jumbotron-heading">Gerenciar dados dos Minicursos</h1>
-     </div>
-</section>
+        <div class="row">
+            <div class="table table-md">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="row tr-row">
+
+                            <th class="col-md-2">
+                                Imagem
+                            </th>
+                            <th class="col-md-6">
+                                Nome
+                            </th>
+                            <th class="col-md-4">
+                                Local, data e hora
+                            </th>
+                        </tr>  
+
+                    </thead>
+                    <tbody>
+                        <tr class="row tr-row">
+                            <td class="col-md-2"> 
+
+                                <?php
+                                $imagemIcon = "upload/".$minicursos[$key]['img_Minicurso'];
+
+                                if ($minicursos[$key]['img_Minicurso'] == ""){
+                                    $imagemIcon = "noimage.png";
+                                }
+                                ?>
 
 
+                                <img class="img-icon" src="<?= $imagemIcon; ?>" 
 
 
-<!-----------------------  DADOS MINICURSOS ----------------------------------->
+                                >
+                            </td>
 
-<?php
+                            <td class="col-md-6">
 
-    require_once("../DAO/config.php");
-    require_once("../DAO/class/sql.php");
+                                <h4><?php echo $minicursos[$key]['nome_Mcurso']; ?></h4>
 
-    $sql = new Sql();
+                            </td>
 
-    $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
-                            M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-                            FROM Minicurso as M
-                            INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
-                            ORDER BY M.nome_Mcurso");
+                            <td class="col-md-3">
 
-    foreach ($minicursos as $key => $value) {
-            
-?>
-            <div class="container mb-4">
-                <div class="row">
-                    <div class="row absolute">
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="colunaImg"> </th>
-                                        <th scope="col" class="colunaNome">Nome</th>
-                                        <th scope="col" class="colunaLocal">Local, data e hora</th>
-                                        <th> </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="colunaImg"> 
+                                <?php 
 
-                                            <?php
-                                                $imagemIcon = "../" .$minicursos[$key]['img_Minicurso'];
+                                echo $minicursos[$key]['local_Mcurso'] ."</br>";
 
-                                                if (is_null($minicursos[$key]['img_Minicurso'])){
-                                                    $imagemIcon = "noimage.png";
-                                                }
-                                            ?>
+                                $date = new DateTime($minicursos[$key]['dia_Mcurso']);
+                                echo $date->format('d/m/Y');
+                                echo " às ".$date->format('H')."h".$date->format('i')."min";
 
 
-                                            <img class="img-icon" src="<?= $imagemIcon; ?>" 
+                                ?>
+
+                            </td>
+                            <td class="col-md-1">
+                                <button id="<?= $minicursos[$key]['id_Mcurso']; ?>" type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#mini<?= $minicursos[$key]['id_Mcurso']; ?>">Editar</button> 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> 
 
 
-                                            >
-                                        </td>
-
-                                        <td class="colunaNome">
-
-                                            <h4><?php echo $minicursos[$key]['nome_Mcurso']; ?></h4>
-
-                                        </td>
-
-                                        <td class="colunaLocal">
-                                            
-                                            <?php 
-
-                                                echo $minicursos[$key]['local_Mcurso'] ."</br>";
-
-                                                $date = new DateTime($minicursos[$key]['dia_Mcurso']);
-                                                echo $date->format('d/m/Y');
-                                                echo " às ".$date->format('H')."h".$date->format('m')."min";
-
-
-                                            ?>
-
-                                        </td>
-                                        <td class="text-right">
-                                            <button id="<?= $minicursos[$key]['id_Mcurso']; ?>" type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#mini<?= $minicursos[$key]['id_Mcurso']; ?>">
-                                              Editar
-                                            </button> 
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-
-
-<!-- Modal -->
-<div class="modal fade" data-backdrop="static" id="mini<?= $minicursos[$key]['id_Mcurso']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Alterar dados</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+    <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" id="mini<?= $minicursos[$key]['id_Mcurso']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
       <div class="modal-body">
-            
 
-        <form action="Gerenciador.php" method="post">
+
+        <form action="Gerenciador.php" method="post" enctype="multipart/form-data">
 
             <!--  Escolha do Curso -->
             <label for="exampleInputEmail1">Curso</label>
-            <select class="form-control" name="id_Mcurso" id="id_Mcurso">
+            <select class="form-control" name="id_curso" id="id_curso">
 
                 <?php
-
                     $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
                     foreach ($cursos as $key2 => $value2) {
                         if ($cursos[$key2]['id_curso'] ==  $minicursos[$key]['FK_Curso_id_curso']) {
-                            echo "<option value =\"".$cursos[$key2]['id_curso']. "\" selected >"  . $cursos[$key2]['nome_curso']. "</option>";
+                            echo "<option value =\"".$cursos[$key2]['id_curso']."\" selected >".$cursos[$key2]['nome_curso']."</option>";
                             $FK_Curso_id_curso = $cursos[$key2]['id_curso'];
                         } else {
-                            echo "<option value =\"".$cursos[$key2]['id_curso']. "\">" . $cursos[$key2]['nome_curso']. "</option>";
+                            echo "<option value =\"".$cursos[$key2]['id_curso']."\">".$cursos[$key2]['nome_curso']."</option>";
                         }
                     }
                 ?>
@@ -150,7 +151,7 @@
             <!-- Descrição -->
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" id="des_Mcurso"  name="des_Mcurso" rows="2"><?= $minicursos[$key]['des_Mcurso'];?></textarea>
+                <textarea class="form-control" id="des_Mcurso"  name="des_Mcurso" rows="1"><?= $minicursos[$key]['des_Mcurso'];?></textarea>
             </div>
 
             <!-- Local -->
@@ -159,11 +160,17 @@
                 <input type="text" class="form-control" id="local_Mcurso" name="local_Mcurso" value="<?=$minicursos[$key]['local_Mcurso']?>" placeholder="">
             </div>
 
+            <!-- Ministrante -->
+            <div class="form-group">
+                <label for="formGroupExampleInput">Ministrante</label>
+                <input type="text" class="form-control" id="ministrante_Mcurso" name="ministrante_Mcurso" value="<?=$minicursos[$key]['ministrante_Mcurso']?>"  placeholder="">
+            </div>
+
 
             <!-- Imagen -->
             <div class="form-group">
                 <label for="exampleFormControlFile1">Imagem</label>
-                <input type="file" class="form-control-file" id="img_Minicurso" value="<?=$minicursos[$key]['img_Minicurso']?>" name="img_Minicurso">
+                <input   type="file" id="img_Minicurso" value="<?=$minicursos[$key]['img_Minicurso']?>" data-max-size="52428800" name="file"  class="input6" accept=".png, .jpg, .jpeg, .PNG, .JPG, .JPEG">
             </div>
 
 
@@ -172,16 +179,17 @@
                     <!--  Escolha do dia -->
                     <label for="exampleInputEmail1" id="dia_Mcurso" name="dia_Mcurso" >Dia</label>
                     <select class="form-control">
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
+
+                        <option value="16" <?php if($date->format('d') == 16){echo "selected";} ?>>16</option>
+                        <option value="17" <?php if($date->format('d') == 17){echo "selected";} ?>>17</option>
+                        <option value="18" <?php if($date->format('d') == 18){echo "selected";} ?>>18</option>
+                        <option value="19" <?php if($date->format('d') == 19){echo "selected";} ?>>19</option>
                     </select>                    
                 </div>
 
-                 <div class="col-md-6">
-                    <label for="formGroupExampleInput">Hora</label>
-                    <input type="text" class="form-control" id="hora_Mcurso" value="" name="hora_Mcurso" placeholder="">
+                <div class="col-md-6">
+                    <label for="formGroupExampleInput">Horário</label>
+                    <input type="time" class="form-control" id="hora_Mcurso" value="<?= $date->format('H:i'); ?>" name="hora_Mcurso" placeholder="">
                 </div>               
 
             </div>
@@ -192,57 +200,95 @@
 
                 <div class="col-md-6">
                     <label for="formGroupExampleInput">Carga horária</label>
-                    <input type="text" class="form-control" id="carga_Mcurso" value="<?=$minicursos[$key]['ch_Mcurso']?>" name="carga_Mcurso" placeholder="">
+                    <input type="number" class="form-control" id="carga_Mcurso" value="<?=$minicursos[$key]['ch_Mcurso']?>" name="carga_Mcurso" placeholder="">
                 </div>
 
 
                 <div class="col-md-6">
                     <label for="formGroupExampleInput">Vagas</label>
-                    <input type="text" class="form-control" id="vagas_Mcurso" value="<?=$minicursos[$key]['vagas_Mcurso']?>" name="vagas_Mcurso" placeholder="">
+                    <input type="number" class="form-control" id="vagas_Mcurso" value="<?=$minicursos[$key]['vagas_Mcurso']?>" name="vagas_Mcurso" placeholder="">
                 </div>
 
 
 
             </div>
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="submit" name="atualizarMinicurso" class="btn btn-primary">Salvar alterações</button>
-          </div>
+            <div class="modal-footer">
+                <input type="hidden" name="id_minicurso" value="<?= $minicursos[$key]['id_Mcurso']; ?>"></input>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" name="atualizarMinicurso" class="btn btn-primary">Salvar alterações</button>
+            </div>
 
-    <?php
+            <?php
 
-     $sql = new Sql();
-
-
-
-    if(isset($_POST['atualizarMinicurso'])){  
-
-    $nome_Mcurso = $_POST['nome_Mcurso'];
-    $des_Mcurso = $_POST['des_Mcurso'];
-    $local_Mcurso = $_POST['local_Mcurso'];
-    $img_Minicurso = $_POST['img_Minicurso'];
-
-    
-    $codigo = "INSERT INTO Minicurso (nome_Mcurso, des_Mcurso, local_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$img_Minicurso', $FK_Curso_id_curso)";
-
-
-    $sql->query($codigo);
-
-    echo $codigo;
-
-
-    ?>
-
-
-    <?php
-    
-
-    }
+            $sql = new Sql();
 
 
 
-    ?>
+            if(isset($_POST['atualizarMinicurso'])){
+
+
+                $id_Mcurso = $_POST['id_minicurso'];
+                $nome_Mcurso = $_POST['nome_Mcurso'];
+                $des_Mcurso = $_POST['des_Mcurso'];
+                $local_Mcurso = $_POST['local_Mcurso'];
+                $dia_Mcurso = '2018-10-'.$_POST['hora_Mcurso'].' '.$_POST['hora_Mcurso'].':00';
+                $ministrante_Mcurso = $_POST['ministrante_Mcurso'];
+                $carga_Mcurso = $_POST['carga_Mcurso'];
+                $vagas_Mcurso = $_POST['vagas_Mcurso'];
+                $FK_Curso_id_curso = $_POST['id_curso'];
+
+                $nomeArquivo = $_FILES['file']['name'];
+                $dataAtual = date("d/m/Y H:i:s");
+                $hash = $id_Mcurso. $dataAtual;
+
+                $nomehash = md5($hash);
+
+                $extensao = end(explode('.',$nomeArquivo));
+                
+                $endereco_imagem = $nomehash.".".$extensao;
+
+                if($nomeArquivo != ""){
+                    if($sql){ 
+                        if(move_uploaded_file($_FILES["file"]["tmp_name"],"upload/" .$endereco_imagem)){
+
+                        }
+                    }
+                }
+
+
+                $codigo = "UPDATE Minicurso SET 
+                nome_Mcurso = '$nome_Mcurso',
+                des_Mcurso = '$des_Mcurso',
+                local_Mcurso = '$local_Mcurso',
+                img_Minicurso = '$endereco_imagem',
+                dia_Mcurso = '$dia_Mcurso',
+                ministrante_Mcurso = '$ministrante_Mcurso',
+                ch_Mcurso = '$carga_Mcurso',
+                vagas_Mcurso = '$vagas_Mcurso',
+                FK_Curso_id_curso = '$FK_Curso_id_curso'
+                WHERE id_Mcurso = $id_Mcurso";
+
+
+                $sql->query($codigo);
+
+
+                ?>
+
+
+                <script type="text/javascript" >
+                    alert("Operação realizada! <?php echo($codigo); ?>");
+                    location.href="Gerenciador.php";
+                </script>
+
+                <?php
+
+
+            }
+
+
+
+            ?>
 
 
 
@@ -250,15 +296,15 @@
 
 
 
-      </div>
     </div>
-  </div>
+</div>
+</div>
 </div>
 
 
- <?php
+<?php
 
-    }
+}
 
 ?>
 
@@ -272,23 +318,21 @@
 
 <?php
 
-    $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
-                            M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-                            FROM Minicurso as M
-                            INsNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
-                            ORDER BY M.nome_Mcurso");
+$minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
+    M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
+    FROM Minicurso as M
+    INsNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+    ORDER BY M.nome_Mcurso");
 
 
-    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
 
 
 ?>
 
 
 
- <button type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#InserirDados">
-         Inserir um minicurso
-  </button> 
+
 
 
 
@@ -299,31 +343,19 @@
 <div class="modal fade" data-backdrop="static" id="InserirDados" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Alterar dados</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
       <div class="modal-body">
-            
 
-        <form action="Gerenciador.php" method="post">
+
+        <form action="Gerenciador.php" method="post" enctype="multipart/form-data" >
 
             <!--  Escolha do Curso -->
             <label for="exampleInputEmail1">Curso</label>
             <select class="form-control" name="id_Mcurso" id="id_Mcurso">
 
                 <?php
-
                     $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
                     foreach ($cursos as $key2 => $value2) {
-                        if ($cursos[$key2]['id_curso'] ==  $minicursos[$key]['FK_Curso_id_curso']) {
-                            echo "<option value =\"".$cursos[$key2]['id_curso']. "\" selected >"  . $cursos[$key2]['nome_curso']. "</option>";
-                            $FK_Curso_id_curso = $cursos[$key2]['id_curso'];
-                        } else {
-                            echo "<option value =\"".$cursos[$key2]['id_curso']. "\">" . $cursos[$key2]['nome_curso']. "</option>";
-                        }
+                    echo "<option value =\"".$cursos[$key2]['id_curso']."\">".$cursos[$key2]['nome_curso']."</option>";
                     }
                 ?>
 
@@ -340,7 +372,7 @@
             <!-- Descrição -->
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" id="des_Mcurso"  name="des_Mcurso" rows="2"></textarea>
+                <textarea class="form-control" id="des_Mcurso"  name="des_Mcurso" rows="1"></textarea>
             </div>
 
             <!-- Local -->
@@ -349,19 +381,26 @@
                 <input type="text" class="form-control" id="local_Mcurso" name="local_Mcurso"  placeholder="">
             </div>
 
+            <!-- Ministrante -->
+            <div class="form-group">
+                <label for="formGroupExampleInput">Ministrante</label>
+                <input type="text" class="form-control" id="ministrante_Mcurso" name="ministrante_Mcurso"  placeholder="">
+            </div>
+
 
             <!-- Imagen -->
             <div class="form-group">
                 <label for="exampleFormControlFile1">Imagem</label>
-                <input type="file" class="form-control-file" id="img_Minicurso" name="img_Minicurso">
+                <input   type="file" id="img_Minicurso" data-max-size="52428800" name="file"  class="input6" accept=".png, .jpg, .jpeg, .PNG, .JPG, .JPEG">
+
             </div>
 
 
             <div class="row">
                 <div class="col-md-6">
                     <!--  Escolha do dia -->
-                    <label for="exampleInputEmail1" id="dia_Mcurso" name="dia_Mcurso" >Dia</label>
-                    <select class="form-control">
+                    <label for="exampleInputEmail1">Dia</label>
+                    <select class="form-control" id="dia_Mcurso" name="dia_Mcurso">
                         <option value="16">16</option>
                         <option value="17">17</option>
                         <option value="18">18</option>
@@ -369,9 +408,10 @@
                     </select>                    
                 </div>
 
-                 <div class="col-md-6">
+                <div class="col-md-6">
                     <label for="formGroupExampleInput">Hora</label>
-                    <input type="text" class="form-control" id="hora_Mcurso" name="hora_Mcurso" placeholder="">
+                    <input type="time" class="form-control" id="hora_Mcurso" name="hora_Mcurso" placeholder="">
+
                 </div>               
 
             </div>
@@ -382,65 +422,80 @@
 
                 <div class="col-md-6">
                     <label for="formGroupExampleInput">Carga horária</label>
-                    <input type="text" class="form-control" id="carga_Mcurso" name="carga_Mcurso" placeholder="">
+                    <input type="number" class="form-control" id="carga_Mcurso" name="carga_Mcurso" placeholder="">
                 </div>
 
 
                 <div class="col-md-6">
                     <label for="formGroupExampleInput">Vagas</label>
-                    <input type="text" class="form-control" id="vagas_Mcurso" name="vagas_Mcurso" placeholder="">
+                    <input type="number" class="form-control" id="vagas_Mcurso" name="vagas_Mcurso" placeholder="">
                 </div>
 
 
 
             </div>
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="submit" name="atualizarMinicurso" class="btn btn-primary">Salvar alterações</button>
-          </div>
-
-    <?php
-
-     $sql = new Sql();
-
-
-
-    if(isset($_POST['atualizarMinicurso'])){  
-
-    $nome_Mcurso = $_POST['nome_Mcurso'];
-    $des_Mcurso = $_POST['des_Mcurso'];
-    $local_Mcurso = $_POST['local_Mcurso'];
-    $img_Minicurso = $_POST['img_Minicurso'];
-
-    
-    $codigo = "INSERT INTO Minicurso (nome_Mcurso, des_Mcurso, local_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$img_Minicurso', $FK_Curso_id_curso)";
-
-
-    $sql->query($codigo);
-
-    
-
-
-    ?>
-
-        <script type="text/javascript" >
-            alert("Cadastro realizado com sucesso!");
-            location.href="Gerenciador.php";
-        </script>
-
-    <?php
-    
-
-    }
-
-
-
-    ?>
-
-
-
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" name="inserirMinicurso" class="btn btn-primary">Inserir minicruso</button>
+            </div>
         </form>
+        <?php
+
+        $sql = new Sql();
+
+        if(isset($_POST['inserirMinicurso'])){  
+
+            $nome_Mcurso = $_POST['nome_Mcurso'];
+            $des_Mcurso = $_POST['des_Mcurso'];
+            $local_Mcurso = $_POST['local_Mcurso'];
+            $FK_Curso_id_curso = $_POST['id_Mcurso'];
+            $dia_Mcurso = '2018-10-'.$_POST['dia_Mcurso'].' '.$_POST['hora_Mcurso'].':00';
+            $ministrante_Mcurso = $_POST['ministrante_Mcurso'];
+            $carga_Mcurso = $_POST['carga_Mcurso'];
+            $vagas_Mcurso = $_POST['vagas_Mcurso'];
+
+            $nomeArquivo = $_FILES['file']['name'];
+            $dataAtual = date("d/m/Y H:i:s");
+            $hash = $id_Mcurso. $dataAtual;
+
+            $nomehash = md5($hash);
+
+            $extensao = end(explode('.',$nomeArquivo));
+
+            $endereco_imagem = $nomehash.".".$extensao;
+
+
+            $codigoInsert = "INSERT INTO Minicurso (nome_Mcurso, des_Mcurso, local_Mcurso, dia_Mcurso, ministrante_Mcurso, ch_Mcurso, vagas_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$dia_Mcurso', '$ministrante_Mcurso', '$carga_Mcurso', '$vagas_Mcurso', '$endereco_imagem', $FK_Curso_id_curso)";
+
+
+
+            $sql->query($codigoInsert);
+
+            if($nomeArquivo != ""){
+                if($sql){ 
+                    if(move_uploaded_file($_FILES["file"]["tmp_name"],"upload/" .$endereco_imagem)){
+
+                    }
+                }
+            }
+            ?>
+
+            <script type="text/javascript" >
+                alert("Operação finalizada!");
+                location.href="Gerenciador.php";
+
+            </script>
+
+            <?php
+
+
+
+        }
+
+
+
+        ?>
 
 
 
@@ -452,8 +507,9 @@
 
 
 
- <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Bootstrap JS -->
+
+<script type="text/javascript" src="../bootstrap/js/jquery.js"></script>
+
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
