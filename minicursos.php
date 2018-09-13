@@ -247,7 +247,7 @@ if (($contC % 2) == 0){
 														  	<?php
 														  	$date = new DateTime($valor[4]);
 															echo $date->format('d/m/Y');
-															echo " às ".$date->format('H')."h".$date->format('m')."min";
+															echo " às ".$date->format('H')."h".$date->format('i')."min";
 														   	?>
 
 														  	</span>	
@@ -308,7 +308,7 @@ if (($contC % 2) == 0){
 											    		<?php
 														  	$date = new DateTime($valor[4]);
 															echo $date->format('d/m/Y');
-															echo " às ".$date->format('H')."h".$date->format('m')."min";
+															echo " às ".$date->format('H')."h".$date->format('i')."min";
 														 ?>
 											    		</span>
 											    		</div>

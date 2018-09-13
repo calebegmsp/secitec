@@ -246,7 +246,7 @@
                 $extensao = end($arrayNomeArquivo);
 
 
-                $endereco_imagem = $nomehash.".".$extensao;
+                $endereco_imagem = "img/img-cards/".$nomehash.".".$extensao;
 
                 if ($nomeArquivo != ""){
                     $codigo = "UPDATE Minicurso SET 
@@ -272,8 +272,6 @@
                     FK_Curso_id_curso = $FK_Curso_id_curso
                     WHERE id_Mcurso = $id_Mcurso"; 
                 }
-
-                echo $codigo;
                 
 
 
@@ -281,7 +279,7 @@
 
                 if($nomeArquivo != ""){
                     if($sql){ 
-                        if(move_uploaded_file($_FILES["file"]["tmp_name"],"../img/img-cards/" .$endereco_imagem)){
+                        if(move_uploaded_file($_FILES["file"]["tmp_name"],"../" .$endereco_imagem)){
 
                         }
                     }
@@ -293,12 +291,12 @@
 
 
                 <script type="text/javascript" >
-                    alert("Operação realizadaaaaa! <?php echo($codigo); ?>");
+                    alert("Operação realizada!");
                     location.href="Gerenciador.php";
                 </script>
 
                 <?php
-
+                 echo $codigo;
 
             }
 

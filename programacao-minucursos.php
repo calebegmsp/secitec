@@ -114,13 +114,47 @@
 
         		</div>
 
-
+        		<?php
+	        		require_once("DAO/config.php");
+	        		require_once("DAO/class/sql.php");
+	        		$sql = new Sql();
+	        		$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+        		 ?>
 
 
         		<div class="tab-content" id="myTabContent">
 
+        			<p>
+        				<div class="dropdown">
+        					<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
 
-        			<!--------------------------- DIA 1 ------------------------------->
+
+        					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        						<?php 
+	        						foreach ($cursos as $key => $value) {
+	        					?>
+
+	        							<button id="<?= $cursos[$key]['id_curso']; ?>" class="dropdown-item" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="funcao<?php echo $cursos[$key]['id_curso']; ?>()">
+	        								<?php echo $cursos[$key]['nome_curso'];?>
+	        							</button>
+
+	        							<script>
+	        								function funcao<?php echo $cursos[$key]['id_curso']; ?>() {
+	        									document.getElementById("dropdownMenuButtonCurso").innerHTML = document.getElementById("<?php echo $cursos[$key]['id_curso']; ?>").innerHTML;
+	        								}
+	        							</script>
+
+
+	        							<?php
+	        						}
+
+        						 ?>
+        					</div>
+        				</div>	
+
+        			</p>
+        			<div class="collapse" id="collapseExample">
+        				<!--------------------------- DIA 1 ------------------------------->
  					<div class="tab-pane fade show active" id="dia1" role="tabpanel" aria-labelledby="dia1-tab">
 
 		        		<div class="col-md-10 dia-">
@@ -152,6 +186,9 @@
 		        		</div> 						
 
  					</div> 
+        			</div>
+
+        			
  					<!------------------------- FIM DIA 1 ----------------------------->
 
 
