@@ -54,10 +54,10 @@
                             <th class="col-md-2">
                                 Imagem
                             </th>
-                            <th class="col-md-6">
+                            <th class="col-md-5">
                                 Nome
                             </th>
-                            <th class="col-md-4">
+                            <th class="col-md-5">
                                 Local, data e hora
                             </th>
                         </tr>  
@@ -82,7 +82,7 @@
                                 >
                             </td>
 
-                            <td class="col-md-6">
+                            <td class="col-md-5">
 
                                 <h4><?php echo $minicursos[$key]['nome_Mcurso']; ?></h4>
 
@@ -102,8 +102,40 @@
                                 ?>
 
                             </td>
-                            <td class="col-md-1">
-                                <button id="<?= $minicursos[$key]['id_Mcurso']; ?>" type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#mini<?= $minicursos[$key]['id_Mcurso']; ?>">Editar</button> 
+                            <td class="col-md-2">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#exampleModal">
+                                          Deletar
+                                      </button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button id="<?= $minicursos[$key]['id_Mcurso']; ?>" type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#mini<?= $minicursos[$key]['id_Mcurso']; ?>">Editar</button> 
+                                  </div>   
+                              </div>
+                                
+                                     <!-- Button trigger delete -->
+                               
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Deseja realmente deletar esse minicurso?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-modal-delete" data-dismiss="modal">Não</button>
+                                        <button type="button" class="btn btn-primary btn-modal-delete">Deletar</button>
+                                      </div>
+                                    </div>
+                                  </div>
                             </td>
                         </tr>
                     </tbody>
@@ -373,7 +405,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
             <!-- Nome -->
             <div class="form-group">
                 <label for="formGroupExampleInput">Nome</label>
-                <input type="text" class="form-control" id="nome_Mcurso" name="nome_Mcurso" placeholder="">
+                <input type="text" class="form-control" id="nome_Mcurso" name="nome_Mcurso" placeholder="" required>
             </div>
 
             <!-- Descrição -->
@@ -417,7 +449,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
 
                 <div class="col-md-6">
                     <label for="formGroupExampleInput">Hora</label>
-                    <input type="time" class="form-control" id="hora_Mcurso" name="hora_Mcurso" placeholder="">
+                    <input type="time" class="form-control" id="hora_Mcurso" value="00:00" name="hora_Mcurso" placeholder="">
 
                 </div>               
 
@@ -429,13 +461,13 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
 
                 <div class="col-md-6">
                     <label for="formGroupExampleInput">Carga horária</label>
-                    <input type="number" class="form-control" id="carga_Mcurso" name="carga_Mcurso" placeholder="">
+                    <input type="number" class="form-control" id="carga_Mcurso" value="0" name="carga_Mcurso" placeholder="">
                 </div>
 
 
                 <div class="col-md-6">
                     <label for="formGroupExampleInput">Vagas</label>
-                    <input type="number" class="form-control" id="vagas_Mcurso" name="vagas_Mcurso" placeholder="">
+                    <input type="number" class="form-control" id="vagas_Mcurso" value="0" name="vagas_Mcurso" placeholder="">
                 </div>
 
 

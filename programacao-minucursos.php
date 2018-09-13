@@ -153,7 +153,9 @@
         				</div>	
 
         			</p>
-        			<div class="collapse" id="collapseExample">
+
+
+
         				<!--------------------------- DIA 1 ------------------------------->
  					<div class="tab-pane fade show active" id="dia1" role="tabpanel" aria-labelledby="dia1-tab">
 
@@ -184,8 +186,6 @@
 		        			</div>
 
 		        		</div> 						
-
- 					</div> 
         			</div>
 
         			
