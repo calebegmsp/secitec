@@ -104,9 +104,10 @@
 
         			<nav class="nav flex-column navegacao">
 
-					  <a class="nav-link dia active" id="dia1-tab" data-toggle="tab" href="#dia1" role="tab" aria-controls="dia1" aria-selected="true">Dia 15</a>
-					  <a class="nav-link dia" id="dia2-tab" data-toggle="tab" href="#dia2" role="tab" aria-controls="dia2" aria-selected="true">Dia 16</a>
-					  <a class="nav-link dia" id="dia3-tab" data-toggle="tab" href="#dia3" role="tab" aria-controls="dia3" aria-selected="true">Dia 17</a>
+					  <a class="nav-link dia active" id="dia1-tab" data-toggle="tab" href="#dia1" role="tab" aria-controls="dia1" aria-selected="true">Dia 16</a>
+					  <a class="nav-link dia" id="dia2-tab" data-toggle="tab" href="#dia2" role="tab" aria-controls="dia2" aria-selected="true">Dia 17</a>
+					  <a class="nav-link dia" id="dia3-tab" data-toggle="tab" href="#dia3" role="tab" aria-controls="dia3" aria-selected="true">Dia 18</a>
+					  <a class="nav-link dia" id="dia4-tab" data-toggle="tab" href="#dia4" role="tab" aria-controls="dia3" aria-selected="true">Dia 19</a>
 					  
 					</nav>
 
@@ -139,6 +140,10 @@
 	        							<script>
 	        								function funcao<?php echo $cursos[$key]['id_curso']; ?>() {
 	        									document.getElementById("dropdownMenuButtonCurso").innerHTML = document.getElementById("<?php echo $cursos[$key]['id_curso']; ?>").innerHTML;
+	        									document.getElementById('dia1-tab').href = '<?php echo $cursos[$key]['id_curso'].'dia1';?>';
+	        									document.getElementById('dia2-tab').href = '<?php echo $cursos[$key]['id_curso'].'dia2';?>';
+	        									document.getElementById('dia3-tab').href = '<?php echo $cursos[$key]['id_curso'].'dia3';?>';
+	        									document.getElementById('dia4-tab').href = '<?php echo $cursos[$key]['id_curso'].'dia4';?>';
 	        								}
 	        							</script>
 
@@ -155,26 +160,26 @@
 
 
         			<?php
-        			/*	require_once("DAO/config.php");
-						require_once("DAO/class/sql.php");
-						$sql = new Sql();
 
-						$minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
-							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-							FROM Minicurso as M
-							INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
-							WHERE M.FK_Curso_id_curso = $nomeCurso[0] 
-							ORDER BY dia_Mcurso");*/
+        				foreach ($cursos as $key => $value) {
+	        				$minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso, M.FK_Curso_id_curso 
+														FROM Minicurso as M
+														INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+														WHERE 
+														ORDER BY dia_Mcurso");	
+
+						}
 
         			?>
 
 
-
         				<!--------------------------- DIA 1 ------------------------------->
- 					<div class="tab-pane fade show active" id="dia1" role="tabpanel" aria-labelledby="dia1-tab">
+
+
+ 					<div class="tab-pane fade show active" id="<?= $cursos[0]['id_curso'].'dia1';?>" role="tabpanel" aria-labelledby="dia1-tab">
 
 		        		<div class="col-md-10 dia-">
-		        			<span class="title">Minicursos</span>
+		        			<span class="title">Minicursos dia 1</span>
 
 		        			<div class="row ofertas">
 		        				<div class="col-2 horario">
@@ -208,10 +213,10 @@
 
 
  					<!--------------------------- DIA 2 ------------------------------->
- 					<div class="tab-pane fade" id="dia2" role="tabpanel" aria-labelledby="dia2-tab">
+ 					<div class="tab-pane fade" id="<?= $cursos[1]['id_curso'].'dia2';?>" role="tabpanel" aria-labelledby="dia2-tab">
 
 		        		<div class="col-md-10 dia-">
-		        			<span class="title">Minicursos</span>
+		        			<span class="title">Minicursos dia 2</span>
 
 		        			<div class="row ofertas">
 		        				<div class="col-2 horario">
@@ -251,10 +256,10 @@
 
 
  					<!--------------------------- DIA 3 ------------------------------->
- 					<div class="tab-pane fade" id="dia3" role="tabpanel" aria-labelledby="dia3-tab">
+ 					<div class="tab-pane fade" id="<?= $cursos[2]['id_curso'].'dia3';?>" role="tabpanel" aria-labelledby="dia3-tab">
 
 		        		<div class="col-md-10 dia-">
-		        			<span class="title">Minicursos</span>
+		        			<span class="title">Minicursos dai 3</span>
 
 		        			<!-- HORA -->
 
@@ -293,6 +298,50 @@
 
  					</div> 
  					<!------------------------- FIM DIA 3 ----------------------------->
+
+ 					<!--------------------------- DIA 4 ------------------------------->
+ 					<div class="tab-pane fade" id="<?= $cursos[3]['id_curso'].'dia4';?>" role="tabpanel" aria-labelledby="dia3-tab">
+
+		        		<div class="col-md-10 dia-">
+		        			<span class="title">Minicursos dai 4</span>
+
+		        			<!-- HORA -->
+
+
+		        			<div class="row ofertas">
+		        				<div class="col-2 horario">
+		        					<span class="text-hora">10:00<br></span>
+		        					
+		        					<img class="linha" src="img/linha.png">
+		        				</div>
+
+		        				<div class="col-10">
+									<div class="card text-white bg-info mb-3" style="width: 100%;">
+									  <div class="card-header">PHP é legal</div>
+									  <div class="card-body">
+									    <h5 class="card-title">Local: Sala 11</h5>
+									  </div>
+									</div>
+									<div class="card text-white bg-info mb-3" style="width: 100%;">
+									  <div class="card-header">Internet das coisas</div>
+									  <div class="card-body">
+									    <h5 class="card-title">Local: Sala 31</h5>
+									  </div>
+									</div>
+									<div class="card text-white bg-info mb-3" style="width: 100%;">
+									  <div class="card-header">Gamificação</div>
+									  <div class="card-body">
+									    <h5 class="card-title">Local: Sala 10</h5>
+									  </div>
+									</div>	
+		        				</div>
+		        			</div>
+		        			<!-- FIM HORA -->
+
+		        		</div>
+
+ 					</div> 
+ 					<!------------------------- FIM DIA 4 ----------------------------->
 
 
         		</div>

@@ -286,7 +286,7 @@ if(isset($_POST['deletarMinicurso'])){
 
                     <div class="col-md-6">
                         <label for="formGroupExampleInput">Carga horária</label>
-                        <input type="number" class="form-control" id="carga_Mcurso" value="<?=$minicursos[$key]['ch_Mcurso']?>" name="carga_Mcurso" placeholder="">
+                        <input type="number" step="0.01" class="form-control" id="carga_Mcurso" value="<?=$minicursos[$key]['ch_Mcurso']?>" name="carga_Mcurso" placeholder="">
                     </div>
 
 
@@ -519,7 +519,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
 
                 <div class="col-md-6">
                     <label for="formGroupExampleInput">Carga horária</label>
-                    <input type="number" class="form-control" id="carga_Mcurso" value="0" name="carga_Mcurso" placeholder="">
+                    <input type="number" step="0.01" class="form-control" id="carga_Mcurso" value="0" name="carga_Mcurso" placeholder="">
                 </div>
 
 
