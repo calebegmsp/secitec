@@ -68,15 +68,15 @@
                             <td class="col-md-2"> 
 
                                 <?php
-                                $imagemIcon = $minicursos[$key]['img_Minicurso'];
-
-                                if ($minicursos[$key]['img_Minicurso'] == ""){
-                                    $imagemIcon = "noimage.png";
+                                $imagemIcon = "../".$minicursos[$key]['img_Minicurso'];
+                                if (!file_exists($imagemIcon)){
+                                	$imagemIcon = "noimage.png";
                                 }
+
                                 ?>
 
 
-                                <img class="img-icon" src="<?= "../".$imagemIcon; ?>" 
+                                <img class="img-icon" src="<?= $imagemIcon; ?>" 
 
 
                                 >
@@ -130,12 +130,23 @@
                                       <div class="modal-body">
                                         Deseja realmente deletar esse minicurso?
                                       </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary btn-modal-delete" data-dismiss="modal">Não</button>
-                                        <button type="button" class="btn btn-primary btn-modal-delete">Deletar</button>
+                                      <div class="modal-body">
+                                      	<form action="GerenciadorMinicursos.php" method="post">
+                                      		<div class="row">
+                                      			<div class="col-md">
+                                      				<button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                      			</div>
+                                      			<div class="col-md">
+                                      				<button type="submit" name="deletarMinicurso" class="btn btn-primary">Deletar</button>	
+                                      			</div>
+                                      		</div>
+	                                        <input type="hidden" name="id_minicurso" value="<?= $minicursos[$key]['id_Mcurso']; ?>">                                      		
+	                                        
+                                      	</form>
                                       </div>
                                     </div>
                                   </div>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -145,6 +156,39 @@
     </div> 
 
 
+<?php
+
+            if(isset($_POST['deletarMinicurso'])){
+
+
+                $id_Mcurso = $_POST['id_minicurso'];
+
+
+                $codigo = "DELETE FROM Minicurso WHERE id_Mcurso = '$id_Mcurso'";
+
+
+                $sql->query($codigo);
+
+                ?>
+
+
+                <script type="text/javascript" >
+                    alert("Operação realizada!");
+                    location.href="GerenciadorMinicursos.php";
+                </script>
+
+                <?php
+
+            }
+
+?>
+
+
+
+
+
+
+
 <!-- Modal -->
 <div class="modal fade" data-backdrop="static" id="mini<?= $minicursos[$key]['id_Mcurso']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -152,7 +196,7 @@
             <div class="modal-body">
 
 
-        <form action="Gerenciador.php" method="post" enctype="multipart/form-data">
+        <form action="GerenciadorMinicursos.php" method="post" enctype="multipart/form-data">
 
             <label for="exampleInputEmail1">Curso</label>
             <select class="form-control" name="id_curso" id="id_curso">
@@ -324,11 +368,10 @@
 
                 <script type="text/javascript" >
                     alert("Operação realizada!");
-                    location.href="Gerenciador.php";
+                    location.href="GerenciadorMinicursos.php";
                 </script>
 
                 <?php
-                 echo $codigo;
 
             }
 
@@ -385,7 +428,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
       <div class="modal-body">
 
 
-        <form action="Gerenciador.php" method="post" enctype="multipart/form-data" >
+        <form action="GerenciadorMinicursos.php" method="post" enctype="multipart/form-data" >
 
             <!--  Escolha do Curso -->
             <label for="exampleInputEmail1">Curso</label>
@@ -476,7 +519,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" name="inserirMinicurso" class="btn btn-primary">Inserir minicruso</button>
+                <button type="submit" name="inserirMinicurso" class="btn btn-primary">Inserir minicurso</button>
             </div>
         </form>
         <?php
@@ -520,7 +563,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
 
             <script type="text/javascript" >
                 alert("Operação finalizada!");
-                location.href="Gerenciador.php";
+                location.href="GerenciadorMinicursos.php";
 
             </script>
 

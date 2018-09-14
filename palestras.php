@@ -50,8 +50,8 @@
 						<div class="dropdown">
 							<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Minicursos</a>
-								<a class="dropdown-item" href="palestras.php">Palestras</a>
+								<a class="dropdown-item" href="minicursos.php">Minicursos</a>
+								<a class="dropdown-item" href="palestras.html">Palestras</a>
 								<a class="dropdown-item" href="mesaredonda.html">Mesa redonda</a>
 							</div>
 						</div>	
@@ -85,7 +85,7 @@
 
 	<div class="minicursos">
 				
-		<h1 class="h1">Minicursos</h1>
+		<h1 class="h1">Palestras</h1>
 				
 	    <div class="container">
 
@@ -162,7 +162,7 @@
 
 $minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
 							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-							FROM Minicurso as M
+							FROM Palestras as M
 							INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
 							WHERE M.FK_Curso_id_curso = $nomeCurso[0] 
 							ORDER BY dia_Mcurso");
