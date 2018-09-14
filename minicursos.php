@@ -10,7 +10,7 @@
 	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	 	
 	 	<link rel="shortcut icon" href="img/faicon.png">
 
 		<link rel="stylesheet" type="text/css" href="estilo/minicurso.css">
@@ -52,7 +52,6 @@
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class="dropdown-item" href="#">Minicursos</a>
 								<a class="dropdown-item" href="palestras.php">Palestras</a>
-								<a class="dropdown-item" href="mesaredonda.html">Mesa redonda</a>
 							</div>
 						</div>	
 					</li>
@@ -63,7 +62,6 @@
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class="dropdown-item" href="programacao-minucursos.html">Minicursos</a>
 								<a class="dropdown-item" href="programacao-palestras.html">Palestras</a>
-								<a class="dropdown-item" href="programacao-mesaredonda.html">Mesa redonda</a>
 							</div>
 						</div>	
 					</li>

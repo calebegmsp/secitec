@@ -1,47 +1,62 @@
-     <!-- Bootstrap -->
-     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+    session_start();
+     if(!isset($_SESSION['usuario'])){
+        header("Location: login.php");
+    }
+    ?>
+    <!-- Bootstrap -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link rel="shortcut icon" href="img/faicon.png">
+    <link rel="shortcut icon" href="img/faicon.png">
 
-     <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
 
-     <meta charset="utf-8">
+    <meta charset="utf-8">
 
-     <!------ Include the above in your HEAD tag ---------->
-
-
-     <section class="jumbotron text-center">
+    <!------ Include the above in your HEAD tag ---------->
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-md align-self-end usuario">
+                <?php echo $_SESSION['nome'];?>
+            </div>
+            <div class="col-md-1 align-self-end">
+                <a href="autenticar.php?logout=ok" class="btn btn-primary">Sair</a>
+            </div>
+        </div>    
+    </div>
+    
+    <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Gerenciar dados dos Minicursos</h1>
         </div>
     </section>
 
     <div class="row justify-content-md-center btn-insert">
-       <button type="button" class="btn btn-primary col-md-4" data-toggle="modal" data-target="#InserirDados">
-           Inserir um minicurso
-       </button>    
-   </div>
+     <button type="button" class="btn btn-primary col-md-4" data-toggle="modal" data-target="#InserirDados">
+         Inserir um minicurso
+     </button>    
+ </div>
 
 
 
-   <!-----------------------  DADOS MINICURSOS ----------------------------------->
+ <!-----------------------  DADOS MINICURSOS ----------------------------------->
 
-   <?php
+ <?php
 
-   require_once("../DAO/config.php");
-   require_once("../DAO/class/sql.php");
+ require_once("../DAO/config.php");
+ require_once("../DAO/class/sql.php");
 
-   $sql = new Sql();
+ $sql = new Sql();
 
-   $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
+ $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
     M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
     FROM Minicurso as M
     INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
     ORDER BY M.nome_Mcurso");
 
-   foreach ($minicursos as $key => $value) {
+ foreach ($minicursos as $key => $value) {
 
     ?>
     <div class="container">
@@ -108,78 +123,78 @@
                                         <button type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#exampleModal">
                                           Deletar
                                       </button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button id="<?= $minicursos[$key]['id_Mcurso']; ?>" type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#mini<?= $minicursos[$key]['id_Mcurso']; ?>">Editar</button> 
-                                  </div>   
-                              </div>
-                                
-                                     <!-- Button trigger delete -->
-                               
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body">
-                                        Deseja realmente deletar esse minicurso?
-                                      </div>
-                                      <div class="modal-body">
-                                      	<form action="GerenciadorMinicursos.php" method="post">
-                                      		<div class="row">
-                                      			<div class="col-md">
-                                      				<button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                                      			</div>
-                                      			<div class="col-md">
-                                      				<button type="submit" name="deletarMinicurso" class="btn btn-primary">Deletar</button>	
-                                      			</div>
-                                      		</div>
-	                                        <input type="hidden" name="id_minicurso" value="<?= $minicursos[$key]['id_Mcurso']; ?>">                                      		
-	                                        
-                                      	</form>
-                                      </div>
-                                    </div>
                                   </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div> 
+                                  <div class="col-md-6">
+                                    <button id="<?= $minicursos[$key]['id_Mcurso']; ?>" type="button" class="btn btn-primary btn-editar" data-toggle="modal" data-target="#mini<?= $minicursos[$key]['id_Mcurso']; ?>">Editar</button> 
+                                </div>   
+                            </div>
+
+                            <!-- Button trigger delete -->
+
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                              </div>
+                              <div class="modal-body">
+                                Deseja realmente deletar esse minicurso?
+                            </div>
+                            <div class="modal-body">
+                             <form action="GerenciadorMinicursos.php" method="post">
+                                <div class="row">
+                                   <div class="col-md">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                  </div>
+                                  <div class="col-md">
+                                      <button type="submit" name="deletarMinicurso" class="btn btn-primary">Deletar</button>	
+                                  </div>
+                              </div>
+                              <input type="hidden" name="id_minicurso" value="<?= $minicursos[$key]['id_Mcurso']; ?>">                                      		
+
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div> 
 
 
 <?php
 
-            if(isset($_POST['deletarMinicurso'])){
+if(isset($_POST['deletarMinicurso'])){
 
 
-                $id_Mcurso = $_POST['id_minicurso'];
+    $id_Mcurso = $_POST['id_minicurso'];
 
 
-                $codigo = "DELETE FROM Minicurso WHERE id_Mcurso = '$id_Mcurso'";
+    $codigo = "DELETE FROM Minicurso WHERE id_Mcurso = '$id_Mcurso'";
 
 
-                $sql->query($codigo);
+    $sql->query($codigo);
 
-                ?>
+    ?>
 
 
-                <script type="text/javascript" >
-                    alert("Operação realizada!");
-                    location.href="GerenciadorMinicursos.php";
-                </script>
+    <script type="text/javascript" >
+        alert("Operação realizada!");
+        location.href="GerenciadorMinicursos.php";
+    </script>
 
-                <?php
+    <?php
 
-            }
+}
 
 ?>
 
@@ -191,17 +206,17 @@
 
 <!-- Modal -->
 <div class="modal fade" data-backdrop="static" id="mini<?= $minicursos[$key]['id_Mcurso']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
 
 
-        <form action="GerenciadorMinicursos.php" method="post" enctype="multipart/form-data">
+            <form action="GerenciadorMinicursos.php" method="post" enctype="multipart/form-data">
 
-            <label for="exampleInputEmail1">Curso</label>
-            <select class="form-control" name="id_curso" id="id_curso">
+                <label for="exampleInputEmail1">Curso</label>
+                <select class="form-control" name="id_curso" id="id_curso">
 
-                <?php
+                    <?php
                     $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
                     foreach ($cursos as $key2 => $value2) {
                         if ($cursos[$key2]['id_curso'] ==  $minicursos[$key]['FK_Curso_id_curso']) {
@@ -211,86 +226,86 @@
                             echo "<option value =\"".$cursos[$key2]['id_curso']."\">".$cursos[$key2]['nome_curso']."</option>";
                         }
                     }
-                ?>
+                    ?>
 
-            </select>
-
-
-
-            <div class="form-group">
-                <label for="formGroupExampleInput">Nome</label>
-                <input type="text" class="form-control" id="nome_Mcurso" name="nome_Mcurso" value="<?=$minicursos[$key]['nome_Mcurso']; ?>" placeholder="">
-            </div>
-
-
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" id="des_Mcurso"  name="des_Mcurso" rows="1"><?= $minicursos[$key]['des_Mcurso'];?></textarea>
-            </div>
-
-
-            <div class="form-group">
-                <label for="formGroupExampleInput">Local</label>
-                <input type="text" class="form-control" id="local_Mcurso" name="local_Mcurso" value="<?=$minicursos[$key]['local_Mcurso']?>" placeholder="">
-            </div>
-
-
-            <div class="form-group">
-                <label for="formGroupExampleInput">Ministrante</label>
-                <input type="text" class="form-control" id="ministrante_Mcurso" name="ministrante_Mcurso" value="<?=$minicursos[$key]['ministrante_Mcurso']?>"  placeholder="">
-            </div>
+                </select>
 
 
 
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Imagem</label>
-                <input type="file" id="alter-img-minicurso" data-max-size="52428800" name="file" class="input6" accept=".png, .jpg, .jpeg, .PNG, .JPG, .JPEG">
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="exampleInputEmail1">Dia</label>
-                    <select class="form-control" id="dia_Mcurso" name="dia_Mcurso">
-                        <option value="16" <?php if($date->format('d') == 16){echo "selected";} ?>>16</option>
-                        <option value="17" <?php if($date->format('d') == 17){echo "selected";} ?>>17</option>
-                        <option value="18" <?php if($date->format('d') == 18){echo "selected";} ?>>18</option>
-                        <option value="19" <?php if($date->format('d') == 19){echo "selected";} ?>>19</option>
-                    </select>                    
-                </div>
-
-                <div class="col-md-6">
-                    <label for="formGroupExampleInput">Horário</label>
-                    <input type="time" class="form-control" id="hora_Mcurso" value="<?= $date->format('H:i'); ?>" name="hora_Mcurso" placeholder="">
-                </div>               
-
-            </div>
-
-
-            <div class="row">
-
-                <div class="col-md-6">
-                    <label for="formGroupExampleInput">Carga horária</label>
-                    <input type="number" class="form-control" id="carga_Mcurso" value="<?=$minicursos[$key]['ch_Mcurso']?>" name="carga_Mcurso" placeholder="">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Nome</label>
+                    <input type="text" class="form-control" id="nome_Mcurso" name="nome_Mcurso" value="<?=$minicursos[$key]['nome_Mcurso']; ?>" placeholder="">
                 </div>
 
 
-                <div class="col-md-6">
-                    <label for="formGroupExampleInput">Vagas</label>
-                    <input type="number" class="form-control" id="vagas_Mcurso" value="<?=$minicursos[$key]['vagas_Mcurso']?>" name="vagas_Mcurso" placeholder="">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Descrição</label>
+                    <textarea class="form-control" id="des_Mcurso"  name="des_Mcurso" rows="1"><?= $minicursos[$key]['des_Mcurso'];?></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Local</label>
+                    <input type="text" class="form-control" id="local_Mcurso" name="local_Mcurso" value="<?=$minicursos[$key]['local_Mcurso']?>" placeholder="">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Ministrante</label>
+                    <input type="text" class="form-control" id="ministrante_Mcurso" name="ministrante_Mcurso" value="<?=$minicursos[$key]['ministrante_Mcurso']?>"  placeholder="">
                 </div>
 
 
 
-            </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Imagem</label>
+                    <input type="file" id="alter-img-minicurso" data-max-size="52428800" name="file" class="input6" accept=".png, .jpg, .jpeg, .PNG, .JPG, .JPEG">
+                </div>
 
-            <div class="modal-footer">
-                <input type="hidden" name="id_minicurso" value="<?= $minicursos[$key]['id_Mcurso']; ?>">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" name="atualizarMinicurso" class="btn btn-primary">Salvar alterações</button>
-            </div>
 
-        </form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="exampleInputEmail1">Dia</label>
+                        <select class="form-control" id="dia_Mcurso" name="dia_Mcurso">
+                            <option value="16" <?php if($date->format('d') == 16){echo "selected";} ?>>16</option>
+                            <option value="17" <?php if($date->format('d') == 17){echo "selected";} ?>>17</option>
+                            <option value="18" <?php if($date->format('d') == 18){echo "selected";} ?>>18</option>
+                            <option value="19" <?php if($date->format('d') == 19){echo "selected";} ?>>19</option>
+                        </select>                    
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput">Horário</label>
+                        <input type="time" class="form-control" id="hora_Mcurso" value="<?= $date->format('H:i'); ?>" name="hora_Mcurso" placeholder="">
+                    </div>               
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput">Carga horária</label>
+                        <input type="number" class="form-control" id="carga_Mcurso" value="<?=$minicursos[$key]['ch_Mcurso']?>" name="carga_Mcurso" placeholder="">
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <label for="formGroupExampleInput">Vagas</label>
+                        <input type="number" class="form-control" id="vagas_Mcurso" value="<?=$minicursos[$key]['vagas_Mcurso']?>" name="vagas_Mcurso" placeholder="">
+                    </div>
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <input type="hidden" name="id_minicurso" value="<?= $minicursos[$key]['id_Mcurso']; ?>">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" name="atualizarMinicurso" class="btn btn-primary">Salvar alterações</button>
+                </div>
+
+            </form>
 
             <?php
 
@@ -322,7 +337,7 @@
                 $extensao = end($arrayNomeArquivo);
 
 
-                $endereco_imagem = "img/img-cards/".$nomehash.".".$extensao;
+                $endereco_imagem = "img/img-cards/minicursos/".$nomehash.".".$extensao;
 
                 if ($nomeArquivo != ""){
                     $codigo = "UPDATE Minicurso SET 
@@ -380,9 +395,9 @@
             ?>
 
         </div>
-      </div>
     </div>
-  </div>
+</div>
+</div>
 
 
 <?php
@@ -435,10 +450,10 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
             <select class="form-control" name="id_Mcurso" id="id_Mcurso">
 
                 <?php
-                    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
-                    foreach ($cursos as $key2 => $value2) {
+                $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+                foreach ($cursos as $key2 => $value2) {
                     echo "<option value =\"".$cursos[$key2]['id_curso']."\">".$cursos[$key2]['nome_curso']."</option>";
-                    }
+                }
                 ?>
 
             </select>
@@ -579,9 +594,9 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
 
 
 
-      </div>
     </div>
-  </div>
+</div>
+</div>
 </div>
 
 

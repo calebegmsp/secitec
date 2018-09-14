@@ -51,8 +51,7 @@
 							<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class="dropdown-item" href="minicursos.php">Minicursos</a>
-								<a class="dropdown-item" href="palestras.html">Palestras</a>
-								<a class="dropdown-item" href="mesaredonda.html">Mesa redonda</a>
+								<a class="dropdown-item" href="#">Palestras</a>
 							</div>
 						</div>	
 					</li>
@@ -63,7 +62,6 @@
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class="dropdown-item" href="programacao-minucursos.html">Minicursos</a>
 								<a class="dropdown-item" href="programacao-palestras.html">Palestras</a>
-								<a class="dropdown-item" href="programacao-mesaredonda.html">Mesa redonda</a>
 							</div>
 						</div>	
 					</li>

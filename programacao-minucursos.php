@@ -63,9 +63,8 @@
 					<div class="dropdown">
 						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="minicursos.html">Minicursos</a>
-							<a class="dropdown-item" href="palestras.html">Palestras</a>
-							<a class="dropdown-item" href="mesaredonda.html">Mesa redonda</a>
+							<a class="dropdown-item" href="minicursos.php">Minicursos</a>
+							<a class="dropdown-item" href="palestras.php">Palestras</a>
 						</div>
 					</div>	
 				</li>
@@ -76,7 +75,6 @@
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item" href="#">Minicursos</a>
 							<a class="dropdown-item" href="programacao-palestras.html">Palestras</a>
-							<a class="dropdown-item" href="programacao-mesaredonda.html">Mesa redonda</a>
 						</div>
 					</div>	
 				</li>
@@ -153,6 +151,22 @@
         				</div>	
 
         			</p>
+
+
+
+        			<?php
+        			/*	require_once("DAO/config.php");
+						require_once("DAO/class/sql.php");
+						$sql = new Sql();
+
+						$minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
+							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
+							FROM Minicurso as M
+							INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+							WHERE M.FK_Curso_id_curso = $nomeCurso[0] 
+							ORDER BY dia_Mcurso");*/
+
+        			?>
 
 
 

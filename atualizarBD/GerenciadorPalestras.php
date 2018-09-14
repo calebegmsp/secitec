@@ -1,3 +1,12 @@
+    <?php
+    session_start();
+     if(!isset($_SESSION['usuario'])){
+        header("Location: login.php");
+    }
+    ?>
+
+
+
      <!-- Bootstrap -->
      <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -322,7 +331,7 @@
                 $extensao = end($arrayNomeArquivo);
 
 
-                $endereco_imagem = "img/img-cards/".$nomehash.".".$extensao;
+                $endereco_imagem = "img/img-cards/palestras/".$nomehash.".".$extensao;
 
                 if ($nomeArquivo != ""){
                     $codigo = "UPDATE Palestras SET 
@@ -545,7 +554,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
 
             $extensao = end(explode('.',$nomeArquivo));
 
-            $endereco_imagem = "img/img-cards/minicursos/".$nomehash.".".$extensao;
+            $endereco_imagem = "img/img-cards/palestras/".$nomehash.".".$extensao;
 
 
             $codigoInsert = "INSERT INTO Palestras (nome_Mcurso, des_Mcurso, local_Mcurso, dia_Mcurso, ministrante_Mcurso, ch_Mcurso, vagas_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$dia_Mcurso', '$ministrante_Mcurso', '$carga_Mcurso', '$vagas_Mcurso', '$endereco_imagem', $FK_Curso_id_curso)";
