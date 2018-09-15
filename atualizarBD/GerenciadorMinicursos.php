@@ -47,7 +47,7 @@
 
  require_once("../DAO/config.php");
  require_once("../DAO/class/sql.php");
-
+ set_time_limit(0);
  $sql = new Sql();
 
  $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,

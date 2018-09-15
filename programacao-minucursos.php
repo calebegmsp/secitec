@@ -102,12 +102,14 @@
 
         		<div class="col-md-2">
 
-        			<nav class="nav flex-column navegacao">
-
-					  <a class="nav-link dia active" id="dia1-tab" data-toggle="tab" href="#dia1" role="tab" aria-controls="dia1" aria-selected="true">Dia 16</a>
-					  <a class="nav-link dia" id="dia2-tab" data-toggle="tab" href="#dia2" role="tab" aria-controls="dia2" aria-selected="true">Dia 17</a>
-					  <a class="nav-link dia" id="dia3-tab" data-toggle="tab" href="#dia3" role="tab" aria-controls="dia3" aria-selected="true">Dia 18</a>
-					  <a class="nav-link dia" id="dia4-tab" data-toggle="tab" href="#dia4" role="tab" aria-controls="dia3" aria-selected="true">Dia 19</a>
+        			<nav id="navDias" class="nav flex-column navegacao">
+        			<div id="botoesDias" class="dias">
+        				<a class="nav-link dia active" id="dia1-tab" data-toggle="tab" href="#dia1" role="tab" aria-controls="dia1" aria-selected="true">Dia 16</a>
+						<a class="nav-link dia" id="dia2-tab" data-toggle="tab" href="#dia2" role="tab" aria-controls="dia2" aria-selected="true">Dia 17</a>
+						<a class="nav-link dia" id="dia3-tab" data-toggle="tab" href="#dia3" role="tab" aria-controls="dia3" aria-selected="true">Dia 18</a>
+						<a class="nav-link dia" id="dia4-tab" data-toggle="tab" href="#dia4" role="tab" aria-controls="dia3" aria-selected="true">Dia 19</a>
+        			</div>
+					  
 					  
 					</nav>
 
@@ -125,11 +127,12 @@
 
         			<p>
         				<div class="dropdown">
-        					<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
+        					<button class="btn btn-secondary dropdown-toggle botao" type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
 
 
         					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         						<?php 
+									$antigoHd = $cursos[0]['id_curso'].'dia1';
 	        						foreach ($cursos as $key => $value) {
 	        					?>
 
@@ -138,12 +141,46 @@
 	        							</button>
 
 	        							<script>
+	        								
+
 	        								function funcao<?php echo $cursos[$key]['id_curso']; ?>() {
+	        									
+	        									if (true){
+	        										document.getElementById('botoesDias').classList.remove('dias');
+	        										document.getElementById('navDias').className  = 'nav flex-column navegacao nav-50';
+	        									}
+
+
+	        									<?php
+
+	        									foreach ($cursos as $key1 => $value) {
+	        										?>
+	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia1';?>').className  = 'tab-pane fade';
+	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia2';?>').className  = 'tab-pane fade';
+	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia3';?>').className  = 'tab-pane fade';
+	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia4';?>').className  = 'tab-pane fade';
+	        										<?php
+	        									}
+
+	        									?>
+
 	        									document.getElementById("dropdownMenuButtonCurso").innerHTML = document.getElementById("<?php echo $cursos[$key]['id_curso']; ?>").innerHTML;
-	        									document.getElementById('dia1-tab').href = '<?php echo $cursos[$key]['id_curso'].'dia1';?>';
-	        									document.getElementById('dia2-tab').href = '<?php echo $cursos[$key]['id_curso'].'dia2';?>';
-	        									document.getElementById('dia3-tab').href = '<?php echo $cursos[$key]['id_curso'].'dia3';?>';
-	        									document.getElementById('dia4-tab').href = '<?php echo $cursos[$key]['id_curso'].'dia4';?>';
+	        									document.getElementById('dia1-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia1';?>';
+	        									document.getElementById('dia2-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia2';?>';
+	        									document.getElementById('dia3-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia3';?>';
+	        									document.getElementById('dia4-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia4';?>';
+	        									document.getElementById('<?= $cursos[$key]['id_curso'].'dia1';?>').className  = 'tab-pane fade show active';
+
+	        									
+	        									<?php 
+
+	        									if ($antigoHd != $cursos[$key]['id_curso'].'dia1') {
+	        										?>
+												document.getElementById('<?= $antigoHd;?>').className  = 'tab-pane fade';
+	        									<?php
+	        										$antigoHd = $cursos[$key]['id_curso'].'dia1';
+	        									}
+	        									?>
 	        								}
 	        							</script>
 
@@ -168,7 +205,6 @@
 														WHERE 
 														ORDER BY dia_Mcurso");	
 
-						}
 
         			?>
 
@@ -176,10 +212,10 @@
         				<!--------------------------- DIA 1 ------------------------------->
 
 
- 					<div class="tab-pane fade show active" id="<?= $cursos[0]['id_curso'].'dia1';?>" role="tabpanel" aria-labelledby="dia1-tab">
+ 					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia1';?>" role="tabpanel" aria-labelledby="dia1-tab">
 
 		        		<div class="col-md-10 dia-">
-		        			<span class="title">Minicursos dia 1</span>
+		        			<span class="title">Minicursos dia 16</span>
 
 		        			<div class="row ofertas">
 		        				<div class="col-2 horario">
@@ -188,7 +224,7 @@
 		        					<img class="linha" src="img/linha.png">
 		        				</div>
 
-		        				<div class="col-10">
+		        				<div class="col-10 dia3">
 			        					<div class="card text-white bg-info mb-3" style="width: 100%;">
 										  <div class="card-header">Arduino para iniciantes</div>
 										  <div class="card-body">
@@ -213,10 +249,10 @@
 
 
  					<!--------------------------- DIA 2 ------------------------------->
- 					<div class="tab-pane fade" id="<?= $cursos[1]['id_curso'].'dia2';?>" role="tabpanel" aria-labelledby="dia2-tab">
+ 					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia2';?>" role="tabpanel" aria-labelledby="dia2-tab">
 
 		        		<div class="col-md-10 dia-">
-		        			<span class="title">Minicursos dia 2</span>
+		        			<span class="title">Minicursos dia 17</span>
 
 		        			<div class="row ofertas">
 		        				<div class="col-2 horario">
@@ -256,10 +292,10 @@
 
 
  					<!--------------------------- DIA 3 ------------------------------->
- 					<div class="tab-pane fade" id="<?= $cursos[2]['id_curso'].'dia3';?>" role="tabpanel" aria-labelledby="dia3-tab">
+ 					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia3';?>" role="tabpanel" aria-labelledby="dia3-tab">
 
 		        		<div class="col-md-10 dia-">
-		        			<span class="title">Minicursos dai 3</span>
+		        			<span class="title">Minicursos dia 18</span>
 
 		        			<!-- HORA -->
 
@@ -271,7 +307,7 @@
 		        					<img class="linha" src="img/linha.png">
 		        				</div>
 
-		        				<div class="col-10">
+		        				<div class="col-10 dia1">
 									<div class="card text-white bg-info mb-3" style="width: 100%;">
 									  <div class="card-header">PHP é legal</div>
 									  <div class="card-body">
@@ -300,10 +336,10 @@
  					<!------------------------- FIM DIA 3 ----------------------------->
 
  					<!--------------------------- DIA 4 ------------------------------->
- 					<div class="tab-pane fade" id="<?= $cursos[3]['id_curso'].'dia4';?>" role="tabpanel" aria-labelledby="dia3-tab">
+ 					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia4';?>" role="tabpanel" aria-labelledby="dia3-tab">
 
 		        		<div class="col-md-10 dia-">
-		        			<span class="title">Minicursos dai 4</span>
+		        			<span class="title">Minicursos dia 19</span>
 
 		        			<!-- HORA -->
 
@@ -315,7 +351,7 @@
 		        					<img class="linha" src="img/linha.png">
 		        				</div>
 
-		        				<div class="col-10">
+		        				<div class="col-10 dia4">
 									<div class="card text-white bg-info mb-3" style="width: 100%;">
 									  <div class="card-header">PHP é legal</div>
 									  <div class="card-body">
@@ -342,6 +378,11 @@
 
  					</div> 
  					<!------------------------- FIM DIA 4 ----------------------------->
+
+ 				<?php 
+ 					}
+ 				?>
+
 
 
         		</div>

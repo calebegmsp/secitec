@@ -41,6 +41,7 @@
 
    require_once("../DAO/config.php");
    require_once("../DAO/class/sql.php");
+   set_time_limit(0);
 
    $sql = new Sql();
 

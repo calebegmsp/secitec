@@ -137,6 +137,15 @@ body, html, .inicial {
 .navegacao {
 	margin-bottom: 2em;
 	border-right: 2px solid yellow;
+	height: 100%;
+}
+
+.nav-50 {
+	height: 16em !important;
+}
+
+.dias {
+	display: none;
 }
 
 .dia {
@@ -185,21 +194,30 @@ body, html, .inicial {
 }
 
 
-#dia3 .bg-info {
-	background-color: #23a896 !important;
-}
-
-#dia3 .card-header {
-	background-color: #1f9e8c;
-}
 
 
-#dia1 .bg-info {
+.dia3 .bg-info {
 	background-color: #0378d8 !important;
 }
 
-#dia1 .card-header {
+.dia3 .card-header {
 	background-color: #0272ce;
+}
+
+.dia1 .bg-info {
+	background-color: #23a896 !important;
+}
+
+.dia1 .card-header {
+	background-color: #1f9e8c;
+}
+
+.dia4 .bg-info {
+	background-color: #229b7c !important;
+}
+
+.dia4 .card-header {
+	background-color: #1f9174;
 }
 
 .text-direitos {
@@ -356,6 +374,9 @@ body, html, .inicial {
 		}
 		.col-10 {
 			padding: 0px !important;
+		}
+		.nav-50 {
+			height: 10em !important;
 		}
 
 	}
