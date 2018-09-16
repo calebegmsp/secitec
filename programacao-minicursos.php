@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+		<title>SECITEC - Programação</title>
+
+
+			 <!-- Bootstrap -->
+	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	 	<link rel="shortcut icon" href="img/faicon.png">
+
+		<link rel="stylesheet" type="text/css" href="estilo/programacao.css">
+		<link rel="stylesheet" type="text/css" href="estilo/default.css">
+		<meta charset="utf-8">
+
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+	<script type="text/javascript">
+		$(window).scroll(function() {
+		if ($(this).scrollTop() > 700){  
+		    $('header').addClass("fixed-top");
+		  }
+		  else{
+		    $('header').removeClass("fixed-top");
+		  }
+		});
+	</script>
+
+</head>
+
+
+<?php 
+function limitarTexto($texto, $limite){
+  $contador = strlen($texto);
+  if ( $contador >= $limite ) {      
+      $texto = substr($texto, 0, strrpos(substr($texto, 0, $limite), ' ')) . '...';
+      return $texto;
+  }
+  else{
+    return $texto;
+  }
+} 
+
+
+function criarCard($nomeCurso, $localCurso){
+	echo "<div class='card text-white bg-info mb-3' style='width: 100%;'>
+				<div class='card-header'>".$nomeCurso."</div>
+					<div class='card-body'>
+						<h5 class='card-title'> Local: ".$localCurso."</h5>
+					</div>
+				</div>";
+}
+
+
+
+
+ ?>
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+
+	<div class="container inicial">
+
+<!-- MENU -->
+	<header>
+		<nav class="navbar navbar-expand-lg topo">
+
+		  <a class="men topo" href="index.html"><h1>II SECI<span id="tec">TEC</span></h1></a>
+
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+
+		  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+		    <ul class="navbar-nav">
+				<li class="nav-item menu">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+
+				<li class="nav-item menu">
+					<a class="nav-link" href="sobre.html">Sobre</a>
+				</li>	
+
+				<li class="nav-item menu">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="minicursos.php">Minicursos</a>
+							<a class="dropdown-item" href="palestras.php">Palestras</a>
+						</div>
+					</div>	
+				</li>
+
+				<li class="nav-item menu">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programação</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">Minicursos</a>
+							<a class="dropdown-item" href="programacao-palestras.php">Palestras</a>
+						</div>
+					</div>	
+				</li>
+
+				<li class="nav-ite menu">
+					<a class="nav-link" href="duvidas.html">Dúvidas</a>
+				</li>
+
+		    </ul>
+
+		  </div>
+		</nav>
+	</header>
+<!-- FIM MENU -->
+
+
+
+
+
+		<div class="programaco">
+			
+        <div class="container">
+
+        	<div class="row prog">
+
+        		<div class="col-md-2">
+
+        			<nav id="navDias" class="nav flex-column navegacao dias">
+
+        				<a class="nav-link dia active" id="dia1-tab" data-toggle="tab" href="#dia1" role="tab" aria-controls="dia1">Dia 16</a>
+						<a class="nav-link dia" id="dia2-tab" data-toggle="tab" href="#dia2" role="tab" aria-controls="dia2" >Dia 17</a>
+						<a class="nav-link dia" id="dia3-tab" data-toggle="tab" href="#dia3" role="tab" aria-controls="dia3" >Dia 18</a>
+						<a class="nav-link dia" id="dia4-tab" data-toggle="tab" href="#dia4" role="tab" aria-controls="dia4" >Dia 19</a>
+					</nav>
+
+        		</div>
+
+        		<?php
+	        		require_once("DAO/config.php");
+	        		require_once("DAO/class/sql.php");
+	        		$sql = new Sql();
+	        		$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+        		 ?>
+
+
+        		<div class="tab-content" id="myTabContent">
+
+        			<p>
+        				<div class="dropdown">
+        					<button class="btn btn-secondary dropdown-toggle botao" type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
+
+
+        					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        						<?php 
+									$antigoHd = $cursos[0]['id_curso'].'dia1';
+	        						foreach ($cursos as $key => $value) {
+	        					?>
+
+	        							<button id="<?= $cursos[$key]['id_curso']; ?>" class="dropdown-item" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="funcao<?php echo $cursos[$key]['id_curso']; ?>()">
+	        								<?php echo $cursos[$key]['nome_curso'];?>
+	        							</button>
+
+	        							<script>
+	        								
+
+	        								function funcao<?php echo $cursos[$key]['id_curso']; ?>() {
+	        									
+	        									if (true){
+	        										document.getElementById('navDias').className  = 'nav flex-column navegacao nav-50';
+	        									}
+
+
+	        									<?php
+
+	        									foreach ($cursos as $key1 => $value) {
+	        										?>
+	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia1';?>').className  = 'tab-pane fade';
+	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia2';?>').className  = 'tab-pane fade';
+	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia3';?>').className  = 'tab-pane fade';
+	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia4';?>').className  = 'tab-pane fade';
+	        										document.getElementById('dia1-tab').className  = 'nav-link dia active';
+	        										document.getElementById('dia2-tab').className  = 'nav-link dia';
+	        										document.getElementById('dia3-tab').className  = 'nav-link dia';
+	        										document.getElementById('dia4-tab').className  = 'nav-link dia';
+	        										<?php
+	        									}
+
+	        									?>
+
+	        									document.getElementById("dropdownMenuButtonCurso").innerHTML = document.getElementById("<?php echo $cursos[$key]['id_curso']; ?>").innerHTML;
+	        									document.getElementById('dia1-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia1';?>';
+	        									document.getElementById('dia2-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia2';?>';
+	        									document.getElementById('dia3-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia3';?>';
+	        									document.getElementById('dia4-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia4';?>';
+	        									document.getElementById('<?= $cursos[$key]['id_curso'].'dia1';?>').className  = 'tab-pane fade show active';
+
+	        									
+	        									<?php 
+
+	        									if ($antigoHd != $cursos[$key]['id_curso'].'dia1') {
+	        										?>
+												document.getElementById('<?= $antigoHd;?>').className  = 'tab-pane fade';
+	        									<?php
+	        										$antigoHd = $cursos[$key]['id_curso'].'dia1';
+	        									}
+	        									?>
+	        								}
+	        							</script>
+
+
+	        							<?php
+	        						}
+
+        						 ?>
+        					</div>
+        				</div>	
+
+        			</p>
+
+
+
+        			<?php
+
+        				foreach ($cursos as $key => $value) {
+
+        			?>
+
+
+        				<!--------------------------- DIA 1 ------------------------------->
+
+
+ 					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia1';?>" role="tabpanel" aria-labelledby="dia1-tab">
+
+		        		<div class="col dia-col">
+		        			<span class="title">Minicursos dia 16</span>
+
+
+		        				<?php
+		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
+		        				FROM Minicurso as M
+		        				INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+		        				WHERE M.dia_Mcurso >='2018-10-16 00:00:00'
+		        				AND M.dia_Mcurso <'2018-10-17 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
+		        				" ORDER BY dia_Mcurso";
+		        				$minicursos = $sql->select("$codigoBuscaPorDia");
+		        				$hora = 25;
+
+		        				if (!count($minicursos)) {
+		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhum minicurso nesse dia</span>";
+		        				}
+
+
+		        				foreach ($minicursos as $keyM => $value) {
+
+		        				$horaAnterior = new DateTime($minicursos[$keyM]['dia_Mcurso']);
+								
+								if ($hora != $horaAnterior->format('H:i')) {
+									# code...
+
+
+		        				?>
+
+
+		        			<div class="row ofertas">
+		        				<div class="col-2 horario">
+		        					<span class="text-hora"><?php echo $horaAnterior->format('H:i') ?><br></span>
+		        					
+		        					<img class="linha" src="img/linha.png">
+		        				</div>
+
+		        				<div class="col-10 dia3">
+
+
+		        					<?php
+		        					$keyMM = $keyM;
+		        					$HoraIgual = $minicursos[$keyM]['dia_Mcurso'];
+		        					do {
+		        						criarCard($minicursos[$keyM]['nome_Mcurso'],$minicursos[$keyM]['local_Mcurso']);		        						
+		        						$keyMM++;	
+		        					} while ($keyMM < count($minicursos)  && $minicursos[$keyMM]['dia_Mcurso'] == $HoraIgual)
+
+		        					?>
+
+
+
+
+		        				</div>
+		        			</div>
+
+
+
+								<?php
+
+									}
+									$hora = $horaAnterior->format('H:i');
+								}
+
+								?>
+
+		        		</div> 						
+        			</div>
+
+        			
+ 					<!------------------------- FIM DIA 1 ----------------------------->
+
+
+
+        				<!--------------------------- DIA 2 ------------------------------->
+
+
+ 					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia2';?>" role="tabpanel" aria-labelledby="dia2-tab">
+
+		        		<div class="col dia-col">
+		        			<span class="title">Minicursos dia 17</span>
+
+
+		        				<?php
+		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
+		        				FROM Minicurso as M
+		        				INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+		        				WHERE M.dia_Mcurso >='2018-10-17 00:00:00'
+		        				AND M.dia_Mcurso <'2018-10-18 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
+		        				" ORDER BY dia_Mcurso";
+		        				$minicursos = $sql->select("$codigoBuscaPorDia");
+		        				$hora = 25;
+		        				if (!count($minicursos)) {
+		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhum minicurso nesse dia</span>";
+		        				}
+
+		        				foreach ($minicursos as $keyM => $value) {
+
+		        				$horaAnterior = new DateTime($minicursos[$keyM]['dia_Mcurso']);
+
+								
+
+								if ($hora != $horaAnterior->format('H:i')) {
+									# code...
+
+
+		        				?>
+
+
+		        			<div class="row ofertas">
+		        				<div class="col-2 horario">
+		        					<span class="text-hora"><?php echo $horaAnterior->format('H:i') ?><br></span>
+		        					
+		        					<img class="linha" src="img/linha.png">
+		        				</div>
+
+		        				<div class="col-10">
+
+
+		        					<?php
+		        					$keyMM = $keyM;
+		        					$HoraIgual = $minicursos[$keyM]['dia_Mcurso'];
+		        					do {
+		        						criarCard($minicursos[$keyM]['nome_Mcurso'],$minicursos[$keyM]['local_Mcurso']);		        						
+		        						$keyMM++;	
+		        					} while ($keyMM < count($minicursos)  && $minicursos[$keyMM]['dia_Mcurso'] == $HoraIgual)
+
+		        					?>
+
+
+
+
+		        				</div>
+		        			</div>
+
+
+
+								<?php
+
+									}
+									$hora = $horaAnterior->format('H:i');
+								}
+
+								?>
+
+		        		</div> 						
+        			</div>
+
+        			
+ 					<!------------------------- FIM DIA 2 ----------------------------->
+
+
+        				<!--------------------------- DIA 3 ------------------------------->
+
+
+ 					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia3';?>" role="tabpanel" aria-labelledby="dia2-tab">
+
+		        		<div class="col dia-col">
+		        			<span class="title">Minicursos dia 18</span>
+
+
+		        				<?php
+		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
+		        				FROM Minicurso as M
+		        				INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+		        				WHERE M.dia_Mcurso >='2018-10-18 00:00:00'
+		        				AND M.dia_Mcurso <'2018-10-19 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
+		        				" ORDER BY dia_Mcurso";
+		        				$minicursos = $sql->select("$codigoBuscaPorDia");
+		        				$hora = 25;
+		        				if (!count($minicursos)) {
+		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhum minicurso nesse dia</span>";
+		        				}
+
+		        				foreach ($minicursos as $keyM => $value) {
+
+		        				$horaAnterior = new DateTime($minicursos[$keyM]['dia_Mcurso']);
+
+								
+
+								if ($hora != $horaAnterior->format('H:i')) {
+									# code...
+
+
+		        				?>
+
+
+		        			<div class="row ofertas">
+		        				<div class="col-2 horario">
+		        					<span class="text-hora"><?php echo $horaAnterior->format('H:i') ?><br></span>
+		        					
+		        					<img class="linha" src="img/linha.png">
+		        				</div>
+
+		        				<div class="col-10 dia1">
+
+
+		        					<?php
+		        					$keyMM = $keyM;
+		        					$HoraIgual = $minicursos[$keyM]['dia_Mcurso'];
+		        					do {
+										criarCard($minicursos[$keyM]['nome_Mcurso'],$minicursos[$keyM]['local_Mcurso']);		        						
+		        						$keyMM++;	
+		        					} while ($keyMM < count($minicursos)  && $minicursos[$keyMM]['dia_Mcurso'] == $HoraIgual)
+
+		        					?>
+
+
+
+
+		        				</div>
+		        			</div>
+
+
+
+								<?php
+
+									}
+									$hora = $horaAnterior->format('H:i');
+								}
+
+								?>
+
+		        		</div> 						
+        			</div>
+
+        			
+ 					<!------------------------- FIM DIA 3 ----------------------------->
+
+
+        				<!--------------------------- DIA 4 ------------------------------->
+
+
+ 					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia4';?>" role="tabpanel" aria-labelledby="dia2-tab">
+
+		        		<div class="col dia-col">
+		        			<span class="title">Minicursos dia 19</span>
+
+
+		        				<?php
+		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
+		        				FROM Minicurso as M
+		        				INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+		        				WHERE M.dia_Mcurso >='2018-10-19 00:00:00'
+		        				AND M.dia_Mcurso <'2018-10-20 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
+		        				" ORDER BY dia_Mcurso";
+		        				$minicursos = $sql->select("$codigoBuscaPorDia");
+		        				$hora = 25;
+		        				if (!count($minicursos)) {
+		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhum minicurso nesse dia</span>";
+		        				}
+
+		        				foreach ($minicursos as $keyM => $value) {
+
+		        				$horaAnterior = new DateTime($minicursos[$keyM]['dia_Mcurso']);
+
+								
+
+								if ($hora != $horaAnterior->format('H:i')) {
+									# code...
+
+
+		        				?>
+
+
+		        			<div class="row ofertas">
+		        				<div class="col-2 horario">
+		        					<span class="text-hora"><?php echo $horaAnterior->format('H:i') ?><br></span>
+		        					
+		        					<img class="linha" src="img/linha.png">
+		        				</div>
+
+		        				<div class="col-10 dia4">
+
+
+		        					<?php
+		        					$keyMM = $keyM;
+		        					$HoraIgual = $minicursos[$keyM]['dia_Mcurso'];
+		        					do {
+										criarCard($minicursos[$keyM]['nome_Mcurso'],$minicursos[$keyM]['local_Mcurso']);		        						
+		        						$keyMM++;	
+		        					} while ($keyMM < count($minicursos)  && $minicursos[$keyMM]['dia_Mcurso'] == $HoraIgual)
+
+		        					?>
+
+
+
+
+		        				</div>
+		        			</div>
+
+
+
+								<?php
+
+									}
+									$hora = $horaAnterior->format('H:i');
+								}
+
+								?>
+
+		        		</div> 						
+        			</div>
+
+        			
+ 					<!------------------------- FIM DIA 4 ----------------------------->
+
+
+
+ 				<?php 
+ 					}
+ 				?>
+
+
+
+        		</div>
+
+
+        	</div>    
+
+
+
+
+
+
+
+        </div>    
+
+
+
+	</div>
+
+</div>
+
+  
+
+ 
+ <footer id="rodape">
+ 	<div class="container">
+ 		<div class="row">
+	 		<div class="col-md-6 direitos">
+	      	 <p class="text-direitos" >II SECITEC &copy; Icons made by Freepik from <a class="rodape-link" href="https://www.flaticon.com" target="_blank" >www.flaticon.com</a></p>
+	     	</div>
+	     	<div class="col-md-6 desenvolvido">
+	      	 <p class="text-direitos" >Desenvolvido por <b>Calebe Pereira</b> e <b>Layne Castro</b></p>
+	     	</div>
+ 		</div>
+     
+ 		
+ 	</div>
+ 	
+ </footer>
+
+
+
+
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>

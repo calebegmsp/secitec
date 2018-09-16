@@ -60,8 +60,8 @@
 						<div class="dropdown">
 							<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programação</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="programacao-minucursos.html">Minicursos</a>
-								<a class="dropdown-item" href="programacao-palestras.html">Palestras</a>
+								<a class="dropdown-item" href="programacao-minicursos.php">Minicursos</a>
+								<a class="dropdown-item" href="programacao-palestras.php">Palestras</a>
 							</div>
 						</div>	
 					</li>
@@ -106,19 +106,8 @@
 
 
 /* Esse for roda por todos os cursos */
-	foreach ($cursos as $row) {
-
-	$nomeCurso = array();
+	foreach ($cursos as $row => $value) {
 	$contC = 0;
-
-/* Esse for pega as informações do curso e insere em nomeCurso */
-	$cont1 = 0;
-	foreach ($row as $key => $value) {
-		
-		$nomeCurso[$cont1] = $value;
-		$cont1++;
-
-	}
 
 ?>
 
@@ -128,12 +117,12 @@
 
 					    <div class="col-md-12">
 
-						     <a class="btn-duv" href="#" data-toggle="collapse" data-target="#<?= $nomeCurso[0]?>" aria-expanded="true">
+						     <a class="btn-duv" href="#" data-toggle="collapse" data-target="#<?= $cursos[$row]['id_curso']?>" aria-expanded="true">
 									    <div class="row D1">
 									    	<div class="col-md-12 text">
 									    		 <span class="duv-text">
 									    		 	<?php
-									    		 	echo $nomeCurso[1];
+									    		 	echo $cursos[$row]['nome_curso'];
 									    		 	?>
 
 									    		 </span>
@@ -141,7 +130,7 @@
 							            </div>
 						    </a>
 
-						    <div id="<?= $nomeCurso[0]?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+						    <div id="<?= $cursos[$row]['id_curso']?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 
 						     	<div class="card-body resposta">
 
@@ -158,36 +147,26 @@
 
 *************************************************************/
 
+$idCurso = $cursos[$row]['id_curso'];
+
 $minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
 							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
 							FROM Palestras as M
 							INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
-							WHERE M.FK_Curso_id_curso = $nomeCurso[0] 
+							WHERE M.FK_Curso_id_curso = $idCurso
 							ORDER BY dia_Mcurso");
 
 
-foreach ($minicursos as $row) {
-
-	$valor = array();
-
-
-/* Esse for pegas as informações dos minicursos e joga em valor */
-	$cont = 0;
-	foreach ($row as $key => $value) {
-		
-		$valor[$cont] = $value;
-		$cont++;
-
-	}
+foreach ($minicursos as $row2 => $value) {
 
 /* Trata a imagem do minicurso */
 
 $imgMinicurso;
 
-if (file_exists($valor[8])){
-	$imgMinicurso = $valor[8];
+if (file_exists($minicursos[$row2]['img_Minicurso'])){
+	$imgMinicurso = $minicursos[$row2]['img_Minicurso'];
 } else {
-	$imgMinicurso = $nomeCurso[2];
+	$imgMinicurso = $cursos[$row]['imgPadrao_curso'];
 }
 
 /* Trata a cor dos card */
@@ -201,7 +180,7 @@ if (($contC % 2) == 0){
 
 										<div class="col-md-4 card-full">
 
-											  <a data-toggle="modal" data-target="#<?= $nomeCurso[0]; ?>a<?=$contC; ?>">
+											  <a data-toggle="modal" data-target="#<?= $cursos[$row]['id_curso']; ?>a<?=$contC; ?>">
 
 												<div class="card <?=$corCard?>">
 
@@ -213,10 +192,10 @@ if (($contC % 2) == 0){
 													    <h5 class="card-title">
 													   	
 													   	<?php
-													   		if (strlen($valor[1]) < 60){
-													   			echo $valor[1];
+													   		if (strlen($minicursos[$row2]['nome_Mcurso']) < 60){
+													   			echo $minicursos[$row2]['nome_Mcurso'];
 													   		} else {
-													   			echo substr($valor[1], 0, 60)."...";
+													   			echo substr($minicursos[$row2]['nome_Mcurso'], 0, 60)."...";
 													   		}
 
 													   	?>
@@ -225,25 +204,34 @@ if (($contC % 2) == 0){
 														</h5>
 
 														<?php
-													   		if (strlen($valor[2]) < 70){
-													   			echo $valor[2];
+													   		if (strlen($minicursos[$row2]['des_Mcurso']) < 70){
+													   			echo $minicursos[$row2]['des_Mcurso'];
 													   		} else {
-													   			echo substr($valor[2], 0, 70)."...";
+													   			echo substr($minicursos[$row2]['des_Mcurso'], 0, 70)."...";
 													   		}
 													   	?>
 
 
 														<div class="card-info">
-															<span class="dia">
-														  	
-														  	<?php
-														   		echo $valor[3];
-														   	?>
+															<?php 
+															if ($minicursos[$row2]['local_Mcurso'] != "") {
+															?>
+																<span class="dia">
+															  	
+															  	<?php
+															   		echo $minicursos[$row2]['local_Mcurso'];
+															   	?>
 
-														  	</span>	 <br>
+															  	</span>	<br/>
+
+														  	<?php 
+														  	} else {
+														  		echo "<br/>";
+														  	}
+														  	?>
 														  	<span class="dia">
 														  	<?php
-														  	$date = new DateTime($valor[4]);
+														  	$date = new DateTime($minicursos[$row2]['dia_Mcurso']);
 															echo $date->format('d/m/Y');
 															echo " às ".$date->format('H')."h".$date->format('i')."min";
 														   	?>
@@ -261,7 +249,7 @@ if (($contC % 2) == 0){
 
 											<!-- Modal -->
 
-											<div class="modal fade" id="<?= $nomeCurso[0]; ?>a<?=$contC; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+											<div class="modal fade" id="<?= $cursos[$row]['id_curso']; ?>a<?=$contC; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 											    <div class="modal-dialog modal-dialog-centered" role="document">
 											    	<div class="modal-content">
 
@@ -269,7 +257,7 @@ if (($contC % 2) == 0){
 													        <h5 class="modal-title" id="exampleModalCenterTitle">
 													        	
 													        <?php
-													   		echo $valor[1];
+													   		echo $minicursos[$row2]['nome_Mcurso'];
 													   		?>
 
 													        </h5>
@@ -280,31 +268,31 @@ if (($contC % 2) == 0){
 
 												    	<div class="modal-body">
 												        <?php
-													   		echo $valor[2];
+													   		echo $minicursos[$row2]['des_Mcurso'];
 													   	?>
 												        .<br><br>
 												        <span class="sobre">
 												        Ministrante: 
 												        <?php
-													   		echo $valor[5];
+													   		echo $minicursos[$row2]['ministrante_Mcurso'];
 													   	?>	
 												        <br>
 												        Carga horária: 
 									  		    		<?php
-													   		echo number_format($valor[6],2,":",".")." horas";
+													   		echo number_format($minicursos[$row2]['ch_Mcurso'],2,":",".")." horas";
 													   	?>	
 									  		    		<br>
 									  		    		Número de vagas:
 											    		<?php
-													   		echo $valor[7];
+													   		echo $minicursos[$row2]['vagas_Mcurso'];
 													   	?>	<br>
 													   	Local: 
 											    		<?php
-													   		echo $valor[3];
+													   		echo $minicursos[$row2]['local_Mcurso'];
 													   	?>	
 											    		<br>
 											    		<?php
-														  	$date = new DateTime($valor[4]);
+														  	$date = new DateTime($minicursos[$row2]['dia_Mcurso']);
 															echo $date->format('d/m/Y');
 															echo " às ".$date->format('H')."h".$date->format('i')."min";
 														 ?>
