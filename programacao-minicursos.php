@@ -155,7 +155,7 @@ function criarCard($nomeCurso, $localCurso){
 	        		require_once("DAO/config.php");
 	        		require_once("DAO/class/sql.php");
 	        		$sql = new Sql();
-	        		$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+	        		$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso");
         		 ?>
 
 
@@ -253,8 +253,8 @@ function criarCard($nomeCurso, $localCurso){
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM Minicurso as M
-		        				INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+		        				FROM minicurso as M
+		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-16 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-17 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
 		        				" ORDER BY dia_Mcurso";
@@ -291,7 +291,7 @@ function criarCard($nomeCurso, $localCurso){
 		        					$keyMM = $keyM;
 		        					$HoraIgual = $minicursos[$keyM]['dia_Mcurso'];
 		        					do {
-		        						criarCard($minicursos[$keyM]['nome_Mcurso'],$minicursos[$keyM]['local_Mcurso']);		        						
+		        						criarCard($minicursos[$keyMM]['nome_Mcurso'],$minicursos[$keyMM]['local_Mcurso']);		        						
 		        						$keyMM++;	
 		        					} while ($keyMM < count($minicursos)  && $minicursos[$keyMM]['dia_Mcurso'] == $HoraIgual)
 
@@ -332,8 +332,8 @@ function criarCard($nomeCurso, $localCurso){
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM Minicurso as M
-		        				INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+		        				FROM minicurso as M
+		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-17 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-18 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
 		        				" ORDER BY dia_Mcurso";
@@ -370,7 +370,7 @@ function criarCard($nomeCurso, $localCurso){
 		        					$keyMM = $keyM;
 		        					$HoraIgual = $minicursos[$keyM]['dia_Mcurso'];
 		        					do {
-		        						criarCard($minicursos[$keyM]['nome_Mcurso'],$minicursos[$keyM]['local_Mcurso']);		        						
+		        						criarCard($minicursos[$keyMM]['nome_Mcurso'],$minicursos[$keyMM]['local_Mcurso']);		        						
 		        						$keyMM++;	
 		        					} while ($keyMM < count($minicursos)  && $minicursos[$keyMM]['dia_Mcurso'] == $HoraIgual)
 
@@ -410,8 +410,8 @@ function criarCard($nomeCurso, $localCurso){
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM Minicurso as M
-		        				INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+		        				FROM minicurso as M
+		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-18 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-19 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
 		        				" ORDER BY dia_Mcurso";
@@ -448,7 +448,7 @@ function criarCard($nomeCurso, $localCurso){
 		        					$keyMM = $keyM;
 		        					$HoraIgual = $minicursos[$keyM]['dia_Mcurso'];
 		        					do {
-										criarCard($minicursos[$keyM]['nome_Mcurso'],$minicursos[$keyM]['local_Mcurso']);		        						
+										criarCard($minicursos[$keyMM]['nome_Mcurso'],$minicursos[$keyMM]['local_Mcurso']);		        						
 		        						$keyMM++;	
 		        					} while ($keyMM < count($minicursos)  && $minicursos[$keyMM]['dia_Mcurso'] == $HoraIgual)
 
@@ -488,8 +488,8 @@ function criarCard($nomeCurso, $localCurso){
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM Minicurso as M
-		        				INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+		        				FROM minicurso as M
+		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-19 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-20 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
 		        				" ORDER BY dia_Mcurso";
@@ -526,7 +526,7 @@ function criarCard($nomeCurso, $localCurso){
 		        					$keyMM = $keyM;
 		        					$HoraIgual = $minicursos[$keyM]['dia_Mcurso'];
 		        					do {
-										criarCard($minicursos[$keyM]['nome_Mcurso'],$minicursos[$keyM]['local_Mcurso']);		        						
+										criarCard($minicursos[$keyMM]['nome_Mcurso'],$minicursos[$keyMM]['local_Mcurso']);		        						
 		        						$keyMM++;	
 		        					} while ($keyMM < count($minicursos)  && $minicursos[$keyMM]['dia_Mcurso'] == $HoraIgual)
 

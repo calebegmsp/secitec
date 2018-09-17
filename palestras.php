@@ -19,6 +19,21 @@
 
 </head>
 
+<script type="text/javascript">
+		var localPag;
+		function topoOfertas (local){
+			localPag = local;
+			setTimeout(ajusatPagina, 500);
+
+		}
+
+		function ajusatPagina (local){
+			 window.location="palestras.php#"+localPag;
+		}
+
+</script>
+
+
 <body>
 
 
@@ -102,7 +117,7 @@
 
 	$sql = new Sql();
 
-	$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+	$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso");
 
 
 /* Esse for roda por todos os cursos */
@@ -117,10 +132,10 @@
 
 					    <div class="col-md-12">
 
-						     <a class="btn-duv" href="#" data-toggle="collapse" data-target="#<?= $cursos[$row]['id_curso']?>" aria-expanded="true">
+						     <a class="btn-duv" href="#" data-toggle="collapse" data-target="#<?= $cursos[$row]['id_curso']?>" aria-expanded="true" onclick="topoOfertas('curso<?= $cursos[$row]['id_curso']?>');">
 									    <div class="row D1">
 									    	<div class="col-md-12 text">
-									    		 <span class="duv-text">
+									    		 <span id="curso<?= $cursos[$row]['id_curso']?>"  class="duv-text">
 									    		 	<?php
 									    		 	echo $cursos[$row]['nome_curso'];
 									    		 	?>
@@ -151,8 +166,8 @@ $idCurso = $cursos[$row]['id_curso'];
 
 $minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
 							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-							FROM Palestras as M
-							INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+							FROM palestras as M
+							INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 							WHERE M.FK_Curso_id_curso = $idCurso
 							ORDER BY dia_Mcurso");
 

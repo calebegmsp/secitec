@@ -12,7 +12,7 @@ if(isset($_POST['submitLogin'])){
 
     if (!$nome_login == "" || !$senha == ""){
         $usuario = $sql->query("SELECT DISTINCT * 
-            FROM Usuarios 
+            FROM usuarios 
             WHERE nome_login = '$nome_login'
             and senha = '$senha'");
 
@@ -24,7 +24,7 @@ if(isset($_POST['submitLogin'])){
             $_SESSION['nome'] = $user['nome_completo'];
             ?>
             <script type="text/javascript" >
-               location.href="gerenciadorMinicursos.php";
+               location.href="GerenciadorMinicursos.php";
             </script>
             <?php
         }

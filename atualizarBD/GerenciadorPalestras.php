@@ -19,11 +19,20 @@
      <meta charset="utf-8">
 
      <!------ Include the above in your HEAD tag ---------->
-
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-md align-self-end usuario">
+                <?php echo $_SESSION['nome'];?>
+            </div>
+            <div class="col-md-1 align-self-end">
+                <a href="autenticar.php?logout=ok" class="btn btn-primary">Sair</a>
+            </div>
+        </div>    
+    </div>
 
      <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Gerenciar dados dos Palestras</h1>
+            <h1 class="jumbotron-heading">Gerenciar dados das Palestras</h1>
         </div>
     </section>
 
@@ -47,8 +56,8 @@
 
    $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
     M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-    FROM Palestras as M
-    INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+    FROM palestras as M
+    INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
     ORDER BY M.nome_Mcurso");
 
    foreach ($minicursos as $key => $value) {
@@ -174,7 +183,7 @@
                 $id_Mcurso = $_POST['id_minicurso'];
 
 
-                $codigo = "DELETE FROM Palestras WHERE id_Mcurso = '$id_Mcurso'";
+                $codigo = "DELETE FROM palestras WHERE id_Mcurso = '$id_Mcurso'";
 
 
                 $sql->query($codigo);
@@ -212,7 +221,7 @@
             <select class="form-control" name="id_curso" id="id_curso">
 
                 <?php
-                    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+                    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso");
                     foreach ($cursos as $key2 => $value2) {
                         if ($cursos[$key2]['id_curso'] ==  $minicursos[$key]['FK_Curso_id_curso']) {
                             echo "<option value =\"".$cursos[$key2]['id_curso']."\" selected >".$cursos[$key2]['nome_curso']."</option>";
@@ -335,7 +344,7 @@
                 $endereco_imagem = "img/img-cards/palestras/".$nomehash.".".$extensao;
 
                 if ($nomeArquivo != ""){
-                    $codigo = "UPDATE Palestras SET 
+                    $codigo = "UPDATE palestras SET 
                     nome_Mcurso = '$nome_Mcurso',
                     des_Mcurso = '$des_Mcurso',
                     local_Mcurso = '$local_Mcurso',
@@ -347,7 +356,7 @@
                     FK_Curso_id_curso = $FK_Curso_id_curso
                     WHERE id_Mcurso = $id_Mcurso"; 
                 } else {
-                    $codigo = "UPDATE Palestras SET 
+                    $codigo = "UPDATE palestras SET 
                     nome_Mcurso = '$nome_Mcurso',
                     des_Mcurso = '$des_Mcurso',
                     local_Mcurso = '$local_Mcurso',
@@ -412,12 +421,12 @@
 
 $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
     M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-    FROM Minicurso as M
-    INsNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+    FROM palestras as M
+    INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
     ORDER BY M.nome_Mcurso");
 
 
-$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso");
 
 
 ?>
@@ -558,7 +567,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso"
             $endereco_imagem = "img/img-cards/palestras/".$nomehash.".".$extensao;
 
 
-            $codigoInsert = "INSERT INTO Palestras (nome_Mcurso, des_Mcurso, local_Mcurso, dia_Mcurso, ministrante_Mcurso, ch_Mcurso, vagas_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$dia_Mcurso', '$ministrante_Mcurso', '$carga_Mcurso', '$vagas_Mcurso', '$endereco_imagem', $FK_Curso_id_curso)";
+            $codigoInsert = "INSERT INTO palestras (nome_Mcurso, des_Mcurso, local_Mcurso, dia_Mcurso, ministrante_Mcurso, ch_Mcurso, vagas_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$dia_Mcurso', '$ministrante_Mcurso', '$carga_Mcurso', '$vagas_Mcurso', '$endereco_imagem', $FK_Curso_id_curso)";
 
 
             $sql->query($codigoInsert);
