@@ -155,7 +155,7 @@ function criarCard($nomeCurso, $localCurso){
 	        		require_once("DAO/config.php");
 	        		require_once("DAO/class/sql.php");
 	        		$sql = new Sql();
-	        		$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso");
+	        		$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso ORDER BY nome_curso");
         		 ?>
 
 

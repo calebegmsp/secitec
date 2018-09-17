@@ -117,7 +117,7 @@
 
 	$sql = new Sql();
 
-	$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso");
+	$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso ORDER BY nome_curso");
 
 
 /* Esse for roda por todos os cursos */
@@ -364,7 +364,7 @@ $contC++;
 
 </div>
 
- <footer class="footer navbar-fixed-bottom">
+ <footer id="rodape" class="footer navbar-fixed-bottom">
  	<div class="container">
  		<div class="row">
 	 		<div class="col-md-6 direitos">

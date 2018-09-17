@@ -6,7 +6,7 @@
 		<title>SECITEC - Programação</title>
 
 
-			 <!-- Bootstrap -->
+		<!-- Bootstrap -->
 	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="estilo/default.css">
 		<meta charset="utf-8">
 
-	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
 
 	<script type="text/javascript">
 		$(window).scroll(function() {
@@ -29,6 +29,7 @@
 		  }
 		});
 	</script>
+
 
 </head>
 
@@ -155,7 +156,7 @@ function criarCard($nomeCurso, $localCurso){
 	        		require_once("DAO/config.php");
 	        		require_once("DAO/class/sql.php");
 	        		$sql = new Sql();
-	        		$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso");
+	        		$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso ORDER BY nome_curso");
         		 ?>
 
 
@@ -609,4 +610,7 @@ function criarCard($nomeCurso, $localCurso){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+
 </body>
+
+</html>
