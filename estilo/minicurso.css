@@ -1,23 +1,16 @@
 
-#tec {
-	color: yellow;
+body {
+	height: 97%;
 }
 
-
-.fixed-top {
-	height: 5em;
-	opacity: 1;
-	transition: 0.7s;
-	background-color: #6954c9;
-	padding: 0em 1em;
+#tec {
+	color: yellow;
 }
 
 .inicial {
 	min-height: 100% !important;
 	min-width: 100%;
-	
 }
-
 
 .topo {
 	padding-right: 1em;
@@ -42,61 +35,7 @@
 	user-select: none; 
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.nav-link {
-	font-style: normal;
-	color: white;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.nav-link:hover {
-	color: rgb(9, 227, 205);
-}
-
-
-.botao {
-	padding-top: 0.5em;
-	background-color: transparent;
-	border-style: none;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.botao:hover {
-	color: rgb(9, 227, 205);
-    background-color: transparent;
-}
-
-.botao:hover .dropdown-item {
-	display: block;
-}
-
-.dropdown-menu {
-	background-color: #751cce;
-}
-
-.dropdown-item {
-	color: white;
-	font-size: 1.04em;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.dropdown-item:hover {
-	color: rgb(9, 227, 205);
-	background-color: transparent;
-
-}
-
 .minicursos {
-	min-height: 100%;
 	margin-top: 1em;
 	
 }
@@ -105,7 +44,7 @@
 	margin-top: 0.5em;
 	text-align: center;
 	padding: 0.5em;
-	color: white;
+	color: black;
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 700;
 
@@ -136,7 +75,7 @@
 
 .btn-duv {
 	font-size: 1.3em;
-	color: white;
+	color: black;
 }
 
 .btn-duv:hover {
@@ -146,14 +85,14 @@
 
 .D1 {
 	border-radius: 3px;
-	background-color: #4f8ff7;
+	background-color: #babec4;
 	margin-bottom: 0.5em;
 	padding: 0.5em;
 	box-shadow: 0px 0px 3px black;
 }
 
 .D1:hover {
-	opacity: 0.9;
+	opacity: 0.8;
 }
 
 .resposta {
@@ -168,7 +107,7 @@
 	white-space: nowrap;
 	padding: 0em 0.5em;
 	margin: 0.1em;
-	background-color: rgb(31, 132, 129);
+	background-color: #69686d;
 	border-radius: 20px;
 }
 
@@ -198,18 +137,30 @@
 }
 
 .card-azul-escuro {
-	background-color: #a5d4ff;
+	background-color: #bbc3ce;
 }
 
 .card-azul-claro {
-	background-color: #a3ffe0;
+	background-color: #dae2ef;
+}
+
+.card-title {
+	color: black;
+}
+
+.bg-info {
+	background-color: #d4d4d6 !important;
+}
+
+.card-body {
+	background-color: unset;
 }
 
 .text-direitos {
 	font-size: 10pt;
 	padding: 0;
 	margin: 0;
-	color: white;
+	color: black;
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 700;
 }
@@ -271,7 +222,7 @@
 }
 
 .rodape-link {
-	color: white;
+	color: black;
 }
 
 .rodape-link:hover {
@@ -300,7 +251,6 @@
 
 @media screen and (max-width: 991px){
 	.navbar-nav {
-		background-color: rgba(117, 28, 206, .9);
 		border: 1px inset black;
 		text-align: center;
 	}

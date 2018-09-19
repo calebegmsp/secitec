@@ -1,19 +1,7 @@
-body, html, .inicial {
-	height: 100%;
-	background-color: #751cce;
-	background-image: url("../img/background-t2.png");
-	background-repeat: no-repeat;
-	background-position: bottom;
-	background-size: 100%;
-	background-attachment: fixed;
+body {
+	height: 97%;
 }
 
-
-
-#rodape {
-	background-color: #6954c9;
-	padding: 0.5em; 
-}
 
 #contato{
 	padding: 1em 0em;
@@ -22,21 +10,10 @@ body, html, .inicial {
 }
 
 
-
-
-.fixed-top {
-	height: 5em;
-	opacity: 1;
-	transition: 0.7s;
-	background-color: #6954c9;
-	padding: 0em 1em;
-}
-
-
 .inicial {
+	min-height: 100% !important;
 	min-width: 100%;
 
-	
 }
 
 
@@ -63,59 +40,6 @@ body, html, .inicial {
 	user-select: none; 
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.nav-link {
-	font-style: normal;
-	color: white;
-    font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.nav-link:hover {
-	color: rgb(9, 227, 205);
-}
-
-
-.botao {
-	padding-top: 0.5em;
-	background-color: transparent;
-	border-style: none;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.botao:hover {
-	color: rgb(9, 227, 205);
-    background-color: transparent;
-}
-
-.botao:hover .dropdown-item {
-	display: block;
-}
-
-.dropdown-menu {
-	background-color: #751cce;
-}
-
-.dropdown-item {
-	color: white;
-	font-size: 1.04em;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.dropdown-item:hover {
-	color: rgb(9, 227, 205);
-	background-color: transparent;
-
-}
-
 
 .duvidas {
 	
@@ -127,7 +51,7 @@ body, html, .inicial {
 	margin-top: 0.5em;
 	text-align: center;
 	padding: 0.5em;
-	color: white;
+	color: black;
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 700;
 
@@ -145,7 +69,7 @@ body, html, .inicial {
 
 .D1 {
 	border-radius: 3px;
-	background-color: rgba(3,175,211, 0.9);
+	background-color: #babec4;
 	margin: 0.5em;
 	padding: 0.5em;
 	box-shadow: 0px 0px 3px black;
@@ -157,7 +81,7 @@ body, html, .inicial {
 
 .resposta {
 	margin: 1em;
-	background-color: rgba(255,255,255,0.7);
+	background-color: rgba(0,0,0,0.1);
 	border-radius: 3px;
 	color: black;
 	padding: 1em;
@@ -171,7 +95,7 @@ body, html, .inicial {
 	font-size: 10pt;
 	padding: 0;
 	margin: 0;
-	color: white;
+	color: black;
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 700;
 }
@@ -231,7 +155,7 @@ body, html, .inicial {
 }
 
 .rodape-link {
-	color: white;
+	color: black;
 }
 
 .rodape-link:hover {
@@ -243,7 +167,9 @@ body, html, .inicial {
 	font-size: 5em;
 }
 
-
+.duv-text {
+	color: black;
+}
 
 
 
@@ -259,7 +185,6 @@ body, html, .inicial {
 
 @media screen and (max-width: 991px){
 	.navbar-nav {
-		background-color: rgba(117, 28, 206, .9);
 		border: 1px inset black;
 		text-align: center;
 	}

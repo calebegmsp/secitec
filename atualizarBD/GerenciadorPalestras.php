@@ -38,7 +38,7 @@
 
     <div class="row justify-content-md-center btn-insert">
        <button type="button" class="btn btn-primary col-md-4" data-toggle="modal" data-target="#InserirDados">
-           Inserir um palestra
+           Inserir uma palestra
        </button>    
    </div>
 
@@ -454,7 +454,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso"
             <select class="form-control" name="id_Mcurso" id="id_Mcurso">
 
                 <?php
-                    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso");
+                    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso ORDER BY nome_curso");
                     foreach ($cursos as $key2 => $value2) {
                     echo "<option value =\"".$cursos[$key2]['id_curso']."\">".$cursos[$key2]['nome_curso']."</option>";
                     }

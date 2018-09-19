@@ -20,17 +20,6 @@
 
 	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 
-	<script type="text/javascript">
-		$(window).scroll(function() {
-		if ($(this).scrollTop() > 750){  
-		    $('header').addClass("fixed-top");
-		  }
-		  else{
-		    $('header').removeClass("fixed-top");
-		  }
-		});
-	</script>
-
 </head>
 
 <body>
@@ -43,7 +32,7 @@
 	<header>
 		<nav class="navbar navbar-expand-lg topo">
 
-		  <a class="men topo no-select" href="index.html"><h1>II SECI<span id="tec">TEC</span></h1></a>
+		  <a class="men topo no-select" href="index.html"><img class="logomarca" src="img/logomarca.png"></a>
 
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
@@ -67,6 +56,7 @@
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item" href="minicursos.php">Minicursos</a>
 							<a class="dropdown-item" href="palestras.php">Palestras</a>
+							<a class="dropdown-item" href="outras.php">Outras</a>
 						</div>
 					</div>	
 				</li>
@@ -77,6 +67,7 @@
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item" href="programacao-minicursos.php">Minicursos</a>
 							<a class="dropdown-item" href="programacao-palestras.php">Palestras</a>
+							<a class="dropdown-item" href="programacao-outras.php">Outras</a>
 						</div>
 					</div>	
 				</li>
@@ -99,11 +90,13 @@
 		<div class="infor">
 			<span class="h1">SEMANA DE CIÊNCIA E TECNOLOGIA</span>
 			<br><br>
-			<span class="h2">15 a 17  de outubro</span>
+			<span class="h2">16 a 19  de outubro</span>
 			<br>
-			<span class="h3">Local indefinido</span>
+			<span class="h3-local">Local</span><br/>
+			<span class="h3-local">Centro Universitário FG - UNIFG</span><br/>
+			<span class="h3-local">Instituto Federal de Educação, Ciência e Tecnologia Baiano, Campus Guanambi</span>
 			<br>
-			<a class="btn btn-secondary btn-lg btn-inscreva" href="#">INSCREVA-SE</a>
+			<a class="btn btn-secondary btn-lg btn-inscreva" target="_blank" href="http://177.38.182.246/eventos/detalhes.php?idE=400">INSCREVA-SE</a>
 
 		</div>
 
@@ -142,9 +135,9 @@
 
 
 			<!-- Minicursos -->
-					<a class="col-md-4 itemO atividade" href="projetos.html">
+					<a class="col-md-4 itemO atividade" href="outras.php">
 						<img src="img/img_projetos.png" class="img-fluid img no-select" width="120px" alt="Projetos"/>
-						<h4 class="text-ofertas">PROJETOS</h4>
+						<h4 class="text-ofertas">OUTRAS</h4>
 					</a>
 
 
@@ -385,7 +378,7 @@
 <div class="divBorda">
 	<div class="container">
 		<div class="row justify-content-md-center no-select"> 
-			<img class="bordaRodape" src="img/linhaH-p.png">	
+			<img class="bordaRodape" src="img/linhaH.png">	
 		</div>	
 	</div>	
 </div>
@@ -469,12 +462,11 @@
 
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Bootstrap JS -->
-
-<script type="text/javascript" src="bootstrap/js/jquery.js"></script>
-
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 

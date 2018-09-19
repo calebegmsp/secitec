@@ -1,25 +1,15 @@
 body, html, .inicial {
 	height: 100%;
-	background-color: #9c75d6;
+	background-image: url("../img/backgroud.jpeg");
 }
-
-#rodape {
-    background-color: #6954c9;
-    padding: 0.5em; 
-    width: 100%;
-    bottom: 0;
-}
-
 
 #realizacao {
 	padding: 1em;
-	background-color: white;
 	text-align: center;
 }
 
 #patrocinio {
 	padding: 2em;
-	background-color: white;
 	text-align: center;
 }
 
@@ -78,8 +68,7 @@ figure.foto-legenda:hover figcaption {
 
 .inicial {
 	min-width: 100%;
-	background-color: #751cce;
-	background-image: url("../img/background-t2.png");
+	background-image: url("../img/backgroud.jpeg");
 	background-repeat: no-repeat;
 	background-position: bottom;
 	background-size: 100%;
@@ -91,7 +80,7 @@ figure.foto-legenda:hover figcaption {
 	width: auto;
 	padding-top: 10%;
 	text-align: center;
-	color: white;
+	color: #303133;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
 
@@ -126,66 +115,6 @@ figure.foto-legenda:hover figcaption {
 	font-weight: 10;
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.nav-link {
-	font-style: normal;
-	color: white;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-
-
-
-}
-
-.nav-link:hover {
-	color: rgb(9, 227, 205);
-
-}
-
-
-.botao {
-	padding-top: 0.5em;
-	background-color: transparent;
-	border-style: none;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-
-
-}
-
-.botao:hover {
-	color: rgb(9, 227, 205);
-    background-color: transparent;
-}
-
-.botao:hover .dropdown-item {
-	display: block;
-}
-
-.dropdown-menu {
-	background-color: #751cce;
-}
-
-.dropdown-item {
-	color: white;
-	font-size: 1.04em;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-
-
-}
-
-.dropdown-item:hover {
-	color: rgb(9, 227, 205);
-	background-color: transparent;
-
-}
 
 .h1 {
 	font-size: 3.5em;
@@ -204,13 +133,19 @@ figure.foto-legenda:hover figcaption {
 	font-weight: 700;
 }
 
+.h3-local{
+	font-size: 1.2em;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 700;
+}
+
 .btn-inscreva {
 	margin-top: 3em;
 	width: 15em;
-	color: #7f42c9;
+	color: #353430;
 	font-size: 2em;
 	border-radius: 20px;
-	background-color: yellow;
+	background-color: #fcca00;
     font-family: 'Quicksand', sans-serif;
 	font-weight: 700;
 }
@@ -227,7 +162,6 @@ figure.foto-legenda:hover figcaption {
 }
 
 .ofertas {
-	background-color: rgb(183,183,255);
 	text-align: center;
 	padding-top: 2em;
 	padding-bottom: 1.5em;
@@ -237,7 +171,7 @@ figure.foto-legenda:hover figcaption {
 .text-ofertas {
 	margin: 1em;
 	font-size: 2em;
-	color: #7b0dc1;
+	color: #4a4b4c;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
 
@@ -251,8 +185,6 @@ figure.foto-legenda:hover figcaption {
 .itemO {
 	padding: 2em;
     font-family: 'Helvetica', sans-serif;
-    color: #2c2e30;
-
 }
 
 
@@ -277,11 +209,9 @@ figure.foto-legenda:hover figcaption {
 
 .text-titu-f {
 	font-size: 2em;
-	color: rgba(123, 57, 214, 0.9);
 }
 
 .fotos {
-	background-color: white;
 	padding-top: 2em;
 	padding-bottom: 2em;
 	width: 100%;
@@ -357,7 +287,7 @@ figure.foto-legenda:hover figcaption {
 	font-size: 10pt;
 	padding: 0;
 	margin: 0;
-	color: white;
+	color: black;
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 700;
 }
@@ -412,7 +342,7 @@ figure.foto-legenda:hover figcaption {
 
 
 .rodape-link {
-	color: white;
+	color: black;
 }
 
 .rodape-link:hover {
@@ -424,12 +354,6 @@ figure.foto-legenda:hover figcaption {
 	font-size: 3em;
 }
 
-
-.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
-.show > .btn-secondary.dropdown-toggle {
-  	color: white;
-    background-color: #751cce;
-}
 
 
 
@@ -467,7 +391,6 @@ figure.foto-legenda:hover figcaption {
 
 @media screen and (max-width: 991px){
 	.navbar-nav {
-		background-color: rgba(117, 28, 206, .9);
 		border: 1px inset black;
 		text-align: center;
 	}

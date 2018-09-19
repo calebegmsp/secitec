@@ -1,55 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:900');
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
-body, html, .inicial {
-	height: 100%;
-	background-color: #751cce;
-	background-image: url("../img/background-t2.png");
-	background-repeat: no-repeat;
-	background-position: bottom;
-	background-size: 100%;
-	background-attachment: fixed;
+body {
+	height: 97%;
 }
-
 
 #tec {
 	color: yellow;
 }
 
-#rodape {
-	background-color: #6954c9;
-	padding: 0.5em; 
-	width: 100%;
-	position: fixed;
-	bottom: 0;
-}
-
-.programaco {
-	height: 100%;
-}
-
-
-.dropdown-item {
-	cursor: pointer;
-}
-
-.fixed-top {
-	height: 5em;
-	opacity: 1;
-	transition: 0.7s;
-	background-color: #6954c9;
-	padding: 0em 1em;
-}
-
 .inicial {
+	min-height: 100% !important;
 	min-width: 100%;
-	background-color: #751cce;
-	background-image: url("../img/background-t2.png");
-	background-repeat: no-repeat;
-	background-position: bottom;
-	background-size: 100%;
-	background-attachment: fixed;
-	
 }
 
 .topo {
@@ -67,7 +27,7 @@ body, html, .inicial {
 
 .men:hover {
 	text-decoration: none;
-	color: white;
+	color: black;
 }
 
 .menu {
@@ -75,57 +35,18 @@ body, html, .inicial {
 	user-select: none; 
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.nav-link {
+.nav-linkP {
+	text-decoration:none;
 	font-style: normal;
-	color: white;
+	color: black;
     font-family: 'Quicksand', sans-serif;
 	font-weight: 400;
 	font-size: 1.1em;
 }
 
-.nav-link:hover {
-	color: rgb(9, 227, 205);
-}
-
-
-.botao {
-	padding-top: 0.5em;
-	background-color: transparent;
-	border-style: none;
-    font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.botao:hover {
-	color: rgb(9, 227, 205);
-    background-color: transparent;
-}
-
-.botao:hover .dropdown-item {
-	display: block;
-}
-
-.dropdown-menu {
-	background-color: #751cce;
-}
-
-.dropdown-item {
-	color: white;
-	font-size: 1.04em;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.dropdown-item:hover {
-	color: rgb(9, 227, 205);
-	background-color: transparent;
-
+.nav-linkP:hover {
+	text-decoration:none;
+	color: #94929b;
 }
 
 
@@ -150,13 +71,13 @@ body, html, .inicial {
 	display: none;
 }
 
-.dia {
+.diaP {
 	font-size: 2em;
-	color: white;
+	color: black;
 }
 
-.dia:hover {
-	color: black;
+.diaP:hover {
+	color: #94929b;
 }
 
 .dia-col {
@@ -165,7 +86,7 @@ body, html, .inicial {
 }
 
 .active {
-	color: yellow;
+	color: #94929b;
 }
 
 .tab-content {
@@ -175,7 +96,7 @@ body, html, .inicial {
 .title {
 	margin-left: 1em;
 	font-size: 2em;
-	color: white;
+	color: black;
 }
 
 .horario {
@@ -188,7 +109,7 @@ body, html, .inicial {
 .text-hora {
 	margin: 2px;
 	font-size: 1.2rem;
-	color: white;
+	color: black;
 
 }
 
@@ -199,35 +120,23 @@ body, html, .inicial {
 	height: 100%;
 }
 
-.dia3 .bg-info {
-	background-color: #0378d8 !important;
-}
-
-.dia3 .card-header {
-	background-color: #0272ce;
+.text-white {
+	color: black !important;
 }
 
 .dia1 .bg-info {
-	background-color: #23a896 !important;
+	background-color: #e3e3ed !important;
 }
 
 .dia1 .card-header {
-	background-color: #1f9e8c;
-}
-
-.dia4 .bg-info {
-	background-color: #229b7c !important;
-}
-
-.dia4 .card-header {
-	background-color: #1f9174;
+	background-color: #c8c8ce;
 }
 
 .text-direitos {
 	font-size: 10pt;
 	padding: 0;
 	margin: 0;
-	color: white;
+	color: black;
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 700;
 }
@@ -287,7 +196,7 @@ body, html, .inicial {
 }
 
 .rodape-link {
-	color: white;
+	color: black;
 }
 
 .rodape-link:hover {
@@ -310,12 +219,12 @@ body, html, .inicial {
 }
 
 .btn-duv:hover {
-	color: white;
+	color: black;
 	text-decoration: none;
 }
 
 .AvisoNenhumCurso {
-	color: yellow;
+	color: #9e8b2f;
 	padding: 1.2em;
 	margin: 1em;
 }
@@ -351,7 +260,6 @@ body, html, .inicial {
 /* Media Queries */
 	@media screen and (max-width: 991px){
 		.navbar-nav {
-			background-color: rgba(117, 28, 206, .9);
 			border: 1px inset black;
 			text-align: center;
 		}
@@ -371,19 +279,31 @@ body, html, .inicial {
 			padding-left: 0;
 		}
 		.text-hora {
-			font-size: 1.2em !important;
+			font-size: 0.7em !important;
 		}
 		.card-header {
-			font-size: 1.3em;
+			font-size: 0.7em;
 		}
 		.card-body {
-			font-size: 1.2em;
+			font-size: 0.5em;
 		}
 		.col-10 {
 			padding: 0px !important;
 		}
 		.nav-50 {
-			height: 11em !important;
+			height: 12em !important;
+		}
+		.dropdown-item {
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+		}
+		.title {
+			font-size: 1em;
+		}
+		.AvisoNenhumCurso {
+			font-size: 0.7em;
+		}
+		.dia-col {
+			padding-left: 0px;
 		}
 
 	}

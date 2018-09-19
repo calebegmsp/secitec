@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html id="html">
 
 <head>
 		<title>SECITEC - Minicursos</title>
@@ -43,7 +43,7 @@
 		<header>
 			<nav class="navbar navbar-expand-lg topo">
 
-			  <a class="men topo" href="index.html"><h1>II SECI<span id="tec">TEC</span></h1></a>
+			  <a class="men topo" href="index.html"><img class="logomarca" src="img/logomarca.png"></a>
 
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
@@ -67,6 +67,7 @@
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class="dropdown-item" href="#">Minicursos</a>
 								<a class="dropdown-item" href="palestras.php">Palestras</a>
+								<a class="dropdown-item" href="outras.php">Outras</a>
 							</div>
 						</div>	
 					</li>
@@ -77,6 +78,7 @@
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class="dropdown-item" href="programacao-minicursos.php">Minicursos</a>
 								<a class="dropdown-item" href="programacao-palestras.php">Palestras</a>
+								<a class="dropdown-item" href="programacao-outras.php">Outras</a>
 							</div>
 						</div>	
 					</li>
@@ -123,6 +125,14 @@
 /* Esse for roda por todos os cursos */
 	foreach ($cursos as $row => $value) {
 	$contC = 0;
+	$idCurso = $cursos[$row]['id_curso'];
+
+	$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM minicurso as M
+							INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
+							WHERE M.FK_Curso_id_curso = $idCurso");
+
+	if (count($contCursos) > 0){
+
 
 ?>
 
@@ -162,7 +172,7 @@
 
 *************************************************************/
 
-$idCurso = $cursos[$row]['id_curso'];
+
 
 $minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
 							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
@@ -347,7 +357,7 @@ $contC++;
 	    </div>
 
 <?php
-
+}
 //Fechamento do for de cada curso
 }
 
@@ -358,11 +368,9 @@ $contC++;
 			</div>
 		</div>
 	</div>
-
-
   </div>
 
-</div>
+
 
  <footer id="rodape" class="footer navbar-fixed-bottom">
  	<div class="container">
@@ -379,12 +387,11 @@ $contC++;
 
 
     
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Bootstrap JS -->
-
-<script type="text/javascript" src="bootstrap/js/jquery.js"></script>
-
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
     

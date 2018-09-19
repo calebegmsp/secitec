@@ -1,7 +1,6 @@
 body, html, .inicial {
 	height: 100%;
 	overflow: auto;
-	background-color: #9c75d6;
 }
 
 #tec {
@@ -9,7 +8,6 @@ body, html, .inicial {
 }
 
 #rodape {
-	background-color: #6954c9;
 	padding: 0.5em; 
 }
 
@@ -38,9 +36,7 @@ body, html, .inicial {
 
 .inicial {
 	min-width: 100%;
-	background-color: #751cce;
-	background-image: url("../img/background-t2.png");
-	background-repeat: no-repeat;
+	background-image: url("../img/backgroud.jpeg");
 	background-position: bottom;
 	background-size: 100%;
 	background-attachment: fixed;
@@ -79,65 +75,9 @@ body, html, .inicial {
 	padding: 0.5em;
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.nav-link {
-	font-style: normal;
-	color: white;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.nav-link:hover {
-	color: rgb(9, 227, 205);
-}
-
-
-.botao {
-	padding-top: 0.5em;
-	background-color: transparent;
-	border-style: none;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.botao:hover {
-	color: rgb(9, 227, 205);
-    background-color: transparent;
-}
-
-.botao:hover .dropdown-item {
-	display: block;
-}
-
-.botao:hover .dropdown-item {
-	display: block;
-}
-
-.dropdown-menu {
-	background-color: #751cce;
-}
-
-.dropdown-item {
-	color: white;
-	font-size: 1.04em;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
-	font-size: 1.1em;
-}
-
-.dropdown-item:hover {
-	color: rgb(9, 227, 205);
-	background-color: transparent;
-
-}
-
 .sobre {
 	margin-top: 3em;
+	color: black;
 	
 }
 
@@ -145,7 +85,7 @@ body, html, .inicial {
 	margin-top: 0.5em;
 	text-align: center;
 	padding: 0.7em;
-	color: white;
+	color: black;
 	font-family: 'Quicksand', sans-serif;
     font-weight: 700;
 }
@@ -164,7 +104,7 @@ body, html, .inicial {
 	text-indent: 1em;
 	padding: 1em;
 	font-size: 1.5em;
-	color: white;
+	color: black;
 }
 
 .no-select {
@@ -269,11 +209,15 @@ body, html, .inicial {
     background-color: #751cce;
 }
 
+
+
+
+
+
 /* Media Queries */
 
 @media screen and (max-width: 991px){
 	.navbar-nav {
-		background-color: rgba(117, 28, 206, .9);
 		border: 1px inset black;
 		text-align: center;
 	}

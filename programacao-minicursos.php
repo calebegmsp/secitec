@@ -18,19 +18,6 @@
 		<meta charset="utf-8">
 
 
-
-	<script type="text/javascript">
-		$(window).scroll(function() {
-		if ($(this).scrollTop() > 700){  
-		    $('header').addClass("fixed-top");
-		  }
-		  else{
-		    $('header').removeClass("fixed-top");
-		  }
-		});
-	</script>
-
-
 </head>
 
 
@@ -81,7 +68,7 @@ function criarCard($nomeCurso, $localCurso){
 	<header>
 		<nav class="navbar navbar-expand-lg topo">
 
-		  <a class="men topo" href="index.html"><h1>II SECI<span id="tec">TEC</span></h1></a>
+		  <a class="men topo" href="index.html"><img class="logomarca" src="img/logomarca.png"></a>
 
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
@@ -105,6 +92,7 @@ function criarCard($nomeCurso, $localCurso){
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item" href="minicursos.php">Minicursos</a>
 							<a class="dropdown-item" href="palestras.php">Palestras</a>
+							<a class="dropdown-item" href="outras.php">Outras</a>
 						</div>
 					</div>	
 				</li>
@@ -115,6 +103,7 @@ function criarCard($nomeCurso, $localCurso){
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item" href="#">Minicursos</a>
 							<a class="dropdown-item" href="programacao-palestras.php">Palestras</a>
+							<a class="dropdown-item" href="programacao-outras.php">Outras</a>
 						</div>
 					</div>	
 				</li>
@@ -144,10 +133,10 @@ function criarCard($nomeCurso, $localCurso){
 
         			<nav id="navDias" class="nav flex-column navegacao dias">
 
-        				<a class="nav-link dia active" id="dia1-tab" data-toggle="tab" href="#dia1" role="tab" aria-controls="dia1">Dia 16</a>
-						<a class="nav-link dia" id="dia2-tab" data-toggle="tab" href="#dia2" role="tab" aria-controls="dia2" >Dia 17</a>
-						<a class="nav-link dia" id="dia3-tab" data-toggle="tab" href="#dia3" role="tab" aria-controls="dia3" >Dia 18</a>
-						<a class="nav-link dia" id="dia4-tab" data-toggle="tab" href="#dia4" role="tab" aria-controls="dia4" >Dia 19</a>
+        				<a class="nav-linkP diaP active" id="dia1-tab" data-toggle="tab" href="#dia1" role="tab" aria-controls="dia1">Dia 16</a>
+						<a class="nav-linkP diaP" id="dia2-tab" data-toggle="tab" href="#dia2" role="tab" aria-controls="dia2" >Dia 17</a>
+						<a class="nav-linkP diaP" id="dia3-tab" data-toggle="tab" href="#dia3" role="tab" aria-controls="dia3" >Dia 18</a>
+						<a class="nav-linkP diaP" id="dia4-tab" data-toggle="tab" href="#dia4" role="tab" aria-controls="dia4" >Dia 19</a>
 					</nav>
 
         		</div>
@@ -156,7 +145,7 @@ function criarCard($nomeCurso, $localCurso){
 	        		require_once("DAO/config.php");
 	        		require_once("DAO/class/sql.php");
 	        		$sql = new Sql();
-	        		$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso ORDER BY nome_curso");
+	        		$cursos = $sql->select("SELECT id_curso, nome_curso FROM curso ORDER BY nome_curso");
         		 ?>
 
 
@@ -164,13 +153,21 @@ function criarCard($nomeCurso, $localCurso){
 
         			<p>
         				<div class="dropdown">
-        					<button class="btn btn-secondary dropdown-toggle botao" type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
+        					<button class="btn-secondary dropdown-toggle botao" type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
 
 
         					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         						<?php 
 									$antigoHd = $cursos[0]['id_curso'].'dia1';
 	        						foreach ($cursos as $key => $value) {
+	        							$idCurso = $cursos[$key]['id_curso'];
+	        							$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM minicurso as M
+																				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
+																				WHERE M.FK_Curso_id_curso = $idCurso");
+	        							if (count($contCursos) > 0){	        						
+
+
+
 	        					?>
 
 	        							<button id="<?= $cursos[$key]['id_curso']; ?>" class="dropdown-item" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="funcao<?php echo $cursos[$key]['id_curso']; ?>()">
@@ -195,10 +192,10 @@ function criarCard($nomeCurso, $localCurso){
 	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia2';?>').className  = 'tab-pane fade';
 	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia3';?>').className  = 'tab-pane fade';
 	        										document.getElementById('<?= $cursos[$key1]['id_curso'].'dia4';?>').className  = 'tab-pane fade';
-	        										document.getElementById('dia1-tab').className  = 'nav-link dia active';
-	        										document.getElementById('dia2-tab').className  = 'nav-link dia';
-	        										document.getElementById('dia3-tab').className  = 'nav-link dia';
-	        										document.getElementById('dia4-tab').className  = 'nav-link dia';
+	        										document.getElementById('dia1-tab').className  = 'nav-linkP diaP active';
+	        										document.getElementById('dia2-tab').className  = 'nav-linkP diaP';
+	        										document.getElementById('dia3-tab').className  = 'nav-linkP diaP';
+	        										document.getElementById('dia4-tab').className  = 'nav-linkP diaP';
 	        										<?php
 	        									}
 
@@ -227,6 +224,7 @@ function criarCard($nomeCurso, $localCurso){
 
 	        							<?php
 	        						}
+	        					}
 
         						 ?>
         					</div>
@@ -285,7 +283,7 @@ function criarCard($nomeCurso, $localCurso){
 		        					<img class="linha" src="img/linha.png">
 		        				</div>
 
-		        				<div class="col-10 dia3">
+		        				<div class="col-10 dia1">
 
 
 		        					<?php
@@ -364,7 +362,7 @@ function criarCard($nomeCurso, $localCurso){
 		        					<img class="linha" src="img/linha.png">
 		        				</div>
 
-		        				<div class="col-10">
+		        				<div class="col-10 dia1">
 
 
 		        					<?php
@@ -520,7 +518,7 @@ function criarCard($nomeCurso, $localCurso){
 		        					<img class="linha" src="img/linha.png">
 		        				</div>
 
-		        				<div class="col-10 dia4">
+		        				<div class="col-10 dia1">
 
 
 		        					<?php
@@ -569,13 +567,7 @@ function criarCard($nomeCurso, $localCurso){
         	</div>    
 
 
-
-
-
-
-
         </div>    
-
 
 
 	</div>
@@ -585,7 +577,7 @@ function criarCard($nomeCurso, $localCurso){
   
 
  
- <footer id="rodape">
+ <footer id="rodape" class="footer navbar-fixed-bottom">
  	<div class="container">
  		<div class="row">
 	 		<div class="col-md-6 direitos">
@@ -594,11 +586,8 @@ function criarCard($nomeCurso, $localCurso){
 	     	<div class="col-md-6 desenvolvido">
 	      	 <p class="text-direitos" >Desenvolvido por <b>Calebe Pereira</b> e <b>Layne Castro</b></p>
 	     	</div>
- 		</div>
-     
- 		
+ 		</div>	
  	</div>
- 	
  </footer>
 
 

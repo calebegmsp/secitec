@@ -3,7 +3,7 @@
 <html>
 
 <head>
-		<title>SECITEC - Palestras</title>
+		<title>SECITEC - Outras atividades</title>
 
 
 			 <!-- Bootstrap -->
@@ -28,7 +28,7 @@
 		}
 
 		function ajusatPagina (local){
-			 window.location="palestras.php#"+localPag;
+			 window.location="outras.php#"+localPag;
 		}
 
 </script>
@@ -66,8 +66,8 @@
 							<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atividades</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class="dropdown-item" href="minicursos.php">Minicursos</a>
-								<a class="dropdown-item" href="#">Palestras</a>
-								<a class="dropdown-item" href="outras.php">Outras</a>
+								<a class="dropdown-item" href="palestras.php">Palestras</a>
+								<a class="dropdown-item" href="#">Outras</a>
 							</div>
 						</div>	
 					</li>
@@ -100,7 +100,7 @@
 
 	<div class="minicursos">
 				
-		<h1 class="h1">Palestras</h1>
+		<h1 class="h1">Outras atividades</h1>
 				
 	    <div class="container">
 
@@ -127,11 +127,14 @@
 	$contC = 0;
 	$idCurso = $cursos[$row]['id_curso'];
 
-	$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM palestras as M
+
+	$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM outraAtv as M
 							INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 							WHERE M.FK_Curso_id_curso = $idCurso");
 
 	if (count($contCursos) > 0){
+
+
 
 ?>
 
@@ -172,9 +175,10 @@
 *************************************************************/
 
 
+
 $minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
 							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-							FROM palestras as M
+							FROM outraAtv as M
 							INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 							WHERE M.FK_Curso_id_curso = $idCurso
 							ORDER BY dia_Mcurso");

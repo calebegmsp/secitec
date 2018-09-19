@@ -173,10 +173,13 @@ function criarCard($nomeCurso, $localCurso){
 									$antigoHd = $cursos[0]['id_curso'].'dia1';
 	        						foreach ($cursos as $key => $value) {
 	        							$idCurso = $cursos[$key]['id_curso'];
-	        							$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM palestras as M
+	        							$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM outraAtv as M
 																				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 																				WHERE M.FK_Curso_id_curso = $idCurso");
-	        							if (count($contCursos) > 0){	 	        							
+	        							if (count($contCursos) > 0){
+
+
+
 	        					?>
 
 	        							<button id="<?= $cursos[$key]['id_curso']; ?>" class="dropdown-item" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="funcao<?php echo $cursos[$key]['id_curso']; ?>()">
@@ -256,12 +259,12 @@ function criarCard($nomeCurso, $localCurso){
  					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia1';?>" role="tabpanel" aria-labelledby="dia1-tab">
 
 		        		<div class="col dia-col">
-		        			<span class="title">Palestras dia 16</span>
+		        			<span class="title">Outras atividades dia 16</span>
 
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM palestras as M
+		        				FROM outraAtv as M
 		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-16 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-17 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
@@ -270,7 +273,7 @@ function criarCard($nomeCurso, $localCurso){
 		        				$hora = 25;
 
 		        				if (!count($minicursos)) {
-		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhuma palestra nesse dia</span>";
+		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhuma atividade nesse dia</span>";
 		        				}
 
 
@@ -335,12 +338,12 @@ function criarCard($nomeCurso, $localCurso){
  					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia2';?>" role="tabpanel" aria-labelledby="dia2-tab">
 
 		        		<div class="col dia-col">
-		        			<span class="title">Palestras dia 17</span>
+		        			<span class="title">Outras atividades dia 17</span>
 
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM palestras as M
+		        				FROM outraAtv as M
 		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-17 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-18 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
@@ -348,7 +351,7 @@ function criarCard($nomeCurso, $localCurso){
 		        				$minicursos = $sql->select("$codigoBuscaPorDia");
 		        				$hora = 25;
 		        				if (!count($minicursos)) {
-		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhuma palestra nesse dia</span>";
+		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhuma atividade nesse dia</span>";
 		        				}
 
 		        				foreach ($minicursos as $keyM => $value) {
@@ -413,12 +416,12 @@ function criarCard($nomeCurso, $localCurso){
  					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia3';?>" role="tabpanel" aria-labelledby="dia2-tab">
 
 		        		<div class="col dia-col">
-		        			<span class="title">Palestras dia 18</span>
+		        			<span class="title">Outras atividades dia 18</span>
 
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM palestras as M
+		        				FROM outraAtv as M
 		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-18 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-19 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
@@ -426,7 +429,7 @@ function criarCard($nomeCurso, $localCurso){
 		        				$minicursos = $sql->select("$codigoBuscaPorDia");
 		        				$hora = 25;
 		        				if (!count($minicursos)) {
-		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhuma palestra nesse dia</span>";
+		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhuma atividade nesse dia</span>";
 		        				}
 
 		        				foreach ($minicursos as $keyM => $value) {
@@ -491,12 +494,12 @@ function criarCard($nomeCurso, $localCurso){
  					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia4';?>" role="tabpanel" aria-labelledby="dia2-tab">
 
 		        		<div class="col dia-col">
-		        			<span class="title">Palestras dia 19</span>
+		        			<span class="title">Outras atividades dia 19</span>
 
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM palestras as M
+		        				FROM outraAtv as M
 		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-19 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-20 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
@@ -504,7 +507,7 @@ function criarCard($nomeCurso, $localCurso){
 		        				$minicursos = $sql->select("$codigoBuscaPorDia");
 		        				$hora = 25;
 		        				if (!count($minicursos)) {
-		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhuma palestra nesse dia</span>";
+		        					echo "<br/><span class='AvisoNenhumCurso'>Nenhuma atividade nesse dia</span>";
 		        				}
 
 		        				foreach ($minicursos as $keyM => $value) {

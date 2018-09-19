@@ -6,21 +6,16 @@
 	color: yellow;
 }
 
-#rodape {
-    background-color: #6954c9;
-    padding: 0.5em; 
-}
-
 ::-webkit-scrollbar-track {
-    background-color: #8406cc;
+    background-color: white;
 }
 ::-webkit-scrollbar {
     width: 6px;
-    background: #dfaefc;
+    background: white;
     overflow-y: scroll;
 }
 ::-webkit-scrollbar-thumb {
-    background: #dfaefc;
+    background: #75787c;
 }
 
 .no-select {
@@ -33,10 +28,7 @@
 }
 
 body {
-    height: 100%;
-    background-color: #751cce;
-    background-image: url("../img/background-t2.png");
-    background-repeat: no-repeat;
+    background-image: url("../img/backgroud.jpeg");
     background-position: bottom;
     background-size: 100%;
     background-attachment: fixed;
@@ -48,15 +40,75 @@ body {
 
  html {
     height: 100%;
-    background-color: #751cce;
-    background-image: url("../img/background-t2.png");
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: 100%;
-    background-attachment: fixed;
 }
 
-.inicial {
-    background-image: none;
-    background-color: unset;
+.logomarca {
+    width: 15em;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.dropdown-toggle {
+    color: black;
+}
+
+
+.nav-link {
+    font-style: normal;
+    color: black;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
+}
+
+.nav-link:hover {
+    color: #8d8d8e;
+
+}
+
+.botao:hover {
+    color: #8d8d8e;
+    background-color: transparent;
+}
+
+.botao:hover .dropdown-item {
+    display: block;
+}
+
+.dropdown-menu {
+    background-color: #d9d9db;
+}
+
+.dropdown-item {
+    color: black;
+    font-size: 1.04em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
+
+
+}
+
+.dropdown-item:hover {
+    color: #8d8d8e;
+    background-color: transparent;
+
+}
+
+
+.botao {
+    padding-top: 0.5em;
+    background-color: transparent;
+    border-style: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-secondary.dropdown-toggle {
+    color: black;
+    background-color: #d9d9db;
 }
