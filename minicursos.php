@@ -325,6 +325,7 @@ if (($contC % 2) == 0){
 
 												     	<div class="modal-footer">
 												        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+												        <a class="btn btn-secondary" target="_blank" href="http://177.38.182.246/eventos/detalhes.php?idE=400">Inscrever-se</a>
 												     	</div>
 
 											    	</div>
