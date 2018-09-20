@@ -21,8 +21,11 @@ body {
 }
 
 .avisoSelecione {
-	margin: 1em 1em;
+	margin: 1em 1em 1em 6em;
+	font-size: 1.7em;
 }
+
+
 
 .botao- {
 	font-size: 1.3em !important;

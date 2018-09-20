@@ -360,11 +360,39 @@ $contC++;
 
 
 
+
+ <section id="realizacao">
+
+ 	<div class="container">
+ 		<span class="h1 text-patrocinio">REALIZAÇÃO</span>
+ 		<div class="row imgs-patro no-select">
+ 			<div class="col-md-6">
+ 				<img class="img-fluid img-patroci" width="40%" src="img/logo-IfBaiano.png">
+ 			</div>
+ 			<div class="col-md-6">
+ 				<img class="img-fluid img-patroci" width="40%" src="img/logo-UniFG.png">
+ 			</div>
+ 		</div>
+ 	</div>
+
+ </section>
+
+
+
+<div class="divBorda">
+	<div class="container">
+		<div class="row justify-content-md-center no-select"> 
+			<img class="bordaRodape" src="img/linhaH.png">	
+		</div>	
+	</div>	
+</div>
+
+
  <footer id="rodape" class="footer navbar-fixed-bottom">
  	<div class="container">
  		<div class="row">
 	 		<div class="col-md-6 direitos">
-	      	 <p class="text-direitos" >II SECITEC &copy; Icons made by Freepik from <a class="rodape-link" href="https://www.flaticon.com" target="_blank" >www.flaticon.com</a></p>
+	      	 <p class="text-direitos" >II SECITEC &copy; 2018 Icons made by Freepik from <a class="rodape-link" href="https://www.flaticon.com" target="_blank" >www.flaticon.com</a></p>
 	     	</div>
 	     	<div class="col-md-6 desenvolvido">
 	      	 <p class="text-direitos" >Desenvolvido por <b>Calebe Pereira</b> e <b>Layne Castro</b></p>
