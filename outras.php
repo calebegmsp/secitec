@@ -128,7 +128,7 @@
 	$idCurso = $cursos[$row]['id_curso'];
 
 
-	$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM outraAtv as M
+	$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM outraatv as M
 							INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 							WHERE M.FK_Curso_id_curso = $idCurso");
 
@@ -178,7 +178,7 @@
 
 $minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
 							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-							FROM outraAtv as M
+							FROM outraatv as M
 							INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 							WHERE M.FK_Curso_id_curso = $idCurso
 							ORDER BY dia_Mcurso");

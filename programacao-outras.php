@@ -176,7 +176,7 @@ function criarCard($nomeCurso, $localCurso){
 									$antigoHd = $cursos[0]['id_curso'].'dia1';
 	        						foreach ($cursos as $key => $value) {
 	        							$idCurso = $cursos[$key]['id_curso'];
-	        							$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM outraAtv as M
+	        							$contCursos = $minicursos = $sql->select("SELECT M.id_Mcurso FROM outraatv as M
 																				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 																				WHERE M.FK_Curso_id_curso = $idCurso");
 	        							if (count($contCursos) > 0){
@@ -267,7 +267,7 @@ function criarCard($nomeCurso, $localCurso){
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM outraAtv as M
+		        				FROM outraatv as M
 		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-16 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-17 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
@@ -346,7 +346,7 @@ function criarCard($nomeCurso, $localCurso){
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM outraAtv as M
+		        				FROM outraatv as M
 		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-17 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-18 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
@@ -424,7 +424,7 @@ function criarCard($nomeCurso, $localCurso){
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM outraAtv as M
+		        				FROM outraatv as M
 		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-18 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-19 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].
@@ -502,7 +502,7 @@ function criarCard($nomeCurso, $localCurso){
 
 		        				<?php
 		        				$codigoBuscaPorDia = "SELECT DISTINCT M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso
-		        				FROM outraAtv as M
+		        				FROM outraatv as M
 		        				INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
 		        				WHERE M.dia_Mcurso >='2018-10-19 00:00:00'
 		        				AND M.dia_Mcurso <'2018-10-20 00:00:00' AND C.id_curso =". (int)$cursos[$key]['id_curso'].

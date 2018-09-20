@@ -56,7 +56,7 @@
 
    $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
     M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-    FROM outraAtv as M
+    FROM outraatv as M
     INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
     ORDER BY M.nome_Mcurso");
 
@@ -183,7 +183,7 @@
                 $id_Mcurso = $_POST['id_minicurso'];
 
 
-                $codigo = "DELETE FROM outraAtv WHERE id_Mcurso = '$id_Mcurso'";
+                $codigo = "DELETE FROM outraatv WHERE id_Mcurso = '$id_Mcurso'";
 
 
                 $sql->query($codigo);
@@ -344,7 +344,7 @@
                 $endereco_imagem = "img/img-cards/palestras/".$nomehash.".".$extensao;
 
                 if ($nomeArquivo != ""){
-                    $codigo = "UPDATE outraAtv SET 
+                    $codigo = "UPDATE outraatv SET 
                     nome_Mcurso = '$nome_Mcurso',
                     des_Mcurso = '$des_Mcurso',
                     local_Mcurso = '$local_Mcurso',
@@ -356,7 +356,7 @@
                     FK_Curso_id_curso = $FK_Curso_id_curso
                     WHERE id_Mcurso = $id_Mcurso"; 
                 } else {
-                    $codigo = "UPDATE outraAtv SET 
+                    $codigo = "UPDATE outraatv SET 
                     nome_Mcurso = '$nome_Mcurso',
                     des_Mcurso = '$des_Mcurso',
                     local_Mcurso = '$local_Mcurso',
@@ -421,7 +421,7 @@
 
 $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
     M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
-    FROM outraAtv as M
+    FROM outraatv as M
     INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
     ORDER BY M.nome_Mcurso");
 
@@ -567,7 +567,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso"
             $endereco_imagem = "img/img-cards/palestras/".$nomehash.".".$extensao;
 
 
-            $codigoInsert = "INSERT INTO outraAtv (nome_Mcurso, des_Mcurso, local_Mcurso, dia_Mcurso, ministrante_Mcurso, ch_Mcurso, vagas_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$dia_Mcurso', '$ministrante_Mcurso', '$carga_Mcurso', '$vagas_Mcurso', '$endereco_imagem', $FK_Curso_id_curso)";
+            $codigoInsert = "INSERT INTO outraatv (nome_Mcurso, des_Mcurso, local_Mcurso, dia_Mcurso, ministrante_Mcurso, ch_Mcurso, vagas_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$dia_Mcurso', '$ministrante_Mcurso', '$carga_Mcurso', '$vagas_Mcurso', '$endereco_imagem', $FK_Curso_id_curso)";
 
 
             $sql->query($codigoInsert);
