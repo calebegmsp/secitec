@@ -47,7 +47,10 @@ figure.foto-legenda:hover figcaption {
 }
 
 
-
+.h3-tema {
+	font-size: 2em;
+	margin-bottom: 20px;
+}
 
 .no-select {
 	-webkit-touch-callout: none;
@@ -78,13 +81,17 @@ figure.foto-legenda:hover figcaption {
 
 .infor {
 	width: auto;
-	padding-top: 10%;
+	padding-top: 5%;
 	text-align: center;
 	color: #303133;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
 
 
+}
+
+.h1-titulo {
+	font-size: 3em;
 }
 
 .topo {

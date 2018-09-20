@@ -114,14 +114,14 @@ function criarCard($nomeCurso, $localCurso){
 						<button class="btn btn-secondary dropdown-toggle botao type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programação</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item" href="programacao-minicursos.php">Minicursos</a>
-							<a class="dropdown-item" href="#">Palestras</a>
+							<a class="dropdown-item" href="programacao-palestras.php">Palestras</a>
 							<a class="dropdown-item" href="programacao-outras.php">Outras</a>
 						</div>
 					</div>	
 				</li>
 
 				<li class="nav-ite menu">
-					<a class="nav-link" href="duvidas.html">Dúvidas</a>
+					<!--<a class="nav-link" href="duvidas.html">Dúvidas</a>-->
 				</li>
 
 		    </ul>
@@ -138,6 +138,9 @@ function criarCard($nomeCurso, $localCurso){
 		<div class="programaco">
 			
         <div class="container">
+		<div class="row">
+			<h2 class="avisoSelecione">Para verificar a programação escolha abaixo o curso.<h2>
+		</div>        	
 
         	<div class="row prog">
 
@@ -165,7 +168,7 @@ function criarCard($nomeCurso, $localCurso){
 
         			<p>
         				<div class="dropdown">
-        					<button class="btn-secondary dropdown-toggle botao" type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
+        					<button class="btn-secondary dropdown-toggle botao botao-" type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
 
 
         					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -259,7 +262,7 @@ function criarCard($nomeCurso, $localCurso){
  					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia1';?>" role="tabpanel" aria-labelledby="dia1-tab">
 
 		        		<div class="col dia-col">
-		        			<span class="title">Outras atividades dia 16</span>
+		        			<span class="title">Outras atividades do dia 16</span>
 
 
 		        				<?php
@@ -338,7 +341,7 @@ function criarCard($nomeCurso, $localCurso){
  					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia2';?>" role="tabpanel" aria-labelledby="dia2-tab">
 
 		        		<div class="col dia-col">
-		        			<span class="title">Outras atividades dia 17</span>
+		        			<span class="title">Outras atividades do dia 17</span>
 
 
 		        				<?php
@@ -416,7 +419,7 @@ function criarCard($nomeCurso, $localCurso){
  					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia3';?>" role="tabpanel" aria-labelledby="dia2-tab">
 
 		        		<div class="col dia-col">
-		        			<span class="title">Outras atividades dia 18</span>
+		        			<span class="title">Outras atividades do dia 18</span>
 
 
 		        				<?php
@@ -494,7 +497,7 @@ function criarCard($nomeCurso, $localCurso){
  					<div class="tab-pane fade" id="<?= $cursos[$key]['id_curso'].'dia4';?>" role="tabpanel" aria-labelledby="dia2-tab">
 
 		        		<div class="col dia-col">
-		        			<span class="title">Outras atividades dia 19</span>
+		        			<span class="title">Outras atividades do dia 19</span>
 
 
 		        				<?php

@@ -84,7 +84,7 @@
 					</li>
 
 					<li class="nav-ite menu">
-						<a class="nav-link" href="duvidas.html">Dúvidas</a>
+						<!--<a class="nav-link" href="duvidas.html">Dúvidas</a>-->
 					</li>
 
 			    </ul>
@@ -174,7 +174,7 @@
 
 
 
-$minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
+$minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso,
 							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
 							FROM minicurso as M
 							INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
@@ -227,15 +227,6 @@ if (($contC % 2) == 0){
 
 
 														</h5>
-
-														<?php
-													   		if (strlen($minicursos[$row2]['des_Mcurso']) < 70){
-													   			echo $minicursos[$row2]['des_Mcurso'];
-													   		} else {
-													   			echo substr($minicursos[$row2]['des_Mcurso'], 0, 70)."...";
-													   		}
-													   	?>
-
 
 														<div class="card-info">
 															<?php 
@@ -291,10 +282,6 @@ if (($contC % 2) == 0){
 												     	</div>
 
 												    	<div class="modal-body">
-												        <?php
-													   		echo $minicursos[$row2]['des_Mcurso'];
-													   	?>
-												        .<br><br>
 												        <span class="sobre">
 												        Ministrante: 
 												        <?php
@@ -325,7 +312,7 @@ if (($contC % 2) == 0){
 
 												     	<div class="modal-footer">
 												        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-												        <a class="btn btn-secondary" target="_blank" href="http://177.38.182.246/eventos/detalhes.php?idE=400">Inscrever-se</a>
+												        <a class="btn btn-secondary" target="_blank" href="http://177.38.182.246/eventos/detalhes.php?idE=400">Inscreva-se</a>
 												     	</div>
 
 											    	</div>

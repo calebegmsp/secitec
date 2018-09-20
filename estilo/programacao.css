@@ -20,6 +20,14 @@ body {
 
 }
 
+.avisoSelecione {
+	margin: 1em 1em;
+}
+
+.botao- {
+	font-size: 1.3em !important;
+}
+
 .men {
 	font-style: normal;
 	color: white;
