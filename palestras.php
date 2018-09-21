@@ -33,6 +33,20 @@
 
 </script>
 
+<?php 
+function limitarTexto($texto, $limite){
+  $contador = strlen($texto);
+  if ( $contador >= $limite ) {      
+      $texto = substr($texto, 0, strrpos(substr($texto, 0, $limite), ' ')) . '...';
+      return $texto;
+  }
+  else{
+    return $texto;
+  }
+} 
+?>
+
+
 
 <body>
 
@@ -218,7 +232,7 @@ if (($contC % 2) == 0){
 													   		if (strlen($minicursos[$row2]['nome_Mcurso']) < 60){
 													   			echo $minicursos[$row2]['nome_Mcurso'];
 													   		} else {
-													   			echo substr($minicursos[$row2]['nome_Mcurso'], 0, 60)."...";
+													   			echo limitarTexto($minicursos[$row2]['nome_Mcurso'],60);
 													   		}
 
 													   	?>
@@ -365,11 +379,14 @@ $contC++;
  	<div class="container">
  		<span class="h1 text-patrocinio">REALIZAÇÃO</span>
  		<div class="row imgs-patro no-select">
- 			<div class="col-md-6">
- 				<img class="img-fluid img-patroci" width="40%" src="img/logo-IfBaiano.png">
+ 			<div class="col-md-4">
+ 				<img class="img-fluid img-patroci" width="60%" src="img/logo-IfBaiano.png">
  			</div>
- 			<div class="col-md-6">
- 				<img class="img-fluid img-patroci" width="40%" src="img/logo-UniFG.png">
+ 			<div class="col-md-4">
+ 				<img class="img-fluid img-patroci" width="60%" src="img/logo-UniFG.png">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img class="img-fluid img-patroci" width="60%" src="img/logo-UNEB.png">
  			</div>
  		</div>
  	</div>
