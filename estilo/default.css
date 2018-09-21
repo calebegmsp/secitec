@@ -114,7 +114,7 @@ body {
 }
 
 #realizacao {
-    padding: 1em;
+    padding: 1.2em;
     text-align: center;
 }
 
@@ -125,3 +125,13 @@ body {
     font-weight: 700;
 
 }
+
+
+@media screen and (max-width: 640px){
+        .img-patroci{
+            width: 100%;
+        }
+        .text-patrocinio {
+            font-size: 1em;
+        }
+    }

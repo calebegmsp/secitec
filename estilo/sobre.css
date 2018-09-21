@@ -232,6 +232,17 @@ body {
  		  	-ms-flex-pack: start !important;
   			justify-content: flex-start !important;
 		}
+		.sobre {
+			padding: 0;
+			margin-top: 0.3em;
+		}
+		.sobre-texto {
+			padding: 0;
+		}
+
+		.text-container {
+			padding: 0.3em;
+		}		
 		.col-md-9 {
 			padding: 0;
 		}
@@ -243,7 +254,10 @@ body {
 		}
 		.desenvolvido {
 			text-align: left;
-		}		
+		}
+		.tituloSobre {
+			font-size: 1.2em;
+		}	
 	}
 
 		@media screen and (max-width: 599px){

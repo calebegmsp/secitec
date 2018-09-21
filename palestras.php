@@ -296,6 +296,9 @@ if (($contC % 2) == 0){
 												     	</div>
 
 												    	<div class="modal-body">
+												    	<?php
+													   		echo $minicursos[$row2]['des_Mcurso']."<br/><br/>";
+													   	?>
 												        <span class="sobre">
 												        Ministrante: 
 												        <?php

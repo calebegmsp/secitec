@@ -1,9 +1,12 @@
-    <?php
-    session_start();
-     if(!isset($_SESSION['usuario'])){
-        header("Location: login.php");
-    }
-    ?>
+<?php
+session_start();
+if(!isset($_SESSION['usuario'])){
+header("Location: login.php");
+}
+?>
+
+
+
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

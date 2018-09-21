@@ -5,6 +5,14 @@ if(isset($_SESSION['usuario'])){
 }
 ?>
 
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Login</title>
+</head>
+
      <!-- Bootstrap -->
      <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,3 +60,5 @@ if(isset($_SESSION['usuario'])){
 <script type="text/javascript" src="../bootstrap/js/jquery.js"></script>
 
 <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+
+</html>

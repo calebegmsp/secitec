@@ -316,6 +316,10 @@ body {
 		.dia-col {
 			padding-left: 0px;
 		}
+		.avisoSelecione {
+			margin: 1em 1em 1em 4em;
+			font-size: 1.2em;
+		}
 
 	}
 
@@ -329,6 +333,10 @@ body {
 		}
 		.desenvolvido {
 			text-align: left;
+		}
+		.avisoSelecione {
+			margin: 1em 1em 1em 4em;
+			font-size: 1em;
 		}
 	}
 
@@ -395,3 +403,12 @@ body {
 			padding-top: 0.8em;
 			height: auto;
 		}
+		.avisoSelecione {
+			margin: 1em 1em 1em 1em;
+			font-size: 0.8em;
+		}
+		.dropdown-item {
+			font-size: 1em !important;
+		}
+
+	}

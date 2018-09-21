@@ -188,7 +188,7 @@ function limitarTexto($texto, $limite){
 
 
 
-$minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.local_Mcurso, M.dia_Mcurso,
+$minicursos = $sql->select("SELECT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
 							M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
 							FROM minicurso as M
 							INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
@@ -296,6 +296,9 @@ if (($contC % 2) == 0){
 												     	</div>
 
 												    	<div class="modal-body">
+												    	<?php
+													   		echo $minicursos[$row2]['des_Mcurso']."<br/><br/>";
+													   	?>
 												        <span class="sobre">
 												        Ministrante: 
 												        <?php
