@@ -221,7 +221,7 @@ header("Location: login.php");
             <select class="form-control" name="id_curso" id="id_curso">
 
                 <?php
-                    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso");
+                    $cursos = $sql->select("SELECT id_curso, nome_curso FROM curso");
                     foreach ($cursos as $key2 => $value2) {
                         if ($cursos[$key2]['id_curso'] ==  $minicursos[$key]['FK_Curso_id_curso']) {
                             echo "<option value =\"".$cursos[$key2]['id_curso']."\" selected >".$cursos[$key2]['nome_curso']."</option>";
@@ -422,11 +422,11 @@ header("Location: login.php");
 $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
     M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
     FROM palestras as M
-    INNER JOIN Curso as C on M.FK_Curso_id_curso = C.id_curso 
+    INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
     ORDER BY M.nome_Mcurso");
 
 
-$cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso");
+$cursos = $sql->select("SELECT id_curso, nome_curso FROM curso");
 
 
 ?>
@@ -454,7 +454,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM curso"
             <select class="form-control" name="id_Mcurso" id="id_Mcurso">
 
                 <?php
-                    $cursos = $sql->select("SELECT id_curso, nome_curso, imgPadrao_curso FROM Curso ORDER BY nome_curso");
+                    $cursos = $sql->select("SELECT id_curso, nome_curso FROM curso ORDER BY nome_curso");
                     foreach ($cursos as $key2 => $value2) {
                     echo "<option value =\"".$cursos[$key2]['id_curso']."\">".$cursos[$key2]['nome_curso']."</option>";
                     }

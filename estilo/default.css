@@ -135,3 +135,9 @@ body {
             font-size: 1em;
         }
     }
+
+@media screen and (max-width: 350px){
+        .logomarca {
+            width: 10em;
+        }
+    }
