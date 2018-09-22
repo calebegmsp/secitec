@@ -231,12 +231,7 @@ if (($contC % 2) == 0){
 													    <h5 class="card-title">
 													   	
 													   	<?php
-													   		if (strlen($minicursos[$row2]['nome_Mcurso']) < 60){
-													   			echo $minicursos[$row2]['nome_Mcurso'];
-													   		} else {
 													   			echo limitarTexto($minicursos[$row2]['nome_Mcurso'],60);
-													   		}
-
 													   	?>
 
 
