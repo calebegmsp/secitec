@@ -390,33 +390,6 @@ figure.foto-legenda:hover figcaption {
 	}
 }
 
-@media screen and (max-width: 599px){
-		.infor {
-			margin-top: 1%;
-		}
-
-		.h1 {
-			font-size: 2em;
-		}
-
-		.h2 {
-			font-size: 1.6em;
-		}
-
-		.h3, .h3-local {
-			font-size: 1em !important;
-		}
-
-		.btn-inscreva {
-			font-size: 2em;
-		}
-		.h1-titulo {
-			font-size: 2em;
-		}
-		.h3-tema {
-			font-size: 1.5em;
-		}
-	}
 
 @media screen and (max-width: 640px){
 		.infor {
@@ -453,6 +426,36 @@ figure.foto-legenda:hover figcaption {
 		}		
 	}
 
+
+@media screen and (max-width: 599px){
+		.infor {
+			margin-top: 1%;
+		}
+
+		.h1 {
+			font-size: 2em;
+		}
+
+		.h2 {
+			font-size: 1.6em;
+		}
+
+		.h3, .h3-local {
+			font-size: 1em !important;
+		}
+
+		.btn-inscreva {
+			font-size: 1.8em;
+		}
+		.h1-titulo {
+			font-size: 2em;
+		}
+		.h3-tema {
+			font-size: 1.5em;
+		}
+	}
+
+
 @media screen and (max-width: 470px){
 		.infor {
 			margin-top: 10%;
@@ -484,9 +487,48 @@ figure.foto-legenda:hover figcaption {
 			font-size: 1em !important;
 		}
 		.h1-titulo {
-			font-size: 2em;
+			font-size: 1.5em;
 		}
 		.h3-tema {
-			font-size: 1.5em;
+			font-size: 1.2em;
+		}
+	}
+
+
+@media screen and (max-width: 320px){
+		.infor {
+			margin-top: 10%;
+		}
+		h1 {
+			font-size: 1em;
+		}
+		.h1 {
+			font-size: 1em;
+		}
+		.h2 {
+			font-size: 0.8em;
+		}
+		.h3 {
+			font-size: 0.6em;
+		}
+		.topo {
+			padding-right: 0.3em;
+			padding-left: 0.3em;
+		}
+		.btn-inscreva {
+			margin-top: 0.2em;
+			color: #7f42c9;
+			font-size: 1em;
+			border-radius: 20px;
+			background-color: yellow;
+		}
+		.h3, .h3-local {
+			font-size: 0.6em !important;
+		}
+		.h1-titulo {
+			font-size: 1em;
+		}
+		.h3-tema {
+			font-size: 0.8em;
 		}
 	}

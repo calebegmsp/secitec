@@ -592,13 +592,13 @@ function criarCard($nomeCurso, $localCurso){
  	<div class="container">
  		<span class="h1 text-patrocinio">REALIZAÇÃO</span>
  		<div class="row imgs-patro no-select">
- 			<div class="col-md-4">
+ 			<div class="col-4">
  				<img class="img-fluid img-patroci" width="60%" src="img/logo-IfBaiano.png">
  			</div>
- 			<div class="col-md-4">
+ 			<div class="col-4">
  				<img class="img-fluid img-patroci" width="60%" src="img/logo-UniFG.png">
  			</div>
- 			<div class="col-md-4">
+ 			<div class="col-4">
  				<img class="img-fluid img-patroci" width="60%" src="img/logo-UNEB.png">
  			</div>
  		</div>
