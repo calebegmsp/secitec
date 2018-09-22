@@ -1,4 +1,4 @@
-CREATE TABLE Curso (
+CREATE TABLE curso (
 	id_curso int auto_increment primary key not null,
 	nome_curso varchar(300) not null,
     imgPadrao_curso varchar(200) not null
@@ -6,7 +6,7 @@ CREATE TABLE Curso (
 
 
 
-CREATE TABLE Minicurso (	
+CREATE TABLE minicurso (	
     id_Mcurso int auto_increment primary key not null,
     nome_Mcurso varchar(300) not null,
     des_Mcurso varchar(500),
@@ -21,7 +21,7 @@ CREATE TABLE Minicurso (
 )default character set = utf8;
 
 
-CREATE TABLE Palestras (	
+CREATE TABLE palestras (	
     id_Mcurso int auto_increment primary key not null,
     nome_Mcurso varchar(300) not null,
     des_Mcurso varchar(500),
@@ -35,7 +35,7 @@ CREATE TABLE Palestras (
     foreign key (FK_Curso_id_curso)  references Curso (id_curso)
 )default character set = utf8;
 
-CREATE TABLE OutraAtv (	
+CREATE TABLE outraatv (	
     id_Mcurso int auto_increment primary key not null,
     nome_Mcurso varchar(300) not null,
     des_Mcurso varchar(500),
