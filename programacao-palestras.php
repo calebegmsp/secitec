@@ -157,6 +157,9 @@ function criarCard($nomeCurso, $localCurso){
         			<p>
         				<div class="dropdown">
         					<button class="btn-secondary dropdown-toggle botao botao-" type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
+        					<form action="imprimir.php" method="post" target="_blank">
+        						<button name="cursoImprimir" type="submit" id="btnpcompleta" value="0" class="btn pcompleta">Ver pogramação completa do curso</button>
+        					</form>
 
 
         					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -196,11 +199,12 @@ function criarCard($nomeCurso, $localCurso){
 	        										document.getElementById('dia2-tab').className  = 'nav-linkP diaP';
 	        										document.getElementById('dia3-tab').className  = 'nav-linkP diaP';
 	        										document.getElementById('dia4-tab').className  = 'nav-linkP diaP';
+	        										document.getElementById('btnpcompleta').className  = 'btn';
 	        										<?php
 	        									}
 
 	        									?>
-
+	        									document.getElementById('btnpcompleta').value  = '<?= $cursos[$key]['id_curso'];?>';	
 	        									document.getElementById("dropdownMenuButtonCurso").innerHTML = document.getElementById("<?php echo $cursos[$key]['id_curso']; ?>").innerHTML;
 	        									document.getElementById('dia1-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia1';?>';
 	        									document.getElementById('dia2-tab').href = '#<?php echo $cursos[$key]['id_curso'].'dia2';?>';

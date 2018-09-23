@@ -44,16 +44,78 @@ function limitarTexto($texto, $limite){
     return $texto;
   }
 } 
+
+function dateMaisch($data, $ch){
+   $date = new DateTime($data);
+   
+   $hora = explode('.', $ch);
+
+   $horaCh = (int) $hora[0];
+   $minutoCh = (int) ($hora[1] . "0");
+
+   $horaInicio = (int) $date->format('H');
+   $minutoInicio = (int) $date->format('i');
+
+   $mostrarHora = $horaCh + $horaInicio;
+   $mostraMinuto = $minutoCh + $minutoInicio;
+
+   if ($mostraMinuto >= 60) {
+     $mostraMinuto = $mostraMinuto - 60;
+     $mostrarHora ++;
+   }
+
+   if ($mostraMinuto < 10){
+      $mostraMinuto = $mostraMinuto."0";
+   }
+
+   echo $mostrarHora.":".$mostraMinuto;
+
+}
+
+
 ?>
 
 
 
 <body>
 
+<?php
+
+if(isset($_POST['cursoImprimir'])){
+    require_once("DAO/config.php");
+    require_once("DAO/class/sql.php");
+
+    $sql = new Sql();
+
+    $id_Mcurso = $_POST['cursoImprimir'];
+
+
+    $atividades = $sql->select("
+(select 1 as atv, M.nome_Mcurso as nomeatv, M.dia_Mcurso as dia, M.local_Mcurso as local, M.ch_Mcurso as ch, M.ministrante_Mcurso as ministrante FROM minicurso as M INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso and C.id_curso = $id_Mcurso)
+UNION ALL
+(select 2 as atv, P.nome_Mcurso as nomeatv, P.dia_Mcurso as dia, P.local_Mcurso as local, P.ch_Mcurso as ch, P.ministrante_Mcurso as ministrante  FROM palestras as P INNER JOIN curso as C on P.FK_Curso_id_curso = C.id_curso and C.id_curso = $id_Mcurso)
+UNION ALL
+(select 3 as atv, O.nome_Mcurso as nomeatv, O.dia_Mcurso as dia, O.local_Mcurso as local, O.ch_Mcurso as ch, O.ministrante_Mcurso as ministrante FROM outraatv as O INNER JOIN curso as C on O.FK_Curso_id_curso = C.id_curso and C.id_curso = $id_Mcurso)
+ORDER BY dia
+      ");
+
+$curso = $sql->select("SELECT nome_curso FROM curso WHERE id_curso = $id_Mcurso");   
+?>
+
+
 
 
 <div class="container">
-  <h1 class="page-header">Nome do curso</h1>
+  <div class="row">
+    <div class="col-10">
+      <h1 class="page-header col-10"><?php echo $curso[0]['nome_curso'];; ?></h1>  
+    </div>
+    <div class="col-2">
+      <input class="btn-imprimir" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
+    </div>
+    
+  </div>
+  
   <div>
     <table class="table-striped table-bordered">
       <thead>
@@ -67,42 +129,192 @@ function limitarTexto($texto, $limite){
       </thead>
       <tbody>
 
-
 <?php
-
-if(isset($_POST['imprimirrMinicurso'])){
-
-    $id_Mcurso = $_POST['id_minicurso'];
-    $sql = new Sql();
-
-
-    $sql->query($codigo);
-
-
-
-?>
+  foreach ($atividades as $key => $value) {
+    $date = new DateTime($atividades[$key]['dia']);
+ ?>
 
 
         <tr>
-          <td>8:00 - 10:00</td>
-          <td>MC - A arte de falar em público</td>
-          <td>MC - economia popular e solidária</td>
-          <td>MC - Estudo da viabilidade econômica</td>
-          <td>MC - Marketing de serviços: atendimento</td>
+          <td><?php echo $date->format('H:i'). " - "; echo dateMaisch($atividades[$key]['dia'], $atividades[$key]['ch']);; ?></td>
+          <td>
+
+          <?php 
+
+          if ($date->format('d/m/Y') == '16/10/2018') {
+            switch ($atividades[$key]['atv']) {
+              case 1:
+                echo "MC - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 2:
+                echo "PL - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 3:
+                echo "OU - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+
+              default:
+                # code...
+                break;
+            }
+            
+          }   
+          ?>
+            
+
+          </td>
+          <td>
+
+          <?php 
+
+          if ($date->format('d/m/Y') == '17/10/2018') {
+            switch ($atividades[$key]['atv']) {
+              case 1:
+                echo "MC - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 2:
+                echo "PL - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 3:
+                echo limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+
+              default:
+                # code...
+                break;
+            }
+            
+          }   
+          ?>
+
+          </td>
+          <td>
+            
+          <?php 
+
+          if ($date->format('d/m/Y') == '18/10/2018') {
+            switch ($atividades[$key]['atv']) {
+              case 1:
+                echo "MC - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 2:
+                echo "PL - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 3:
+                echo limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+
+              default:
+                # code...
+                break;
+            }
+            
+          }   
+          ?>
+
+          </td>
+          <td>
+            
+          <?php 
+
+          if ($date->format('d/m/Y') == '19/10/2018') {
+            switch ($atividades[$key]['atv']) {
+              case 1:
+                echo "MC - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 2:
+                echo "PL - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 3:
+                echo limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+
+              default:
+                # code...
+                break;
+            }
+            
+          }   
+          ?>
+
+          </td>
         </tr>  
+
+<?php
+}
+?>
+
+      </tbody>
+
+
+    </table>
+
+
+
+
+<!---------------------------------------------------------------------------->
+
+
+    <table class="table-striped table-bordered table2">
+      <thead>
+
+        <tr>
+          <th width="20%">SIGLA</th>
+          <th width="40%">DESCRIÇÃO</th>
+          <th width="40%">LOCAL</th>
+        </tr>
+      </thead>
+      <tbody>
+
+<?php
+  foreach ($atividades as $key => $value) {
+
+ ?>
+
+        <tr>
+          <td width="20%"><?php 
+            switch ($atividades[$key]['atv']) {
+              case 1:
+                echo "MC - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 2:
+                echo "PL - ".limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+              case 3:
+                echo limitarTexto($atividades[$key]['nomeatv'],30)." (".$atividades[$key]['local'].")"; 
+                break;
+
+              default:
+                # code...
+                break;
+            }
+
+          ?></td>
+          <td width="60%"><?php echo $atividades[$key]['nomeatv']; ?></td>
+          <td width="20%"><?php echo $atividades[$key]['local']; ?></td>
+        </tr>
 
 
 <?php
-
 }
-
 ?>
-
 
       </tbody>
     </table>
+
+
+
+
     </div>
 </div>
+
+
+
+
+<?php
+}
+?>
+
 
 
  <!-- Optional JavaScript -->

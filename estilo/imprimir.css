@@ -1,0 +1,13 @@
+.table2 {
+	margin-top: 2em;
+}
+
+.btn-imprimir {
+	margin: 1em;
+}
+
+@media print {
+	.btn-imprimir {
+	display: none;
+	}
+}
