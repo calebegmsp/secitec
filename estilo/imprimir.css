@@ -6,8 +6,48 @@
 	margin: 1em;
 }
 
+.paddingCol {
+	padding: 3px !important;
+}
+
+.area {
+	
+}
+
+.hora {
+	font-size: 0.8em;
+}
+
+.table-striped  {
+	width: 100% !important;
+}
+
+.titulo {
+	text-align: center;
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
 @media print {
 	.btn-imprimir {
 	display: none;
 	}
+
+	.titulo {
+	text-align: center;
+	display: inline;
+	}
+
+
 }
+
+
+
