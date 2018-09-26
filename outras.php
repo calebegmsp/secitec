@@ -98,6 +98,10 @@ function limitarTexto($texto, $limite){
 						</div>	
 					</li>
 
+					<li class="nav-item menu">
+						<a class="nav-link" href="apoiadores.html">Apoiadores</a>
+					</li>
+
 					<li class="nav-ite menu">
 						<!--<a class="nav-link" href="duvidas.html">Dúvidas</a>-->
 					</li>
@@ -382,14 +386,11 @@ $contC++;
  	<div class="container">
  		<span class="h1 text-patrocinio">REALIZAÇÃO</span>
  		<div class="row imgs-patro no-select">
- 			<div class="col-4">
- 				<img class="img-fluid img-patroci" width="60%" src="img/logo-IfBaiano.png">
+ 			<div class="col-6">
+ 				<img class="img-fluid img-patroci" width="40%" src="img/logo-IfBaiano.png">
  			</div>
- 			<div class="col-4">
- 				<img class="img-fluid img-patroci" width="60%" src="img/logo-UniFG.png">
- 			</div>
- 			<div class="col-4">
- 				<img class="img-fluid img-patroci" width="60%" src="img/logo-UNEB.png">
+ 			<div class="col-6">
+ 				<img class="img-fluid img-patroci" width="40%" src="img/logo-UniFG.png">
  			</div>
  		</div>
  	</div>

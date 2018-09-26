@@ -454,7 +454,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso FROM curso");
             <select class="form-control" name="id_Mcurso" id="id_Mcurso">
 
                 <?php
-                    $cursos = $sql->select("SELECT id_curso, nome_curso FROM Curso ORDER BY nome_curso");
+                    $cursos = $sql->select("SELECT id_curso, nome_curso FROM curso ORDER BY nome_curso");
                     foreach ($cursos as $key2 => $value2) {
                     echo "<option value =\"".$cursos[$key2]['id_curso']."\">".$cursos[$key2]['nome_curso']."</option>";
                     }
