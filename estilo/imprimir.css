@@ -23,6 +23,8 @@
 }
 
 .titulo {
+	font-size: 2em;
+	margin-bottom: 1em;
 	text-align: center;
 	display: none;
 }

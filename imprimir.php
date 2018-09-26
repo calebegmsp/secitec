@@ -188,7 +188,7 @@ ORDER BY dia
       <thead>
         <tr>
           <th width="35%">Horário</th>
-          <th width="65%">Terça 17/10</th>
+          <th width="65%">Quarta 17/10</th>
         </tr>
       </thead>
       <tbody>
@@ -260,7 +260,7 @@ ORDER BY dia
       <thead>
         <tr>
           <th width="35%">Horário</th>
-          <th width="65%">Terça 18/10</th>
+          <th width="65%">Quinta 18/10</th>
         </tr>
       </thead>
       <tbody>
@@ -330,7 +330,7 @@ ORDER BY dia
       <thead>
         <tr>
           <th width="35%">Horário</th>
-          <th width="65%">Terça 19/10</th>
+          <th width="65%">Sexta 19/10</th>
         </tr>
       </thead>
       <tbody>
