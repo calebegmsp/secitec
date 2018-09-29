@@ -52,7 +52,7 @@ header("Location: login.php");
  require_once("../DAO/class/sql.php");
  $sql = new Sql();
 
- $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso,
+ $minicursos = $sql->select("SELECT DISTINCT M.id_Mcurso, M.nome_Mcurso, M.des_Mcurso, M.local_Mcurso, M.dia_Mcurso, M.diaTermina_Mcurso,
     M.ministrante_Mcurso, M.ch_Mcurso, M.vagas_Mcurso, M.img_Minicurso, M.FK_Curso_id_curso 
     FROM minicurso as M
     INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso 
@@ -112,6 +112,7 @@ header("Location: login.php");
                                 echo $minicursos[$key]['local_Mcurso'] ."</br>";
 
                                 $date = new DateTime($minicursos[$key]['dia_Mcurso']);
+                                $dateTerminio = new DateTime($minicursos[$key]['diaTermina_Mcurso']);
                                 echo $date->format('d/m/Y');
                                 echo " às ".$date->format('H')."h".$date->format('i')."min";
 
@@ -267,21 +268,48 @@ if(isset($_POST['deletarMinicurso'])){
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="exampleInputEmail1">Dia</label>
-                        <select class="form-control" id="dia_Mcurso" name="dia_Mcurso">
-                            <option value="16" <?php if($date->format('d') == 16){echo "selected";} ?>>16</option>
-                            <option value="17" <?php if($date->format('d') == 17){echo "selected";} ?>>17</option>
-                            <option value="18" <?php if($date->format('d') == 18){echo "selected";} ?>>18</option>
-                            <option value="19" <?php if($date->format('d') == 19){echo "selected";} ?>>19</option>
-                        </select>                    
+                         <div class="col-md">
+                            <label for="exampleInputEmail1">Dia de início</label>
+                            <select class="form-control" id="dia_Mcurso" name="dia_Mcurso">
+                                <option value="16" <?php if($date->format('d') == 16){echo "selected";} ?>>16</option>
+                                <option value="17" <?php if($date->format('d') == 17){echo "selected";} ?>>17</option>
+                                <option value="18" <?php if($date->format('d') == 18){echo "selected";} ?>>18</option>
+                                <option value="19" <?php if($date->format('d') == 19){echo "selected";} ?>>19</option>
+                            </select>                    
+                        </div>
+
+                        <div class="col-md">
+                            <label for="formGroupExampleInput">Horário de início</label>
+                            <input type="time" class="form-control" id="hora_Mcurso" value="<?= $date->format('H:i'); ?>" name="hora_Mcurso" placeholder="">
+                        </div>                       
                     </div>
 
                     <div class="col-md-6">
-                        <label for="formGroupExampleInput">Horário</label>
-                        <input type="time" class="form-control" id="hora_Mcurso" value="<?= $date->format('H:i'); ?>" name="hora_Mcurso" placeholder="">
-                    </div>               
+                        <div class="col-md">
+                            <label for="exampleInputEmail1">Dia de término</label>
+                            <select class="form-control" id="dia_McursoTerminio" name="dia_McursoTerminio">
+                                <option value="16" <?php if($dateTerminio->format('d') == 16){echo "selected";} ?>>16</option>
+                                <option value="17" <?php if($dateTerminio->format('d') == 17){echo "selected";} ?>>17</option>
+                                <option value="18" <?php if($dateTerminio->format('d') == 18){echo "selected";} ?>>18</option>
+                                <option value="19" <?php if($dateTerminio->format('d') == 19){echo "selected";} ?>>19</option>
+                            </select>                    
+                        </div>
+
+                        <div class="col-md">
+                            <label for="formGroupExampleInput">Horário de término</label>
+                            <input type="time" class="form-control" id="hora_McursoTerminio" value="<?= $dateTerminio->format('H:i'); ?>" name="hora_McursoTerminio" placeholder="">
+                        </div>                          
+                    </div>
+                                 
 
                 </div>
+
+
+                <div class="row">
+             
+
+                </div>
+
 
 
                 <div class="row">
@@ -323,6 +351,7 @@ if(isset($_POST['deletarMinicurso'])){
                 $des_Mcurso = $_POST['des_Mcurso'];
                 $local_Mcurso = $_POST['local_Mcurso'];
                 $dia_Mcurso = '2018-10-'.$_POST['dia_Mcurso'].' '.$_POST['hora_Mcurso'].':00';
+                $dia_Terminio = '2018-10-'.$_POST['dia_McursoTerminio'].' '.$_POST['hora_McursoTerminio'].':00';
                 $ministrante_Mcurso = $_POST['ministrante_Mcurso'];
                 $carga_Mcurso = $_POST['carga_Mcurso'];
                 $vagas_Mcurso = $_POST['vagas_Mcurso'];
@@ -348,6 +377,7 @@ if(isset($_POST['deletarMinicurso'])){
                     local_Mcurso = '$local_Mcurso',
                     img_Minicurso = '$endereco_imagem',
                     dia_Mcurso = '$dia_Mcurso',
+                    diaTermina_Mcurso = '$dia_Terminio',
                     ministrante_Mcurso = '$ministrante_Mcurso',
                     ch_Mcurso = $carga_Mcurso,
                     vagas_Mcurso = $vagas_Mcurso,
@@ -359,6 +389,7 @@ if(isset($_POST['deletarMinicurso'])){
                     des_Mcurso = '$des_Mcurso',
                     local_Mcurso = '$local_Mcurso',
                     dia_Mcurso = '$dia_Mcurso',
+                    diaTermina_Mcurso = '$dia_Terminio',
                     ministrante_Mcurso = '$ministrante_Mcurso',
                     ch_Mcurso = $carga_Mcurso,
                     vagas_Mcurso = $vagas_Mcurso,
@@ -495,25 +526,43 @@ $cursos = $sql->select("SELECT id_curso, nome_curso FROM curso");
             </div>
 
 
-            <div class="row">
-                <div class="col-md-6">
-                    <!--  Escolha do dia -->
-                    <label for="exampleInputEmail1">Dia</label>
-                    <select class="form-control" id="dia_Mcurso" name="dia_Mcurso">
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                    </select>                    
+                <div class="row">
+                    <div class="col-md-6">
+                         <div class="col-md">
+                            <label for="exampleInputEmail1">Dia de início</label>
+                            <select class="form-control" id="dia_Mcurso" name="dia_Mcurso">
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                            </select>                    
+                        </div>
+
+                        <div class="col-md">
+                            <label for="formGroupExampleInput">Horário de início</label>
+                            <input type="time" class="form-control" id="hora_Mcurso" value="00:00" name="hora_Mcurso" placeholder="">
+                        </div>                       
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="col-md">
+                            <label for="exampleInputEmail1">Dia de término</label>
+                            <select class="form-control" id="dia_McursoTerminio" name="dia_McursoTerminio">
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                            </select>                    
+                        </div>
+
+                        <div class="col-md">
+                            <label for="formGroupExampleInput">Horário de término</label>
+                            <input type="time" class="form-control" id="hora_McursoTerminio" value="00:00" name="hora_McursoTerminio" placeholder="">
+                        </div>                          
+                    </div>
+                                 
+
                 </div>
-
-                <div class="col-md-6">
-                    <label for="formGroupExampleInput">Hora</label>
-                    <input type="time" class="form-control" id="hora_Mcurso" value="00:00" name="hora_Mcurso" placeholder="">
-
-                </div>               
-
-            </div>
 
 
             <!-- Infos pequenas -->
@@ -550,6 +599,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso FROM curso");
             $local_Mcurso = $_POST['local_Mcurso'];
             $FK_Curso_id_curso = $_POST['id_Mcurso'];
             $dia_Mcurso = '2018-10-'.$_POST['dia_Mcurso'].' '.$_POST['hora_Mcurso'].':00';
+            $dia_Terminio = '2018-10-'.$_POST['dia_McursoTerminio'].' '.$_POST['hora_McursoTerminio'].':00';
             $ministrante_Mcurso = $_POST['ministrante_Mcurso'];
             $carga_Mcurso = $_POST['carga_Mcurso'];
             $vagas_Mcurso = $_POST['vagas_Mcurso'];
@@ -565,7 +615,7 @@ $cursos = $sql->select("SELECT id_curso, nome_curso FROM curso");
             $endereco_imagem = "img/img-cards/minicursos/".$nomehash.".".$extensao;
 
 
-            $codigoInsert = "INSERT INTO minicurso (nome_Mcurso, des_Mcurso, local_Mcurso, dia_Mcurso, ministrante_Mcurso, ch_Mcurso, vagas_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$dia_Mcurso', '$ministrante_Mcurso', '$carga_Mcurso', '$vagas_Mcurso', '$endereco_imagem', $FK_Curso_id_curso)";
+            $codigoInsert = "INSERT INTO minicurso (nome_Mcurso, des_Mcurso, local_Mcurso, dia_Mcurso, diaTermina_Mcurso, ministrante_Mcurso, ch_Mcurso, vagas_Mcurso, img_Minicurso, FK_Curso_id_curso) VALUES ('$nome_Mcurso', '$des_Mcurso', '$local_Mcurso', '$dia_Mcurso', '$dia_Terminio', '$ministrante_Mcurso', '$carga_Mcurso', '$vagas_Mcurso', '$endereco_imagem', $FK_Curso_id_curso)";
 
 
             $sql->query($codigoInsert);

@@ -97,10 +97,6 @@ function limitarTexto($texto, $limite){
 						</div>	
 					</li>
 
-					<li class="nav-item menu">
-						<a class="nav-link" href="apoiadores.html">Apoiadores</a>
-					</li>	
-
 					<li class="nav-ite menu">
 						<!--<a class="nav-link" href="duvidas.html">Dúvidas</a>-->
 					</li>
@@ -328,7 +324,7 @@ if (($contC % 2) == 0){
 
 												     	<div class="modal-footer">
 												        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-												        <a class="btn btn-secondary" target="_blank" href="http://177.38.182.246/eventos/detalhes.php?idE=400">Inscreva-se</a>
+												        <a class="btn btn-secondary" target="_blank" href="http://177.38.182.246/eventos/index.php/site/login">Inscreva-se</a>
 												     	</div>
 
 											    	</div>

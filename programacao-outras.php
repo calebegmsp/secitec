@@ -109,10 +109,6 @@ function criarCard($nomeCurso, $localCurso){
 					</div>	
 				</li>
 
-				<li class="nav-item menu">
-					<a class="nav-link" href="apoiadores.html">Apoiadores</a>
-				</li>
-
 				<li class="nav-ite menu">
 					<!--<a class="nav-link" href="duvidas.html">Dúvidas</a>-->
 				</li>
