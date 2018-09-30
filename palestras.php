@@ -229,7 +229,7 @@ if (($contC % 2) == 0){
 													    <h5 class="card-title">
 													   	
 													   	<?php
-													   			echo limitarTexto($minicursos[$row2]['nome_Mcurso'],60);
+													   			echo limitarTexto($minicursos[$row2]['nome_Mcurso'],100);
 													   	?>
 
 
@@ -243,7 +243,7 @@ if (($contC % 2) == 0){
 																<span class="dia">
 															  	
 															  	<?php
-															   		echo $minicursos[$row2]['local_Mcurso'];
+															   		echo limitarTexto($minicursos[$row2]['local_Mcurso'],40);
 															   	?>
 
 															  	</span>	<br/>
