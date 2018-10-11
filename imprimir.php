@@ -77,7 +77,7 @@ function dateMaisch($data, $ch){
 
 
 
-<body>
+<body onload="window.print();">
 
 <?php
 
@@ -123,27 +123,30 @@ $curso = $sql->select("SELECT nome_curso FROM curso WHERE id_curso = $id_Mcurso"
       </thead>
       <tbody>
 
+<!-- DIA 16 ----->
+
 <?php
 
 
     $atividades = $sql->select("
-(select 1 as atv, M.nome_Mcurso as nomeatv, M.dia_Mcurso as dia, M.local_Mcurso as local, M.ch_Mcurso as ch, M.ministrante_Mcurso as ministrante FROM minicurso as M INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND M.dia_Mcurso like '2018-10-16%')
+(select 1 as atv, M.nome_Mcurso as nomeatv, M.dia_Mcurso as dia, M.diaTermina_Mcurso as diaTermina, M.local_Mcurso as local,  M.ch_Mcurso as ch, M.ministrante_Mcurso as ministrante FROM minicurso as M INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND M.dia_Mcurso like '2018-10-16%')
 UNION ALL
-(select 2 as atv, P.nome_Mcurso as nomeatv, P.dia_Mcurso as dia, P.local_Mcurso as local, P.ch_Mcurso as ch, P.ministrante_Mcurso as ministrante  FROM palestras as P INNER JOIN curso as C on P.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND P.dia_Mcurso like '2018-10-16%')
+(select 2 as atv, P.nome_Mcurso as nomeatv, P.dia_Mcurso as dia, P.diaTermina_Mcurso as diaTermina, P.local_Mcurso as local, P.ch_Mcurso as ch, P.ministrante_Mcurso as ministrante  FROM palestras as P INNER JOIN curso as C on P.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND P.dia_Mcurso like '2018-10-16%')
 UNION ALL
-(select 3 as atv, O.nome_Mcurso as nomeatv, O.dia_Mcurso as dia, O.local_Mcurso as local, O.ch_Mcurso as ch, O.ministrante_Mcurso as ministrante FROM outraatv as O INNER JOIN curso as C on O.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND O.dia_Mcurso like '2018-10-16%')
+(select 3 as atv, O.nome_Mcurso as nomeatv, O.dia_Mcurso as dia, O.diaTermina_Mcurso as diaTermina, O.local_Mcurso as local, O.ch_Mcurso as ch, O.ministrante_Mcurso as ministrante FROM outraatv as O INNER JOIN curso as C on O.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND O.dia_Mcurso like '2018-10-16%')
 ORDER BY dia
       ");
 
   foreach ($atividades as $key => $value) {
     $date = new DateTime($atividades[$key]['dia']);
+    $dateTermina = new DateTime($atividades[$key]['diaTermina']);
 
 
  ?>
 
 
         <tr>
-          <td class="hora"><?php echo $date->format('H:i'). " - "; echo dateMaisch($atividades[$key]['dia'], $atividades[$key]['ch']); ?></td>
+          <td class="hora"><?php echo $date->format('H:i'). " - "; echo $dateTermina->format('H:i');?></td>
           <td>
 
           <?php 
@@ -197,23 +200,24 @@ ORDER BY dia
 
 
     $atividades = $sql->select("
-(select 1 as atv, M.nome_Mcurso as nomeatv, M.dia_Mcurso as dia, M.local_Mcurso as local, M.ch_Mcurso as ch, M.ministrante_Mcurso as ministrante FROM minicurso as M INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND M.dia_Mcurso like '2018-10-17%')
+(select 1 as atv, M.nome_Mcurso as nomeatv, M.dia_Mcurso as dia, M.diaTermina_Mcurso as diaTermina, M.local_Mcurso as local, M.ch_Mcurso as ch, M.ministrante_Mcurso as ministrante FROM minicurso as M INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND M.dia_Mcurso like '2018-10-17%')
 UNION ALL
-(select 2 as atv, P.nome_Mcurso as nomeatv, P.dia_Mcurso as dia, P.local_Mcurso as local, P.ch_Mcurso as ch, P.ministrante_Mcurso as ministrante  FROM palestras as P INNER JOIN curso as C on P.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND P.dia_Mcurso like '2018-10-17%')
+(select 2 as atv, P.nome_Mcurso as nomeatv, P.dia_Mcurso as dia, P.diaTermina_Mcurso as diaTermina, P.local_Mcurso as local, P.ch_Mcurso as ch, P.ministrante_Mcurso as ministrante  FROM palestras as P INNER JOIN curso as C on P.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND P.dia_Mcurso like '2018-10-17%')
 UNION ALL
-(select 3 as atv, O.nome_Mcurso as nomeatv, O.dia_Mcurso as dia, O.local_Mcurso as local, O.ch_Mcurso as ch, O.ministrante_Mcurso as ministrante FROM outraatv as O INNER JOIN curso as C on O.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND O.dia_Mcurso like '2018-10-17%')
+(select 3 as atv, O.nome_Mcurso as nomeatv, O.dia_Mcurso as dia, O.diaTermina_Mcurso as diaTermina, O.local_Mcurso as local, O.ch_Mcurso as ch, O.ministrante_Mcurso as ministrante FROM outraatv as O INNER JOIN curso as C on O.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND O.dia_Mcurso like '2018-10-17%')
 ORDER BY dia
       ");
 
   foreach ($atividades as $key => $value) {
     $date = new DateTime($atividades[$key]['dia']);
+    $dateTermina = new DateTime($atividades[$key]['diaTermina']);
 
 
  ?>
 
 
         <tr>
-          <td class="hora"><?php echo $date->format('H:i'). " - "; echo dateMaisch($atividades[$key]['dia'], $atividades[$key]['ch']); ?></td>
+          <td class="hora"><?php echo $date->format('H:i'). " - "; echo $dateTermina->format('H:i');?></td>
           <td>
 
           <?php 
@@ -340,23 +344,24 @@ ORDER BY dia
 
 
     $atividades = $sql->select("
-(select 1 as atv, M.nome_Mcurso as nomeatv, M.dia_Mcurso as dia, M.local_Mcurso as local, M.ch_Mcurso as ch, M.ministrante_Mcurso as ministrante FROM minicurso as M INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND M.dia_Mcurso like '2018-10-19%')
+(select 1 as atv, M.nome_Mcurso as nomeatv, M.dia_Mcurso as dia, M.diaTermina_Mcurso as diaTermina, M.local_Mcurso as local, M.ch_Mcurso as ch, M.ministrante_Mcurso as ministrante FROM minicurso as M INNER JOIN curso as C on M.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND M.dia_Mcurso like '2018-10-19%')
 UNION ALL
-(select 2 as atv, P.nome_Mcurso as nomeatv, P.dia_Mcurso as dia, P.local_Mcurso as local, P.ch_Mcurso as ch, P.ministrante_Mcurso as ministrante  FROM palestras as P INNER JOIN curso as C on P.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND P.dia_Mcurso like '2018-10-19%')
+(select 2 as atv, P.nome_Mcurso as nomeatv, P.dia_Mcurso as dia, P.diaTermina_Mcurso as diaTermina, P.local_Mcurso as local, P.ch_Mcurso as ch, P.ministrante_Mcurso as ministrante  FROM palestras as P INNER JOIN curso as C on P.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND P.dia_Mcurso like '2018-10-19%')
 UNION ALL
-(select 3 as atv, O.nome_Mcurso as nomeatv, O.dia_Mcurso as dia, O.local_Mcurso as local, O.ch_Mcurso as ch, O.ministrante_Mcurso as ministrante FROM outraatv as O INNER JOIN curso as C on O.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND O.dia_Mcurso like '2018-10-19%')
+(select 3 as atv, O.nome_Mcurso as nomeatv, O.dia_Mcurso as dia, O.diaTermina_Mcurso as diaTermina, O.local_Mcurso as local, O.ch_Mcurso as ch, O.ministrante_Mcurso as ministrante FROM outraatv as O INNER JOIN curso as C on O.FK_Curso_id_curso = C.id_curso WHERE C.id_curso = $id_Mcurso AND O.dia_Mcurso like '2018-10-19%')
 ORDER BY dia
       ");
 
   foreach ($atividades as $key => $value) {
     $date = new DateTime($atividades[$key]['dia']);
+    $dateTermina = new DateTime($atividades[$key]['diaTermina']);
 
 
  ?>
 
 
         <tr>
-          <td class="hora"><?php echo $date->format('H:i'). " - "; echo dateMaisch($atividades[$key]['dia'], $atividades[$key]['ch']); ?></td>
+          <td class="hora"><?php echo $date->format('H:i'). " - "; echo $dateTermina->format('H:i');?></td>
           <td>
 
           <?php 

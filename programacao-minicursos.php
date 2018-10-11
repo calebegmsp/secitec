@@ -158,7 +158,7 @@ function criarCard($nomeCurso, $localCurso){
         				<div class="dropdown">
         					<button class="btn-secondary dropdown-toggle botao botao-" type="button" id="dropdownMenuButtonCurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecione o curso</button>
         					<form action="imprimir.php" method="post" target="_blank">
-        						<button name="cursoImprimir" type="submit" id="btnpcompleta" value="0" class="btn pcompleta">Ver pogramação completa do curso</button>
+        						<button name="cursoImprimir" type="submit" id="btnpcompleta" value="0" class="btn pcompleta">Ver programação completa do curso</button>
         					</form>
 
 
@@ -586,19 +586,114 @@ function criarCard($nomeCurso, $localCurso){
  <section id="realizacao">
 
  	<div class="container">
- 		<span class="h1 text-patrocinio">REALIZAÇÃO</span>
  		<div class="row imgs-patro no-select">
- 			<div class="col-6">
- 				<img class="img-fluid img-patroci" width="40%" src="img/logo-IfBaiano.png">
+ 			<div class="col-sm-8">
+			
+ 				<span class="h1 text-patrocinio">REALIZAÇÃO</span>
+ 			 <div class="divBorda">
+				<div class="container">
+					<div class="row justify-content-md-center no-select"> 
+						<img class="bordaRodape" src="img/linhaH.png">	
+					</div>	
+				</div>	
+			</div>
+
+ 				<div class="row">
+	 				<div class="col-sm">
+	 					<img class="img-fluid img-reali" width="60%" src="img/logo-IfBaiano.png">	
+	 				</div>	
+	 				<div class="col-sm">
+ 						<img class="img-fluid img-reali" width="60%" src="img/logo-UniFG.png">	
+ 					</div>
+ 				</div>				
  			</div>
- 			<div class="col-6">
- 				<img class="img-fluid img-patroci" width="40%" src="img/logo-UniFG.png">
+ 			<div class="col-sm-4">
+
+ 				<span class="h1 text-patrocinio">APOIO</span>
+			 <div class="divBorda">
+				<div class="container">
+					<div class="row justify-content-md-center no-select"> 
+						<img class="bordaRodape" src="img/linhaH.png">	
+					</div>	
+				</div>	
+			</div>
+
+ 				<div class="row">
+ 					<div class="col">
+ 						<img class="img-fluid img-reali" width="60%" src="img/logo-UNEB.png">		
+ 					</div>	
+ 				</div>
  			</div>
  		</div>
  	</div>
 
  </section>
 
+
+
+
+
+
+ <section id="realizacao">
+
+ 	<div class="container">
+ 		<span class="h1 text-patrocinio">PATROCÍNIO</span>
+		 <div class="divBorda">
+			<div class="container">
+				<div class="row justify-content-md-center no-select"> 
+					<img class="bordaRodape" src="img/linhaH.png">	
+				</div>	
+			</div>	
+		</div>
+
+ 		<div class="row imgs-patro no-select">
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-1.png">
+ 			</div>
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-2.png">
+ 			</div>
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-3.png">
+ 			</div>
+ 		</div>
+ 		<div class="row imgs-patro no-select">
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-4.png">
+ 			</div>
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-5.png">
+ 			</div>
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-6.png">
+ 			</div> 			
+  			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-7.png">
+ 			</div>
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-8.png">
+ 			</div>
+ 		</div>
+ 		<div class="row imgs-patro no-select">
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-9.png">
+ 			</div>
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-10.png">
+ 			</div>
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-11.png">
+ 			</div>
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-12.png">
+ 			</div>
+ 			<div class="col-sm">
+ 				<img class="img-fluid img-patroci" src="img/img-patro/img-patro-13.png">
+ 			</div>
+ 		</div>
+ 	</div>
+
+ </section>
 
 
 <div class="divBorda">
