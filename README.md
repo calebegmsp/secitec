@@ -29,4 +29,6 @@ Imagem 03: Tela de programação (Minicursos) - Semelhante a tela de Palestras e
 
 Veja funcionando em: http://secitec.guanambi.com/
 
+## Copyright and license
+Code and documentation copyright 2018–2020 the Secitec III Authors, Inc. Code released under the MIT License.
 
