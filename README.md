@@ -25,7 +25,7 @@ Imagem 02: Tela de atividades (Minicursos) - Semelhante a tela de Palestras e Ou
 
 Imagem 03: Tela de programação (Minicursos) - Semelhante a tela de Palestras e Outras Atividades.
 
-[![](https://raw.githubusercontent.com/calebegmsp/secitec/master/img/IMG03.png)
+![](https://raw.githubusercontent.com/calebegmsp/secitec/master/img/IMG03.png)
 
 Veja funcionando em: http://secitec.guanambi.com/
 
